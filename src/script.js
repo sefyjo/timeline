@@ -36,14 +36,17 @@ function wrap(text, width) {
 d3.json("data.json").then(function(data) {
 
     var width = window.innerWidth,
-        height = window.innerHeight / 2,
+        height = window.innerHeight / 1.5,
         margin = {
             top: 20,
             right: 30,
             bottom: 50,
             left: 40
         },
-        zoneHeight = 48,
+        zoneColorFirst = "#5f6466",
+        zoneColorEnd = "#d6e5f2",
+        zoneHeight = height / data.zone.length,
+        zoneCornerWidth = zoneHeight,
         circleSize = 16,
         eventWidth = 84,
         xScale = d3.scaleBand(),
@@ -68,6 +71,11 @@ d3.json("data.json").then(function(data) {
     xScale.rangeRound([0, width]);
     yScale.domain(data.zone.map(d => d.pos)).range([0, height]);
 
+    var zoneColor = d3.scaleLinear()
+        .domain([1, data.zone.length])
+        .range(['#d73027', '#1a9850'])
+        .interpolate(d3.interpolateHcl);
+
     var zoneX = function(d, i) {
             return xScale(d['begin']);
         },
@@ -78,12 +86,31 @@ d3.json("data.json").then(function(data) {
             return xScale(d['end']) - xScale(d['begin'])
         },
         zoneH = zoneHeight;
-
+    var polyZone = function(d, i) {
+        return [
+            [
+                0,
+                yScale(d.pos)
+            ],
+            [
+                0,
+                yScale(d.pos) + zoneHeight
+            ],
+            [
+                xScale(d.end) - zoneCornerWidth,
+                yScale(d.pos) + zoneHeight
+            ],
+            [
+                xScale(d.end),
+                yScale(d.pos)
+            ]
+        ];
+    };
     var eventX = function(d, i) {
             return xScale(d['date']);
         },
         eventY = function(d) {
-            return yScale(d.pos);
+            return yScale(d.pos) + zoneHeight / 2;
         };
 
     var chart = d3.select('.timeline')
@@ -106,11 +133,13 @@ d3.json("data.json").then(function(data) {
         .enter().append('g')
         .classed('timeline-zone', true);
 
-    var rect = zone.append('rect')
+
+    var poly = zone.append('polygon')
         .attr('x', zoneX)
         .attr('y', zoneY)
-        .attr('width', zoneW)
-        .attr('height', zoneH);
+        .style('fill', zoneColor)
+        .attr('points', polyZone);
+
 
     var label = zone.append('text')
         .attr('x', 0)
