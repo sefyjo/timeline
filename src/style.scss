@@ -1,0 +1,43 @@
+body {
+    font-family: -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen-Sans,
+        Ubuntu,
+        Cantarell,
+        "Helvetica Neue",
+        sans-serif;
+}
+
+.axis .tick text {
+    font-size: 10px;
+}
+
+.axis line,
+.axis path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis--x path {
+    display: none;
+}
+
+g.timeline-zone rect {
+    fill: #bebebe;
+}
+
+g.timeline-zone text {
+    fill: #1740b3;
+}
+
+g.timeline-event circle {
+    fill: #f1b739;
+}
+
+g.timeline-event text {
+    fill: #1740b3;
+    text-anchor: middle;
+}
