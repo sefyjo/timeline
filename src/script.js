@@ -43,8 +43,7 @@ d3.json("data.json").then(function(data) {
             bottom: 50,
             left: 40
         },
-        zoneColorFirst = "#5f6466",
-        zoneColorEnd = "#d6e5f2",
+        colors = ['#8c9599', '#d6e5f2'],
         zoneHeight = height / data.zone.length,
         zoneCornerWidth = zoneHeight,
         circleSize = 16,
@@ -71,10 +70,8 @@ d3.json("data.json").then(function(data) {
     xScale.rangeRound([0, width]);
     yScale.domain(data.zone.map(d => d.pos)).range([0, height]);
 
-    var zoneColor = d3.scaleLinear()
-        .domain([1, data.zone.length])
-        .range(['#d73027', '#1a9850'])
-        .interpolate(d3.interpolateHcl);
+    var colorInterpolation = d3.quantize(d3.interpolateHcl(colors[0], colors[1]), data.zone.length);
+    console.log(colorInterpolation);
 
     var zoneX = function(d, i) {
             return xScale(d['begin']);
@@ -133,21 +130,21 @@ d3.json("data.json").then(function(data) {
         .enter().append('g')
         .classed('timeline-zone', true);
 
-
     var poly = zone.append('polygon')
         .attr('x', zoneX)
         .attr('y', zoneY)
-        .style('fill', zoneColor)
-        .attr('points', polyZone);
-
+        .attr('points', polyZone)
+        .style('fill', function(d, i) {
+            return colorInterpolation[i];
+        });
 
     var label = zone.append('text')
         .attr('x', 0)
         .attr('y', zoneY)
         .attr('transform', 'translate(0, ' + zoneHeight / 2 + ')')
         .attr('dy', '.35em')
-        .text(function(d) {
-            return d.label;
+        .text(function(d, i) {
+            return i + " " + d.label;
         });
 
     var event = chart.selectAll('.timeline-event')
