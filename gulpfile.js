@@ -25,7 +25,7 @@ var distPaths = {
     sass: 'dist/',
     script: 'dist/script.js',
 };
-var additionalFiles = ['src/d3.min.js', 'src/data.json'];
+var additionalFiles = ['node_modules/d3/dist/d3.min.js', 'src/data.json'];
 
 // Browser synchronisation
 gulp.task('browserSync', function() {
