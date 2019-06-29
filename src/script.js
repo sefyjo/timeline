@@ -1,5 +1,5 @@
 function wrap(text, width) {
-    text.each(function() {
+    text.each(function () {
         var text = d3.select(this),
             words = text.text().split(/\s+/).reverse(),
             word,
@@ -33,15 +33,15 @@ function wrap(text, width) {
 
 
 // Get the data
-d3.json("data.json").then(function(data) {
+d3.json("data.json").then(function (data) {
 
-    var width = window.innerWidth,
-        height = window.innerHeight / 1.5,
+    var width = window.innerWidth / 1.15,
+        height = window.innerHeight,
         margin = {
-            top: 20,
+            top: 10,
             right: 30,
             bottom: 50,
-            left: 40
+            left: 10
         },
         colors = ['#8c9599', '#d6e5f2'],
         zoneHeight = height / data.zone.length,
@@ -50,17 +50,17 @@ d3.json("data.json").then(function(data) {
         eventWidth = 84,
         xScale = d3.scaleBand(),
         yScale = d3.scaleBand(),
-        xAxis = d3.axisBottom(xScale),
-        zoneMinX = d3.min(data.zone, function(d) {
+        xAxis = d3.axisTop(xScale).tickSize(height),
+        zoneMinX = d3.min(data.zone, function (d) {
             return d['begin'];
         }),
-        zoneMaxX = d3.max(data.zone, function(d) {
+        zoneMaxX = d3.max(data.zone, function (d) {
             return d['end'];
         }),
-        eventMinX = d3.min(data.event, function(d) {
+        eventMinX = d3.min(data.event, function (d) {
             return d['date'];
         }),
-        eventMaxX = d3.min(data.event, function(d) {
+        eventMaxX = d3.max(data.event, function (d) {
             return d['date'];
         }),
         globalMinX = Math.min(zoneMinX, eventMinX),
@@ -71,19 +71,18 @@ d3.json("data.json").then(function(data) {
     yScale.domain(data.zone.map(d => d.pos)).range([0, height]);
 
     var colorInterpolation = d3.quantize(d3.interpolateHcl(colors[0], colors[1]), data.zone.length);
-    console.log(colorInterpolation);
 
-    var zoneX = function(d, i) {
+    var zoneX = function (d, i) {
             return xScale(d['begin']);
         },
-        zoneY = function(d) {
+        zoneY = function (d) {
             return yScale(d.pos);
         },
-        zoneW = function(d, i) {
+        zoneW = function (d, i) {
             return xScale(d['end']) - xScale(d['begin'])
         },
         zoneH = zoneHeight;
-    var polyZone = function(d, i) {
+    var polyZone = function (d, i) {
         return [
             [
                 0,
@@ -103,10 +102,10 @@ d3.json("data.json").then(function(data) {
             ]
         ];
     };
-    var eventX = function(d, i) {
+    var eventX = function (d, i) {
             return xScale(d['date']);
         },
-        eventY = function(d) {
+        eventY = function (d) {
             return yScale(d.pos) + zoneHeight / 2;
         };
 
@@ -134,7 +133,7 @@ d3.json("data.json").then(function(data) {
         .attr('x', zoneX)
         .attr('y', zoneY)
         .attr('points', polyZone)
-        .style('fill', function(d, i) {
+        .style('fill', function (d, i) {
             return colorInterpolation[i];
         });
 
@@ -143,7 +142,7 @@ d3.json("data.json").then(function(data) {
         .attr('y', zoneY)
         .attr('transform', 'translate(0, ' + zoneHeight / 2 + ')')
         .attr('dy', '.35em')
-        .text(function(d, i) {
+        .text(function (d, i) {
             return i + " " + d.label;
         });
 
@@ -162,7 +161,7 @@ d3.json("data.json").then(function(data) {
         .attr('y', eventY)
         .attr('transform', 'translate(0, ' + circleSize / 2 + ')')
         .attr('dy', '.35em')
-        .text(function(d) {
+        .text(function (d) {
             return d.label;
         }).call(wrap, eventWidth);
 

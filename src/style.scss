@@ -14,18 +14,33 @@ body {
     font-size: 10px;
 }
 
-.axis line,
-.axis path {
-    fill: none;
-    stroke: #000;
-    shape-rendering: crispEdges;
+.axis {
+    path.domain {
+        stroke: none;
+    }
+
+    line,
+    text {
+        fill: none;
+        shape-rendering: crispEdges;
+    }
+
+    text {
+        stroke: #000;
+        font-weight: lighter;
+        font-size: 12px;
+    }
+
+    line {
+        stroke: rgb(160, 160, 160);
+        stroke-dasharray: 5 5;
+    }
 }
 
 .axis--x path {
     display: none;
 }
 
-g.timeline-zone polygon {}
 
 g.timeline-zone text {
     fill: #1740b3;
