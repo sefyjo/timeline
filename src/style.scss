@@ -8,10 +8,9 @@ body {
         Cantarell,
         "Helvetica Neue",
         sans-serif;
-}
-
-.axis .tick text {
-    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    background: rgb(39, 39, 39);
 }
 
 .axis {
@@ -26,13 +25,13 @@ body {
     }
 
     text {
-        stroke: #000;
+        stroke: rgb(255, 255, 255);
         font-weight: lighter;
         font-size: 12px;
     }
 
     line {
-        stroke: rgb(160, 160, 160);
+        stroke: rgb(39, 39, 39);
         stroke-dasharray: 5 5;
     }
 }
@@ -43,7 +42,7 @@ body {
 
 
 g.timeline-zone text {
-    fill: #1740b3;
+    fill: #000;
 }
 
 g.timeline-event circle {

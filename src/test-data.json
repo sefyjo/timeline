@@ -1,0 +1,51 @@
+{
+    "event": [{
+        "date": 2017,
+        "label": "Achat d'une voiture",
+        "pos": 2
+    }, {
+        "date": 2015,
+        "label": "Achat d'un appartement",
+        "pos": 2
+    }, {
+        "date": 2011,
+        "label": "DNSEP - Beaux Arts Montpellier",
+        "pos": 2
+    }, {
+        "date": 2009,
+        "label": "DNAP - Beaux Arts Montpellier",
+        "pos": 1
+    }, {
+        "date": 2006,
+        "label": "Nicolas arrive à Montpellier",
+        "pos": 2
+    }, {
+        "date": 1985,
+        "label": "Nicolas né",
+        "pos": 1
+    }],
+    "zone": [{
+            "begin": 2006,
+            "end": 2011,
+            "pos": 1,
+            "label": "Études"
+        },
+        {
+            "begin": 2014,
+            "end": 2017,
+            "pos": 2,
+            "label": "Collectif Aperto"
+        }, {
+            "begin": 2014,
+            "end": 2019,
+            "pos": 3,
+            "label": "Travail - AMDM"
+        },
+        {
+            "begin": 2016,
+            "end": 2017,
+            "pos": 4,
+            "label": "Enseignant - ENSMA"
+        }
+    ]
+}

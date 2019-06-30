@@ -1,3 +1,155 @@
+// Get the data
+d3.json("data.json").then(function (data) {
+
+    var timeScaleDate = [];
+    var timeScaleValue = [];
+
+    for (var e = 0; e < data.event.length; e++) {
+        timeScaleDate.push(data.event[e].date);
+        timeScaleValue.push(e * 50);
+    }
+    var width = 6000,
+        height = 1280,
+        margin = {
+            top: 16,
+            right: 0,
+            bottom: 0,
+            left: 0
+        },
+        colors = ['#d6e5f2', '#8c9599'],
+        zoneHeight = height / data.zone.length,
+        zoneCornerWidth = zoneHeight,
+        circleSize = 16,
+        eventWidth = 84,
+        xScale = d3.scaleSqrt(),
+        yScale = d3.scaleBand(),
+        zoneMinX = -6000,
+        zoneMaxX = d3.max(data.zone, function (d) {
+            return d['end'];
+        }),
+        eventMinX = d3.min(data.event, function (d) {
+            return d['date'];
+        }),
+        eventMaxX = d3.max(data.event, function (d) {
+            return d['date'];
+        }),
+        globalMinX = Math.min(zoneMinX, eventMinX),
+        globalMaxX = Math.max(zoneMaxX, eventMaxX);
+
+    xScale.domain([globalMinX, globalMaxX])
+        .rangeRound([0, width]);
+
+    yScale.domain(data.zone.map(d => d.pos)).range([0, height]);
+    var xAxis = d3.axisTop(xScale).tickSize(height);
+    var colorInterpolation = d3.quantize(d3.interpolateHcl(colors[0], colors[1]), data.zone.length);
+
+    var zoneX = function (d, i) {
+            return xScale(d['begin']);
+        },
+        zoneY = function (d) {
+            return yScale(d.pos);
+        },
+        zoneW = function (d, i) {
+            return xScale(d['end']) - xScale(d['begin'])
+        },
+        zoneH = zoneHeight;
+
+    var polyZone = function (d, i) {
+        return [
+            [
+                0,
+                0
+            ],
+            [
+                0,
+                yScale(d.pos)
+            ],
+            [
+                0,
+                yScale(d.pos) + zoneHeight
+            ],
+            [
+                xScale(d.end) - zoneCornerWidth,
+                yScale(d.pos) + zoneHeight
+            ],
+            [
+                xScale(d.end),
+                yScale(d.pos)
+            ],
+            [
+                xScale(d.end),
+                0
+            ]
+        ];
+    };
+
+    var eventX = function (d, i) {
+            return xScale(d['date']);
+        },
+        eventY = function (d) {
+            return yScale(d.pos) + zoneHeight / 2;
+        };
+
+    var chart = d3.select('.timeline')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.left + margin.right)
+        .append('g')
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    // Add zones
+    var zone = chart.selectAll('.timeline-zone')
+        .data(data.zone.reverse())
+        .enter().append('g')
+        .classed('timeline-zone', true);
+
+    var poly = zone.append('polygon')
+        .attr('x', zoneX)
+        .attr('y', zoneY)
+        .attr('points', polyZone)
+        .style('fill', function (d, i) {
+            return colorInterpolation[i];
+        });
+
+    // Add x axis
+    chart.append("g")
+        .attr("class", "axis axis-x");
+
+    chart.select('.axis-x')
+        .attr("transform", "translate(0," + (height + 6) + ")")
+        .call(xAxis);
+
+    var label = zone.append('text')
+        .attr('x', 8)
+        .attr('y', zoneY)
+        .attr('transform', 'translate(0, ' + zoneHeight / 2 + ')')
+        .attr('dy', '.35em')
+        .text(function (d, i) {
+            return d.label;
+        });
+
+    var event = chart.selectAll('.timeline-event')
+        .data(data.event)
+        .enter().append('g')
+        .classed('timeline-event', true);
+
+    var dot = event.append('circle')
+        .attr('cx', eventX)
+        .attr('cy', eventY)
+        .attr('r', circleSize);
+
+    var info = event.append('text')
+        .attr('x', eventX)
+        .attr('y', eventY)
+        .attr('transform', 'translate(0, ' + circleSize / 8 + ')')
+        .attr('dy', '.35em')
+        .text(function (d) {
+            return d.label;
+        }).call(wrap, eventWidth);
+
+
+});
+
+
 function wrap(text, width) {
     text.each(function () {
         var text = d3.select(this),
@@ -30,140 +182,3 @@ function wrap(text, width) {
         }
     });
 }
-
-
-// Get the data
-d3.json("data.json").then(function (data) {
-
-    var width = window.innerWidth / 1.15,
-        height = window.innerHeight,
-        margin = {
-            top: 10,
-            right: 30,
-            bottom: 50,
-            left: 10
-        },
-        colors = ['#8c9599', '#d6e5f2'],
-        zoneHeight = height / data.zone.length,
-        zoneCornerWidth = zoneHeight,
-        circleSize = 16,
-        eventWidth = 84,
-        xScale = d3.scaleBand(),
-        yScale = d3.scaleBand(),
-        xAxis = d3.axisTop(xScale).tickSize(height),
-        zoneMinX = d3.min(data.zone, function (d) {
-            return d['begin'];
-        }),
-        zoneMaxX = d3.max(data.zone, function (d) {
-            return d['end'];
-        }),
-        eventMinX = d3.min(data.event, function (d) {
-            return d['date'];
-        }),
-        eventMaxX = d3.max(data.event, function (d) {
-            return d['date'];
-        }),
-        globalMinX = Math.min(zoneMinX, eventMinX),
-        globalMaxX = Math.max(zoneMaxX, eventMaxX);
-
-    xScale.domain(d3.range(globalMinX - 4, globalMaxX + 1));
-    xScale.rangeRound([0, width]);
-    yScale.domain(data.zone.map(d => d.pos)).range([0, height]);
-
-    var colorInterpolation = d3.quantize(d3.interpolateHcl(colors[0], colors[1]), data.zone.length);
-
-    var zoneX = function (d, i) {
-            return xScale(d['begin']);
-        },
-        zoneY = function (d) {
-            return yScale(d.pos);
-        },
-        zoneW = function (d, i) {
-            return xScale(d['end']) - xScale(d['begin'])
-        },
-        zoneH = zoneHeight;
-    var polyZone = function (d, i) {
-        return [
-            [
-                0,
-                yScale(d.pos)
-            ],
-            [
-                0,
-                yScale(d.pos) + zoneHeight
-            ],
-            [
-                xScale(d.end) - zoneCornerWidth,
-                yScale(d.pos) + zoneHeight
-            ],
-            [
-                xScale(d.end),
-                yScale(d.pos)
-            ]
-        ];
-    };
-    var eventX = function (d, i) {
-            return xScale(d['date']);
-        },
-        eventY = function (d) {
-            return yScale(d.pos) + zoneHeight / 2;
-        };
-
-    var chart = d3.select('.timeline')
-        .attr('width', width + margin.left + margin.right)
-        .attr('height', height + margin.left + margin.right)
-        .append('g')
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    // Add x axis
-    chart.append("g")
-        .attr("class", "axis axis-x");
-
-    chart.select('.axis-x')
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
-
-    // Add zones
-    var zone = chart.selectAll('.timeline-zone')
-        .data(data.zone)
-        .enter().append('g')
-        .classed('timeline-zone', true);
-
-    var poly = zone.append('polygon')
-        .attr('x', zoneX)
-        .attr('y', zoneY)
-        .attr('points', polyZone)
-        .style('fill', function (d, i) {
-            return colorInterpolation[i];
-        });
-
-    var label = zone.append('text')
-        .attr('x', 0)
-        .attr('y', zoneY)
-        .attr('transform', 'translate(0, ' + zoneHeight / 2 + ')')
-        .attr('dy', '.35em')
-        .text(function (d, i) {
-            return i + " " + d.label;
-        });
-
-    var event = chart.selectAll('.timeline-event')
-        .data(data.event)
-        .enter().append('g')
-        .classed('timeline-event', true);
-
-    var dot = event.append('circle')
-        .attr('cx', eventX)
-        .attr('cy', eventY)
-        .attr('r', circleSize);
-
-    var info = event.append('text')
-        .attr('x', eventX)
-        .attr('y', eventY)
-        .attr('transform', 'translate(0, ' + circleSize / 2 + ')')
-        .attr('dy', '.35em')
-        .text(function (d) {
-            return d.label;
-        }).call(wrap, eventWidth);
-
-
-});
