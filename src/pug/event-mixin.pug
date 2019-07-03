@@ -1,0 +1,17 @@
+mixin event( event )
+  
+  if event.date && event.pos
+
+    .event( data-date=event.date data-pos=event.pos )
+
+      if event.title
+      
+        h2 !{event.title}
+
+      if event.text
+
+        p !{event.text}
+
+      if event.link
+
+        a(href=event.link) +

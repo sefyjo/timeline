@@ -1,0 +1,8 @@
+mixin zone( zone )
+  
+  if zone.end && zone.pos
+    .zone( id='zone-' + zone.pos, data-end=zone.end )
+
+      if zone.label
+
+        h1 !{zone.label}

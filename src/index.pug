@@ -1,3 +1,7 @@
+- var currentYear = new Date().getFullYear();
+include pug/zone-mixin.pug
+include pug/event-mixin.pug
+
 head
   title= "Timeline"
   meta( charset="utf-8" )
@@ -10,7 +14,19 @@ head
 
 body
 
-  svg.timeline
+  //svg.timeline
+  //script( src="d3.min.js" ) // v5
+  //script( src="script.min.js")
 
-  script( src="d3.min.js" ) // v5
-  script( src="script.min.js")
+  
+  #timeline(data-start="-6000", data-end=currentYear )
+
+    #timeline--zones
+      each zone in data.zone
+        + zone( zone )
+
+    #timeline--events
+      each event in data.event
+        + event( event )
+  
+  script( src="main.min.js")

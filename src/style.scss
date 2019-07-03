@@ -25,13 +25,13 @@ body {
     }
 
     text {
-        stroke: rgb(255, 255, 255);
+        stroke: rgb(12, 12, 12);
         font-weight: lighter;
         font-size: 12px;
     }
 
     line {
-        stroke: rgb(39, 39, 39);
+        stroke: rgb(143, 143, 143);
         stroke-dasharray: 5 5;
     }
 }
@@ -50,6 +50,32 @@ g.timeline-event circle {
 }
 
 g.timeline-event text {
-    fill: #1740b3;
-    text-anchor: middle;
+    fill: #292929;
+    text-anchor: start;
+}
+
+#timeline {
+    position: relative;
+}
+
+#timeline #timeline--zones {
+    position: absolute;
+}
+
+#timeline #timeline--events {
+    position: absolute;
+    display: none;
+}
+
+#timeline #timeline--zones .zone {
+    position: absolute;
+
+    h1 {
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        margin: 0;
+        line-height: 1;
+        font-size: 1.5em;
+    }
 }

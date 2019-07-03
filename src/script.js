@@ -6,24 +6,17 @@ d3.json("data.json").then(function (data) {
 
     for (var e = 0; e < data.event.length; e++) {
         timeScaleDate.push(data.event[e].date);
-        timeScaleValue.push(e * 50);
+        timeScaleValue.push(e * e);
     }
     var width = 6000,
         height = 1280,
-        margin = {
-            top: 16,
-            right: 0,
-            bottom: 0,
-            left: 0
-        },
+        start = -6500,
         colors = ['#d6e5f2', '#8c9599'],
         zoneHeight = height / data.zone.length,
         zoneCornerWidth = zoneHeight,
-        circleSize = 16,
+        circleSize = 6,
         eventWidth = 84,
-        xScale = d3.scaleSqrt(),
-        yScale = d3.scaleBand(),
-        zoneMinX = -6000,
+        zoneMinX = start,
         zoneMaxX = d3.max(data.zone, function (d) {
             return d['end'];
         }),
@@ -34,23 +27,27 @@ d3.json("data.json").then(function (data) {
             return d['date'];
         }),
         globalMinX = Math.min(zoneMinX, eventMinX),
-        globalMaxX = Math.max(zoneMaxX, eventMaxX);
+        globalMaxX = Math.max(zoneMaxX, eventMaxX) + 500;
 
-    xScale.domain([globalMinX, globalMaxX])
-        .rangeRound([0, width]);
+    var xScale = d3.scaleLinear()
+        .domain([])
+        .range([0, width]);
 
-    yScale.domain(data.zone.map(d => d.pos)).range([0, height]);
+    var yScale = d3.scaleBand()
+        .domain(data.zone.map(d => d.pos))
+        .range([0, height]);
+
     var xAxis = d3.axisTop(xScale).tickSize(height);
     var colorInterpolation = d3.quantize(d3.interpolateHcl(colors[0], colors[1]), data.zone.length);
 
     var zoneX = function (d, i) {
-            return xScale(d['begin']);
+            return xScale(start);
         },
         zoneY = function (d) {
             return yScale(d.pos);
         },
         zoneW = function (d, i) {
-            return xScale(d['end']) - xScale(d['begin'])
+            return xScale(d.end) - xScale(start)
         },
         zoneH = zoneHeight;
 
@@ -91,10 +88,9 @@ d3.json("data.json").then(function (data) {
         };
 
     var chart = d3.select('.timeline')
-        .attr('width', width + margin.left + margin.right)
-        .attr('height', height + margin.left + margin.right)
-        .append('g')
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        .attr('width', width)
+        .attr('height', height)
+        .append('g');
 
     // Add zones
     var zone = chart.selectAll('.timeline-zone')
@@ -115,7 +111,7 @@ d3.json("data.json").then(function (data) {
         .attr("class", "axis axis-x");
 
     chart.select('.axis-x')
-        .attr("transform", "translate(0," + (height + 6) + ")")
+        .attr("transform", "translate(0," + (height + 16) + ")")
         .call(xAxis);
 
     var label = zone.append('text')
@@ -140,7 +136,7 @@ d3.json("data.json").then(function (data) {
     var info = event.append('text')
         .attr('x', eventX)
         .attr('y', eventY)
-        .attr('transform', 'translate(0, ' + circleSize / 8 + ')')
+        .attr('transform', 'translate(6,6)')
         .attr('dy', '.35em')
         .text(function (d) {
             return d.label;
