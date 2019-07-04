@@ -3,15 +3,15 @@ mixin event( event )
   if event.date && event.pos
 
     .event( data-date=event.date data-pos=event.pos )
+      .event-inner
+        if event.title
+        
+          h2 !{event.title}
 
-      if event.title
-      
-        h2 !{event.title}
+        if event.text
 
-      if event.text
+          p !{event.text}
 
-        p !{event.text}
+        if event.link
 
-      if event.link
-
-        a(href=event.link) +
+          a(href=event.link) +

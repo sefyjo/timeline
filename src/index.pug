@@ -13,20 +13,22 @@ head
 
 
 body
-
-  //svg.timeline
-  //script( src="d3.min.js" ) // v5
-  //script( src="script.min.js")
-
   
-  #timeline(data-start="-6000", data-end=currentYear )
+  #timeline(data-start="-6500", data-end=currentYear+500 )
 
-    #timeline--zones
-      each zone in data.zone
-        + zone( zone )
+    svg#timeline--zones(
+      width="6000",
+      height="960",
+      viewbox="0 0 6000 960"
+      xmlns="http://www.w3.org/2000/svg"
+    )
+      g#zone-group(transform='translate(0, 15)')
+        - let reversedZone = data.zone.reverse();
+        each zone in data.zone
+          + zone( zone )
 
     #timeline--events
       each event in data.event
         + event( event )
   
-  script( src="main.min.js")
+  script( src="main.js")

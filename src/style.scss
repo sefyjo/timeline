@@ -13,69 +13,85 @@ body {
     background: rgb(39, 39, 39);
 }
 
-.axis {
-    path.domain {
-        stroke: none;
-    }
-
-    line,
-    text {
-        fill: none;
-        shape-rendering: crispEdges;
-    }
-
-    text {
-        stroke: rgb(12, 12, 12);
-        font-weight: lighter;
-        font-size: 12px;
-    }
-
-    line {
-        stroke: rgb(143, 143, 143);
-        stroke-dasharray: 5 5;
-    }
-}
-
-.axis--x path {
-    display: none;
-}
-
-
-g.timeline-zone text {
-    fill: #000;
-}
-
-g.timeline-event circle {
-    fill: #f1b739;
-}
-
-g.timeline-event text {
-    fill: #292929;
-    text-anchor: start;
-}
-
 #timeline {
     position: relative;
+    display: block;
 }
 
-#timeline #timeline--zones {
+#timeline svg#timeline--zones {
     position: absolute;
+    z-index: -1;
+
+    line,
+    text,
+    polygon {
+        shape-rendering: crispEdges;
+    }
 }
 
 #timeline #timeline--events {
     position: absolute;
-    display: none;
+    display: block;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
 }
 
-#timeline #timeline--zones .zone {
+#timeline svg#timeline--zones g#year-axis g.year {
+    line {
+        stroke: rgba(255, 255, 255, 0.25);
+        stroke-dasharray: 5 5;
+    }
+
+    text {
+        fill: rgb(29, 29, 29);
+        font-size: 9px;
+    }
+}
+
+#timeline svg#timeline--zones g#zone-group {
+
+    text {
+        text-anchor: start;
+    }
+}
+
+#timeline svg#timeline--zones g#zone-labels-group {
+    text {
+        fill: rgb(29, 29, 29);
+    }
+}
+
+#timeline #timeline--events .event {
     position: absolute;
 
-    h1 {
-        position: absolute;
-        bottom: 5px;
-        left: 5px;
-        margin: 0;
-        line-height: 1;
-        font-size: 1.5em;
+    .event-inner {
+        position: relative;
+        margin-left: -8px;
+        padding: 2px 4px;
+        background: #fefefe;
+
+        &::after {
+            position: absolute;
+            display: block;
+            content: '';
+            top: 0;
+            left: 0;
+            margin-top: -16px;
+            border: 8px solid rgba(0, 0, 0, 0);
+            border-bottom-color: #fefefe;
+        }
     }
+
+    h2 {
+        font-size: 14px;
+        line-height: 14px;
+        margin: 0;
+    }
+
+    p {
+        font-size: 9px;
+    }
+
 }

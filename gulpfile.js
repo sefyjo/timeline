@@ -31,12 +31,11 @@ var data = JSON.parse(
     ));
 
 var additionalFiles = [
-    'node_modules/d3/dist/d3.min.js',
     'src/data.json'
 ];
 
 // Browser synchronisation
-gulp.task('browserSync', function () {
+gulp.task('browserSync', function() {
     browserSync({
         server: {
             baseDir: distPaths.base,
@@ -50,8 +49,8 @@ gulp.task('browserSync', function () {
 });
 
 // Compile pug templates to html pages
-gulp.task('pug', function () {
-    return gulp.src(devPaths.tmpl)
+gulp.task('pug', function() {
+    return gulp.src(devPaths.base + 'index.pug')
         .pipe(plugins.pug({
             pretty: true,
             data: {
@@ -70,16 +69,20 @@ gulp.task('pug', function () {
 
 
 // Duplicate main.js file and minify it in the distPath (js/)
-gulp.task('js', function () {
+gulp.task('js', function() {
     return gulp.src(devPaths.script)
-        .pipe(plugins.sourcemaps.init())
-        .pipe(plugins.concat('main.js'))
-        .pipe(gulp.dest(distPaths.base))
-        .pipe(plugins.rename({
-            suffix: '.min'
+        //.pipe(plugins.sourcemaps.init())
+        .pipe(plugins.babel({
+            presets: ['@babel/env']
         }))
+        //.pipe(gulp.dest(distPaths.script))
+        //.pipe(plugins.concat('main.js'))
+        //.pipe(gulp.dest(distPaths.base))
+        //.pipe(plugins.rename({
+        //    suffix: '.min'
+        //}))
         //  .pipe(plugins.uglify())
-        .pipe(plugins.sourcemaps.write('.'))
+        //.pipe(plugins.sourcemaps.write('.'))
         .pipe(gulp.dest(distPaths.base))
         .pipe(browserSync.reload({
             stream: true
@@ -87,7 +90,7 @@ gulp.task('js', function () {
 });
 
 // Compile sass main file to a css file in distPath (css/)
-gulp.task('sass', function () {
+gulp.task('sass', function() {
     return gulp.src(devPaths.sass)
         .pipe(plugins.sourcemaps.init(distPaths.base))
         .pipe(plugins.sass({
@@ -104,7 +107,7 @@ gulp.task('sass', function () {
             indent: '  ',
             autosemicolon: true
         }))
-        .pipe(plugins.sourcemaps.write(distPaths.base))
+        .pipe(plugins.sourcemaps.write('.'))
         .pipe(gulp.dest(distPaths.base))
         .pipe(browserSync.reload({
             stream: true
@@ -112,7 +115,7 @@ gulp.task('sass', function () {
 });
 
 // Duplicate css files to the distPath (css/main.min.css)
-gulp.task('css', function () {
+gulp.task('css', function() {
     return gulp.src(distPaths.styles)
         .pipe(gulp.dest(distPaths.base))
         .pipe(plugins.cleanCss({
@@ -128,7 +131,7 @@ gulp.task('css', function () {
 });
 
 // Add lib to js folder into webPath (js/)
-gulp.task('lib', function () {
+gulp.task('lib', function() {
     gulp.src(additionalFiles)
         .pipe(gulp.dest(distPaths.base))
         .pipe(browserSync.reload({
@@ -137,15 +140,15 @@ gulp.task('lib', function () {
 });
 
 // Remove hidden files
-gulp.task('cleanup', function () {
+gulp.task('cleanup', function() {
     del('**/.DS_Store');
 });
 
-gulp.task('clean', function () {
+gulp.task('clean', function() {
     del(distPaths.base + '*');
 });
 
-gulp.task('default', ['browserSync', 'css', 'pug', 'js', 'sass', 'lib'], function () {
+gulp.task('default', ['browserSync', 'css', 'pug', 'js', 'sass', 'lib'], function() {
     gulp.watch(devPaths.tmpl, ['pug']);
     gulp.watch(devPaths.script, ['js']);
     gulp.watch(devPaths.sass, ['sass']);

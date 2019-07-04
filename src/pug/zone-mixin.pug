@@ -1,8 +1,11 @@
 mixin zone( zone )
   
   if zone.end && zone.pos
-    .zone( id='zone-' + zone.pos, data-end=zone.end )
+
+    g.zone( id='zone-' + zone.pos, data-end=zone.end )
+      
+      polygon.zone--ploygon( points="" )
 
       if zone.label
 
-        h1 !{zone.label}
+        text.zone--label !{zone.label}
