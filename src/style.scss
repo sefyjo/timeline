@@ -34,7 +34,7 @@ body {
     display: block;
     top: 0;
     left: 0;
-    overflow: hidden;
+    //overflow: hidden;
     z-index: 1;
 }
 
@@ -47,6 +47,9 @@ body {
     text {
         fill: rgb(29, 29, 29);
         font-size: 9px;
+        text-anchor: middle;
+        transform: translate(0, 6px) rotate(-90deg);
+
     }
 }
 
@@ -70,7 +73,11 @@ body {
         position: relative;
         margin-left: -8px;
         padding: 2px 4px;
+        max-width: 120px;
         background: #fefefe;
+        border-radius: 2px;
+        border-top-left-radius: 0;
+        box-shadow: 1px 3px 3px rgba(0, 0, 0, .15);
 
         &::after {
             position: absolute;
@@ -92,6 +99,15 @@ body {
 
     p {
         font-size: 9px;
+    }
+
+    a {
+        float: left;
+        font-weight: bolder;
+        font-size: 24px;
+        color: #fff;
+        text-shadow: 0 0 3px rgba(0, 0, 0, .5);
+        text-decoration: none;
     }
 
 }

@@ -14,7 +14,7 @@ head
 
 body
   
-  #timeline(data-start="-6500", data-end=currentYear+500 )
+  #timeline(data-start="-6500", data-end=currentYear+50 )
 
     svg#timeline--zones(
       width="6000",
@@ -22,7 +22,7 @@ body
       viewbox="0 0 6000 960"
       xmlns="http://www.w3.org/2000/svg"
     )
-      g#zone-group(transform='translate(0, 15)')
+      g#zone-group(transform='translate(0, 5)')
         - let reversedZone = data.zone.reverse();
         each zone in data.zone
           + zone( zone )

@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 /* Paths to Dev and dist environnement for path flexibility*/
 var devPaths = {
     base: 'src/',
-    tmpl: ['src/index.pug', "src/pug/*.pug"],
+    tmpl: ['src/index.pug', "src/pug/*.pug", "src/data.json"],
     sass: 'src/style.scss',
     styles: 'dist/style.css',
     script: 'src/main.js',
@@ -25,14 +25,16 @@ var distPaths = {
     sass: 'dist/',
     script: 'dist/main.js',
 };
-var data = JSON.parse(
-    fs.readFileSync(
-        path.resolve(devPaths.base + 'data.json')
-    ));
+
 
 var additionalFiles = [
     'src/data.json'
 ];
+
+var data = JSON.parse(
+    fs.readFileSync(
+        path.resolve(devPaths.base + 'data.json')
+    ));
 
 // Browser synchronisation
 gulp.task('browserSync', function() {
@@ -43,8 +45,7 @@ gulp.task('browserSync', function() {
             port: 80,
             open: true,
             startPath: 'index.html',
-        },
-        //  browser: 'Safari'
+        }
     });
 });
 
@@ -64,7 +65,7 @@ gulp.task('pug', function() {
         .pipe(gulp.dest(distPaths.base))
         .pipe(browserSync.reload({
             stream: true
-        }))
+        }));
 });
 
 
@@ -86,7 +87,7 @@ gulp.task('js', function() {
         .pipe(gulp.dest(distPaths.base))
         .pipe(browserSync.reload({
             stream: true
-        }))
+        }));
 });
 
 // Compile sass main file to a css file in distPath (css/)

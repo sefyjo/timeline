@@ -42,7 +42,6 @@ if (timeline && zones && events) {
 
         let polyX = xScale(end, duration, width, startTime);
         let polyY = yScale(z, totalZone, height);
-        // console.log('0:' + end + '=[' + polyX + ', ' + polyY + ']');
 
         let polyPoints = [
             [0, 0],
@@ -76,8 +75,6 @@ if (timeline && zones && events) {
      */
 
     for (let y = startTime; y <= endTime; y += 100) {
-
-        //console.log(y + ' = ' + xScale(y, duration, width, startTime));
 
         let yearXpos = xScale(y, duration, width, startTime);
         let yearYpos = 10;
@@ -137,6 +134,7 @@ if (timeline && zones && events) {
     events.style.height = height + 'px';
     let eventList = events.getElementsByClassName('event');
     for (let e = 0; e < eventList.length; e++) {
+
         let event = eventList[e];
         let date = parseInt(event.getAttribute('data-date'));
         let pos = parseInt(event.getAttribute('data-pos'));
@@ -158,10 +156,10 @@ function xScale(year, duration, width, startTime) {
     } else {
         computedYear = year + (startTime * -1);
     }
-    //console.log('year: ' + year + ' computed:' + computedYear);
 
-    let factor = ((computedYear / duration) * 0.3) + 0.7;
-    let x = Math.round((computedYear / duration) * (width * factor));
+    let factor = computedYear / duration; //cross product
+    let logarithm = (factor * width) * .00001 * (factor * 100000);
+    let x = Math.round(logarithm);
     return x;
 }
 
