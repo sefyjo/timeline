@@ -140,7 +140,7 @@
             "title": "L'horloge automate",
             "text": "De Notre dame de Dijon",
             "link": "https://fr.wikipedia.org/wiki/%C3%89glise_Notre-Dame_de_Dijon#Le_Jacquemart_de_Notre-Dame_de_Dijon",
-            "pos": 1.5
+            "pos": 1
         },
         {
             "date": 1495,
@@ -171,7 +171,7 @@
             "date": 1774,
             "title": "Le dessinateur, la musicienne et l'écrivain",
             "text": "de Jacques-droz 1774",
-            "pos": 1.5
+            "pos": 1
         },
         {
             "date": 1800,
@@ -556,7 +556,8 @@
         },
         {
             "date": 1998,
-            "title": "L'homme numérique</h2>Nicholas Negroponte",
+            "title": "L'homme numérique",
+            "text": "Nicholas Negroponte",
             "pos": 11
         },
         {
@@ -578,7 +579,8 @@
         },
         {
             "date": 2002,
-            "title": "‘360 presence</h2>Jeppe Hein",
+            "title": "‘360 presence",
+            "text": "Jeppe Hein",
             "pos": 1
         },
         {

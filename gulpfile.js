@@ -15,7 +15,7 @@ var devPaths = {
     tmpl: ['src/index.pug', "src/pug/*.pug", "src/data.json"],
     sass: 'src/style.scss',
     styles: 'dist/style.css',
-    script: 'src/main.js',
+    script: 'src/script.js',
 };
 
 var distPaths = {
@@ -23,11 +23,13 @@ var distPaths = {
     tmpl: 'dist/index.html',
     styles: 'dist/style.css',
     sass: 'dist/',
-    script: 'dist/main.js',
+    script: 'dist/script.js',
 };
 
 
 var additionalFiles = [
+    'node_modules/d3/dist/d3.min.js',
+    'node_modules/d3-ease/dist/d3-ease.min.js',
     'src/data.json'
 ];
 

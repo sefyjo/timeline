@@ -1,6 +1,3 @@
-- var currentYear = new Date().getFullYear();
-include pug/zone-mixin.pug
-include pug/event-mixin.pug
 
 head
   title= "Timeline"
@@ -10,25 +7,17 @@ head
   meta( name="robots" content="all,follow" )
   meta( name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" )
   link( rel="stylesheet", type="text/css", href="style.css", media="screen, print" )
-
+  link( href="https://fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap" rel="stylesheet")
 
 body
-  
-  #timeline(data-start="-6500", data-end=currentYear+50 )
 
-    svg#timeline--zones(
-      width="6000",
-      height="960",
-      viewbox="0 0 6000 960"
-      xmlns="http://www.w3.org/2000/svg"
-    )
-      g#zone-group(transform='translate(0, 5)')
-        - let reversedZone = data.zone.reverse();
-        each zone in data.zone
-          + zone( zone )
-
-    #timeline--events
-      each event in data.event
-        + event( event )
+  svg#timeline--background
+  div#timeline--content
   
-  script( src="main.js")
+  // No javascript alert
+  noscript
+    p Vous utilisez un navigateur qui n'interprète pas le javascript, merci de le réactiver pour voir la timeline
+
+  script( src="d3.min.js" )
+  //script( src="d3-ease.min.js" )
+  script( src="script.js") 

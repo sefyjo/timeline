@@ -13,101 +13,107 @@ body {
     background: rgb(39, 39, 39);
 }
 
-#timeline {
-    position: relative;
-    display: block;
-}
-
-#timeline svg#timeline--zones {
+#timeline--background,
+#timeline--content {
     position: absolute;
-    z-index: -1;
-
-    line,
-    text,
-    polygon {
-        shape-rendering: crispEdges;
-    }
-}
-
-#timeline #timeline--events {
-    position: absolute;
-    display: block;
     top: 0;
     left: 0;
-    //overflow: hidden;
+}
+
+#timeline--background {
     z-index: 1;
 }
 
-#timeline svg#timeline--zones g#year-axis g.year {
+#timeline--content {
+    z-index: 2;
+}
+
+/**
+* Timeline background
+*/
+.axis {
+    path.domain {
+        stroke: none;
+    }
+
+    line,
+    text {
+        fill: none;
+        shape-rendering: crispEdges;
+    }
+
+    text {
+        stroke: rgb(255, 255, 255);
+        font-weight: lighter;
+        font-size: 12px;
+    }
+
     line {
-        stroke: rgba(255, 255, 255, 0.25);
+        stroke: rgba(255, 255, 255, 0.397);
         stroke-dasharray: 5 5;
     }
-
-    text {
-        fill: rgb(29, 29, 29);
-        font-size: 9px;
-        text-anchor: middle;
-        transform: translate(0, 6px) rotate(-90deg);
-
-    }
 }
 
-#timeline svg#timeline--zones g#zone-group {
-
-    text {
-        text-anchor: start;
-    }
+.axis--x path {
+    display: none;
 }
 
-#timeline svg#timeline--zones g#zone-labels-group {
-    text {
-        fill: rgb(29, 29, 29);
-    }
+
+g.timeline-zone text {
+    fill: rgb(255, 255, 255);
+    font-weight: 500;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.541);
+
 }
 
-#timeline #timeline--events .event {
+/**
+* Timeline front
+*/
+
+#timeline--content .timeline--content--event {
     position: absolute;
+}
 
-    .event-inner {
-        position: relative;
-        margin-left: -8px;
-        padding: 2px 4px;
-        max-width: 120px;
-        background: #fefefe;
-        border-radius: 2px;
-        border-top-left-radius: 0;
-        box-shadow: 1px 3px 3px rgba(0, 0, 0, .15);
+#timeline--content .timeline--content--event .event-inner {
+    position: relative;
+    padding: 4px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.25);
+    max-width: 120px;
 
-        &::after {
-            position: absolute;
-            display: block;
-            content: '';
-            top: 0;
-            left: 0;
-            margin-top: -16px;
-            border: 8px solid rgba(0, 0, 0, 0);
-            border-bottom-color: #fefefe;
-        }
-    }
-
-    h2 {
-        font-size: 14px;
-        line-height: 14px;
-        margin: 0;
+    h3 {
+        margin: 2px 0;
+        font-size: 12px;
+        line-height: 12px;
+        font-weight: 500;
+        font-family: 'Source Serif Pro', serif;
     }
 
     p {
-        font-size: 9px;
+        font-size: 10px;
     }
 
     a {
         float: left;
-        font-weight: bolder;
-        font-size: 24px;
+        font-size: 28px;
         color: #fff;
-        text-shadow: 0 0 3px rgba(0, 0, 0, .5);
+        text-shadow: 0 4px 3px rgba(0, 0, 0, 0.685);
         text-decoration: none;
     }
 
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        margin: -4px 0 0 0;
+        border: 4px solid rgba(0, 0, 0, 0);
+        border-bottom: 8px solid #fff;
+        border-left: 8px solid #fff;
+
+    }
 }

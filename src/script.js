@@ -1,57 +1,63 @@
 // Get the data
-d3.json("data.json").then(function (data) {
+d3.json('data.json').then(function(data) {
 
-    var timeScaleDate = [];
-    var timeScaleValue = [];
-
-    for (var e = 0; e < data.event.length; e++) {
-        timeScaleDate.push(data.event[e].date);
-        timeScaleValue.push(e * e);
-    }
-    var width = 6000,
-        height = 1280,
-        start = -6500,
-        colors = ['#d6e5f2', '#8c9599'],
+    var width = 8000,
+        height = 1120,
+        start = -7000,
+        colors = ['#b4c8da', '#787d80'],
+        //colors = ['#303952', '#546de5'],
         zoneHeight = height / data.zone.length,
         zoneCornerWidth = zoneHeight,
         circleSize = 6,
         eventWidth = 84,
         zoneMinX = start,
-        zoneMaxX = d3.max(data.zone, function (d) {
+        zoneMaxX = d3.max(data.zone, function(d) {
             return d['end'];
         }),
-        eventMinX = d3.min(data.event, function (d) {
+        eventMinX = d3.min(data.event, function(d) {
             return d['date'];
         }),
-        eventMaxX = d3.max(data.event, function (d) {
+        eventMaxX = d3.max(data.event, function(d) {
             return d['date'];
         }),
         globalMinX = Math.min(zoneMinX, eventMinX),
-        globalMaxX = Math.max(zoneMaxX, eventMaxX) + 500;
+        globalMaxX = Math.max(zoneMaxX, eventMaxX);
+
+    var steps = [start, 1350, 1700, 1915, 2000, globalMaxX];
+    var stepsWidth = width / (steps.length - 1);
+    var stepsValue = [0, stepsWidth, stepsWidth * 2, stepsWidth * 3, stepsWidth * 4, width];
 
     var xScale = d3.scaleLinear()
-        .domain([])
-        .range([0, width]);
+        .domain(steps)
+        .range(stepsValue);
 
     var yScale = d3.scaleBand()
         .domain(data.zone.map(d => d.pos))
         .range([0, height]);
 
-    var xAxis = d3.axisTop(xScale).tickSize(height);
+    var xAxis = d3.axisBottom(xScale)
+        .ticks(data.event.length) // read data from event data
+        .tickValues(d3.set(data.event.map(function(d) {
+            return d.date
+        })).values())
+        .tickSize(height) // full height line
+        .tickFormat(d3.format("d")); // remove comma from thousand delimeter
+
     var colorInterpolation = d3.quantize(d3.interpolateHcl(colors[0], colors[1]), data.zone.length);
 
-    var zoneX = function (d, i) {
+    var zoneX = function(d, i) {
             return xScale(start);
         },
-        zoneY = function (d) {
+        zoneY = function(d) {
             return yScale(d.pos);
         },
-        zoneW = function (d, i) {
+        zoneW = function(d, i) {
             return xScale(d.end) - xScale(start)
         },
         zoneH = zoneHeight;
 
-    var polyZone = function (d, i) {
+    // rect with bottom right angle cutted (x - rect height)
+    var polyZone = function(d, i) {
         return [
             [
                 0,
@@ -79,21 +85,24 @@ d3.json("data.json").then(function (data) {
             ]
         ];
     };
-
-    var eventX = function (d, i) {
+    // distribute event on zones/thematics
+    var eventX = function(d, i) {
             return xScale(d['date']);
         },
-        eventY = function (d) {
+        eventY = function(d) {
             return yScale(d.pos) + zoneHeight / 2;
         };
 
-    var chart = d3.select('.timeline')
+    /**
+     * TIMEMLINE BACK
+     */
+    var chartBack = d3.select('#timeline--background')
         .attr('width', width)
         .attr('height', height)
         .append('g');
 
     // Add zones
-    var zone = chart.selectAll('.timeline-zone')
+    var zone = chartBack.selectAll('.timeline-zone')
         .data(data.zone.reverse())
         .enter().append('g')
         .classed('timeline-zone', true);
@@ -102,79 +111,71 @@ d3.json("data.json").then(function (data) {
         .attr('x', zoneX)
         .attr('y', zoneY)
         .attr('points', polyZone)
-        .style('fill', function (d, i) {
+        .style('fill', function(d, i) {
             return colorInterpolation[i];
         });
 
     // Add x axis
-    chart.append("g")
-        .attr("class", "axis axis-x");
+    chartBack.append('g')
+        .attr('class', 'axis axis-x');
 
-    chart.select('.axis-x')
-        .attr("transform", "translate(0," + (height + 16) + ")")
-        .call(xAxis);
+    chartBack.select('.axis-x')
+        .call(xAxis)
+        .selectAll('text')
+        .attr('y', 4)
+        .attr('dy', 0)
+        .style('text-anchor', 'middle')
+        .attr('transform', 'rotate(-90) translate(-20,-7)');
 
     var label = zone.append('text')
         .attr('x', 8)
         .attr('y', zoneY)
         .attr('transform', 'translate(0, ' + zoneHeight / 2 + ')')
         .attr('dy', '.35em')
-        .text(function (d, i) {
+        .text(function(d, i) {
             return d.label;
         });
+    /**
+     * TIMEMLINE FRONT
+     */
+    var chartFront = d3.select('#timeline--content')
+        .style('width', width)
+        .style('height', height);
 
-    var event = chart.selectAll('.timeline-event')
-        .data(data.event)
-        .enter().append('g')
-        .classed('timeline-event', true);
+    var eventsBlocks = [];
 
-    var dot = event.append('circle')
-        .attr('cx', eventX)
-        .attr('cy', eventY)
-        .attr('r', circleSize);
+    for (let e = 0; e < data.event.length - 1; e++) {
 
-    var info = event.append('text')
-        .attr('x', eventX)
-        .attr('y', eventY)
-        .attr('transform', 'translate(6,6)')
-        .attr('dy', '.35em')
-        .text(function (d) {
-            return d.label;
-        }).call(wrap, eventWidth);
+        if (data.event[e].title && data.event[e].date && data.event[e].pos) {
 
+            var event = chartFront.append('div')
+                .datum(data.event[e])
+                .classed('timeline--content--event', true)
+                .style('left', eventX)
+                .style('top', eventY);
 
-});
+            var eventContainer = event.append('div')
+                .attr('class', 'event-inner');
 
+            var title = eventContainer.append('h3')
+                .text(function(d) {
+                    return d.title;
+                });
 
-function wrap(text, width) {
-    text.each(function () {
-        var text = d3.select(this),
-            words = text.text().split(/\s+/).reverse(),
-            word,
-            line = [],
-            lineNumber = 0,
-            lineHeight = 1.1, // ems
-            y = text.attr("y"),
-            dy = parseFloat(text.attr("dy")),
-            tspan = text.text(null)
-            .append("tspan")
-            .attr("x", text.attr('x'))
-            .attr("y", y)
-            .attr("dy", dy + "em");
-
-        while (word = words.pop()) {
-            line.push(word);
-            tspan.text(line.join(" "));
-            if (tspan.node().getComputedTextLength() > width) {
-                line.pop();
-                tspan.text(line.join(" "));
-                line = [word];
-                tspan = text.append("tspan")
-                    .attr("x", text.attr('x'))
-                    .attr("y", y)
-                    .attr("dy", ++lineNumber * lineHeight + dy + "em")
-                    .text(word);
+            if (data.event[e].text) {
+                var text = eventContainer.append('p')
+                    .text(function(d) {
+                        if (d.text) {
+                            return d.text;
+                        }
+                    });
+            }
+            if (data.event[e].link) {
+                var link = eventContainer.append('a')
+                    .attr('href', data.event[e].link)
+                    .text('+');
             }
         }
-    });
-}
+    }
+
+});
