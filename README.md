@@ -1,6 +1,6 @@
 # Timeline
 
-A microsite to present historic event per thematic.
+A microsite for presenting historic event per thematic.
 ### How use it
 
 coming soon...
