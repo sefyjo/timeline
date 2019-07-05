@@ -134,9 +134,13 @@ g.timeline-zone text {
         font-size: 13px;
     }
 
+    span,
+    a {
+        margin-top: 6px;
+    }
+
     a {
         float: left;
-        margin-top: 6px;
         font-size: 20px;
         color: #fff;
         text-decoration: none;
@@ -144,6 +148,10 @@ g.timeline-zone text {
         svg {
             text-shadow: 0 4px 3px rgba(128, 127, 127, 0.048);
         }
+    }
+
+    span.hashtag {
+        float: right;
     }
 
     &::after {
