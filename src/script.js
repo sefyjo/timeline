@@ -8,8 +8,6 @@ d3.json('data.json').then(function(data) {
         //colors = ['#303952', '#546de5'],
         zoneHeight = height / data.zone.length,
         zoneCornerWidth = zoneHeight,
-        circleSize = 6,
-        eventWidth = 84,
         zoneMinX = start,
         zoneMaxX = d3.max(data.zone, function(d) {
             return d['end'];
