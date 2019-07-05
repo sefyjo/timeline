@@ -280,14 +280,14 @@
             "date": 1920,
             "title": "La Mariée mise à nu par ses célibataires, même",
             "text": "de Marcel Duchamp 1915-1923",
-            "pos": 11,
+            "pos": 10.5,
             "hash": "REF"
         },
         {
             "date": 1921,
             "title": "Construction systématique",
             "text": "œuvre de l'artiste soviétique Karl Ioganson (de), nommée Construction systématique et datée de 1921, repose sur le même principe2, avec néanmoins l 'absence d'autocontrainte, un des principes de la tenségrité 1921",
-            "pos": 11,
+            "pos": 11.5,
             "hash": "T"
         },
         {
@@ -541,7 +541,7 @@
         {
             "date": 1971,
             "title": "Le robot virtuel SHRDLU de Winograd",
-            "pos": 11
+            "pos": 10
         },
         {
             "date": 1971,
@@ -551,7 +551,7 @@
         {
             "date": 1973,
             "title": "WABOT-1 Premier robot Bipède capable de marcher Université de Waseda",
-            "pos": 11
+            "pos": 10
         },
         {
             "date": 1975,
@@ -561,7 +561,7 @@
         {
             "date": 1975,
             "title": "Les machines célibataires Harald Szeemann",
-            "pos": 11
+            "pos": 10
         },
         {
             "date": 1977,
@@ -571,14 +571,14 @@
         {
             "date": 1977,
             "title": "Demon Seed",
-            "pos": 11
+            "pos": 10
         },
         {
             "date": 1980,
             "title": "René Motro",
             "text": "LMGC de Montpellier II",
             "link": "https://www.researchgate.net/scientific-contributions/49526415_Rene_Motro",
-            "pos": 11
+            "pos": 10
         },
         {
             "date": 1981,
@@ -588,7 +588,7 @@
         {
             "date": 1982,
             "title": "Blade Runner Ridley Scott",
-            "pos": 11
+            "pos": 10
         },
         {
             "date": 1984,
@@ -599,12 +599,12 @@
             "date": 1984,
             "title": "1er brevet sur la « fabrication additive »",
             "text": "Jean-Claude André, Olivier de Witte, et Alain le Méhauté",
-            "pos": 11
+            "pos": 10
         },
         {
             "date": 1985,
             "title": "WHL-11 de Hitachi",
-            "pos": 11
+            "pos": 10
         },
         {
             "date": 1985,
@@ -618,7 +618,7 @@
             "title": "Rodney Brooks",
             "text": "« robotique comportementale » (behavior-based robotics)",
             "link": "https://rodneybrooks.com/",
-            "pos": 11
+            "pos": 10
         },
         {
             "date": 1991,
@@ -636,19 +636,19 @@
         {
             "date": 1997,
             "title": "Match Kasparov / deep blue",
-            "pos": 11
+            "pos": 6
         },
         {
             "date": 1998,
             "title": "Premier calculateur quantique",
-            "pos": 11
+            "pos": 6
         },
         {
             "date": 2000,
             "title": "Asimo",
             "text": "Honda",
             "link": "http://www.elektronique.fr/robot/asimo",
-            "pos": 11
+            "pos": 5
         },
         {
             "date": 2002,
@@ -666,14 +666,14 @@
         {
             "date": 2005,
             "title": "7 La septième génération de robot serpent créée par le Dr Gavin Millier.",
-            "pos": 1
+            "pos": 8
         },
         {
             "date": 2007,
             "title": "Robot violoniste",
             "text": "Toyota",
             "link": "https://www.generation-nt.com/toyota-motor-robot-violon-actualite-50420.html",
-            "pos": 1
+            "pos": 2
         },
         {
             "date": 2007,
@@ -683,12 +683,12 @@
         {
             "date": 2010,
             "title": "Deep learning",
-            "pos": 1
+            "pos": 6
         },
         {
             "date": 2010,
             "title": "Transistors à un seul atome",
-            "pos": 1
+            "pos": 8
         },
         {
             "date": 2011,
@@ -698,7 +698,7 @@
         {
             "date": 2011,
             "title": "M-Block le micro-robot qui s'auto-assemble",
-            "pos": 1
+            "pos": 6
         },
         {
             "date": 2011,
