@@ -181,11 +181,12 @@ d3.json('data.json').then(function(data) {
             let eventContainer = event.append('div')
                 .attr('class', 'event-inner');
 
+            // event title
             let title = eventContainer.append('h3')
                 .text(function(d) {
                     return d.title;
                 });
-
+            // event text
             if (data.event[e].text) {
                 let text = eventContainer.append('p')
                     .text(function(d) {
@@ -194,6 +195,14 @@ d3.json('data.json').then(function(data) {
                         }
                     });
             }
+            // event hashtag
+            if (data.event[e].hash) {
+                let hash = eventContainer.append('span')
+                    .attr('class', 'hashtag hastag-' + data.event[e].hash)
+                    .style('color', colorInterpolation[data.event[e].pos])
+                    .text(data.event[e].hash);
+            }
+            // event link
             if (data.event[e].link) {
                 let link = eventContainer.append('a')
                     .attr('href', data.event[e].link);
@@ -202,6 +211,7 @@ d3.json('data.json').then(function(data) {
                 let use = icon.append('use')
                     .attr('xlink:href', '#icon-link-2')
             }
+
         }
     }
 
