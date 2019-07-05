@@ -196,8 +196,11 @@ d3.json('data.json').then(function(data) {
             }
             if (data.event[e].link) {
                 let link = eventContainer.append('a')
-                    .attr('href', data.event[e].link)
-                    .text('+');
+                    .attr('href', data.event[e].link);
+                let icon = link.append('svg')
+                    .attr('class', 'icon icon-link2');
+                let use = icon.append('use')
+                    .attr('xlink:href', '#icon-link-2')
             }
         }
     }
