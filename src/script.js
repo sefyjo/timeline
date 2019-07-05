@@ -116,7 +116,30 @@ d3.json('data.json').then(function(data) {
         .style('fill', function(d, i) {
             return colorInterpolation[i];
         });
+    // Add stripped zone
+    let strippedZone = chartBack.selectAll('.timeline-stripped-zone')
+        .data(data.strippedZone.reverse())
+        .enter().append('g')
+        .classed('timeline-stripped-zone', true);
+    let strip = strippedZone.append('rect')
+        .attr('x', function(d, i) {
+            return xScale(parseInt(d.start));
+        })
+        .attr('y', function(d, i) {
+            return yScale(parseInt(d.posFrom));
+        })
+        .attr('width', function(d, i) {
+            return xScale(parseInt(d.end) - xScale(parseInt(d.start)));
+        })
+        .attr('height', function(d, i) {
+            return yScale(parseInt(d.posTo)) + zoneHeight;
+        })
+        .style('mask', 'url(#mask-stripe)')
+        .attr('fill', function(d, i) {
+            return colorInterpolation[(data.zone.length - 1) - d.posTo];
+        });
 
+    console.log(data.strippedZone);
     // Add x axis
     chartBack.append('g')
         .attr('class', 'axis axis-x');
