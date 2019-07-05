@@ -16,6 +16,7 @@ Then  you have to install depencencies with npm
 `npm install --save-dev`
 
 Only modify stuffs in src with gulp running before starting, go to the folder where gulpfile.js is.
+
 `cd the-path/to-the-local-copy-of-the-repository`
 
 And to run the default task wich make a lot of things.
