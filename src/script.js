@@ -23,7 +23,7 @@ d3.json('data.json').then(function(data) {
 
 
     // Set scale interpolation limit 
-    const steps = [start, 1350, 1700, 1915, 2000, globalMaxX];
+    const steps = [start, 1350, 1738, 1915, 2000, globalMaxX];
     const stepsWidth = width / (steps.length - 1);
     // Set scale interpolation width
     const stepsValue = [0, stepsWidth, stepsWidth * 2, stepsWidth * 3, stepsWidth * 4, width];
@@ -139,7 +139,6 @@ d3.json('data.json').then(function(data) {
             return colorInterpolation[(data.zone.length - 1) - d.posTo];
         });
 
-    console.log(data.strippedZone);
     // Add x axis
     chartBack.append('g')
         .attr('class', 'axis axis-x');
@@ -156,7 +155,7 @@ d3.json('data.json').then(function(data) {
         .attr('x', 8)
         .attr('y', zoneY)
         .attr('transform', 'translate(0, ' + zoneHeight / 2 + ')')
-        .attr('dy', '.35em')
+        //.attr('dy', '.35em')
         .text(function(d, i) {
             return d.label;
         });
