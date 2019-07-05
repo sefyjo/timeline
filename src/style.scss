@@ -101,20 +101,30 @@ g.timeline-zone text {
 
 #timeline--content .timeline--content--event {
     position: absolute;
+    transform: scale(1);
+    z-index: inherit;
+    transition: all .05s ease-out;
+    cursor: default;
+
+    &:hover {
+        transform: scale(1.2);
+        z-index: 9999;
+    }
 }
 
 #timeline--content .timeline--content--event .event-inner {
     position: relative;
     padding: 4px;
     background: #fff;
-    border-radius: 2px;
     box-shadow: 0 4px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
     max-width: 126px;
+    transition: all .05s ease-out;
 
     h3 {
         margin: 2px 0;
-        font-size: 20px;
-        line-height: 20px;
+        font-size: 18px;
+        line-height: 18px;
         font-weight: 500;
         font-family: 'Noto Serif', serif;
     }
@@ -126,10 +136,14 @@ g.timeline-zone text {
 
     a {
         float: left;
-        font-size: 28px;
+        margin-top: 6px;
+        font-size: 20px;
         color: #fff;
-        text-shadow: 0 4px 3px rgba(0, 0, 0, 0.685);
         text-decoration: none;
+
+        svg {
+            text-shadow: 0 4px 3px rgba(128, 127, 127, 0.048);
+        }
     }
 
     &::after {
@@ -146,4 +160,8 @@ g.timeline-zone text {
         border-left: 8px solid #fff;
 
     }
+}
+
+#timeline--content .timeline--content--event:hover .event-inner {
+    box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.25);
 }
