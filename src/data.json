@@ -51,6 +51,13 @@
         "pos": 11,
         "label": "Références"
     }],
+    "strippedZone": [{
+        "start": 1355,
+        "end": 1525,
+        "posFrom": 1,
+        "posTo": 2
+
+    }],
     "legend": [{
             "name": "Les premiers mecanismes",
             "symbol": "P"
@@ -126,7 +133,7 @@
         {
             "date": 1200,
             "title": "le livre de la connaissance des procédés mécaniques de Al-Jazari",
-            "pos": 11
+            "pos": 10.5
         },
         {
             "date": 1350,
