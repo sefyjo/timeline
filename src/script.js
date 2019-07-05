@@ -35,14 +35,14 @@ d3.json('data.json').then(function(data) {
         .domain([0, data.zone.length - 1, data.zone.length])
         .range([0, (height - (zoneHeight * 3)), height]);
 
-
+    let newHeight = height + zoneHeight * 2;
 
     let xAxis = d3.axisBottom(xScale)
         .ticks(data.event.length) // read data from event data
         .tickValues(d3.set(data.event.map(function(d) {
             return d.date
         })).values())
-        .tickSize(height) // full height line
+        .tickSize(newHeight) // full height line
         .tickFormat(d3.format("d")); // remove comma from thousand delimeter
 
     let colorInterpolation = d3.quantize(d3.interpolateHcl(colors[0], colors[1]), data.zone.length);
@@ -100,7 +100,7 @@ d3.json('data.json').then(function(data) {
      */
     let chartBack = d3.select('#timeline--background')
         .attr('width', width)
-        .attr('height', (height + zoneHeight * 2))
+        .attr('height', newHeight)
         .append('g');
 
     // Add zones
