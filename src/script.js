@@ -5,9 +5,10 @@ d3.json('data.json').then(function(data) {
         height = 1120,
         start = -7000,
         colors = ['#b4c8da', '#787d80'],
-        //colors = ['#303952', '#546de5'],
+        miniColors = ['#303952', '#546de5'],
         zoneHeight = (height / data.zone.length),
         zoneCornerWidth = zoneHeight,
+        miniTimelineHeight = 64,
         zoneMinX = start,
         zoneMaxX = d3.max(data.zone, function(d) {
             return d['end'];
@@ -26,7 +27,10 @@ d3.json('data.json').then(function(data) {
     const steps = [start, 1350, 1738, 1915, 2000, globalMaxX];
     const stepsWidth = width / (steps.length - 1);
     // Set scale interpolation width
-    const stepsValue = [0, stepsWidth, stepsWidth * 2, stepsWidth * 3, stepsWidth * 4, width];
+    const stepsValue = [];
+    for (let s = 0; s <= width; s += width / (steps.length - 1)) {
+        stepsValue.push(s);
+    }
     const xScale = d3.scaleLinear()
         .domain(steps)
         .range(stepsValue);
@@ -35,7 +39,7 @@ d3.json('data.json').then(function(data) {
         .domain([0, data.zone.length - 1, data.zone.length])
         .range([0, (height - (zoneHeight * 3)), height]);
 
-    let newHeight = Math.round(height + zoneHeight * 2);
+    let newHeight = Math.round(height + (zoneHeight * 6)); // I don't know but it works
 
     let xAxis = d3.axisBottom(xScale)
         .ticks(data.event.length) // read data from event data
@@ -46,7 +50,7 @@ d3.json('data.json').then(function(data) {
         .tickFormat(d3.format("d")); // remove comma from thousand delimeter
 
     let colorInterpolation = d3.quantize(d3.interpolateHcl(colors[0], colors[1]), data.zone.length);
-
+    let miniColorInterpolation = d3.quantize(d3.interpolateHcl(miniColors[0], miniColors[1]), data.zone.length);
     let zoneX = function(d, i) {
             return xScale(start);
         },
@@ -164,7 +168,7 @@ d3.json('data.json').then(function(data) {
      */
     let chartFront = d3.select('#timeline--content')
         .style('width', width)
-        .style('height', height);
+        .style('height', newHeight); // doesn't work anymore overflow text not computed
 
     let eventsBlocks = [];
 
@@ -214,5 +218,81 @@ d3.json('data.json').then(function(data) {
 
         }
     }
+    /**
+     * Mini timeline
+     */
+    let viewPortWidth = window.innerWidth;
+
+    let miniStepValue = [];
+    for (let s = 0; s <= width; s += viewPortWidth / (steps.length - 1)) {
+        miniStepValue.push(s);
+    }
+    let miniZoneHeight = miniTimelineHeight / data.zone.length - 1;
+
+    const miniXScale = d3.scaleLinear()
+        .domain(steps)
+        .range(miniStepValue);
+
+    const miniYScale = d3.scaleLinear()
+        .domain([0, (data.zone.length - 1)])
+        .range([0, miniTimelineHeight]);
+
+    let minichart = d3.select('svg#mini-timeline')
+        .attr('width', viewPortWidth) // make on resize change function
+        .attr('height', miniTimelineHeight)
+        .attr('viewBox', '0 0 ' + viewPortWidth + ' ' + miniTimelineHeight);
+
+    let miniZoneGroup = minichart.append('g')
+        .attr('class', 'mini-timeline--zone-group');
+
+    let miniZone = miniZoneGroup.selectAll('.timeline-mini-zone')
+        .data(data.zone.reverse())
+        .enter().append('g')
+        .classed('timeline-mini-zone', true);
+
+    let miniRect = miniZone.append('rect')
+        .attr('x', 0)
+        .attr('y', function(d, i) {
+            return miniYScale(d.pos) - miniZoneHeight;
+        })
+        .attr('width', function(d, i) {
+            return miniXScale(d.end);
+        })
+        .attr('height', miniZoneHeight)
+        .style('fill', function(d, i) {
+            return colorInterpolation[data.zone.length - 1 - i];
+        });
+
+    let mainTimeline = document.getElementById('timeline');
+    let scrollCursorWidth = (viewPortWidth / width) * viewPortWidth;
+    let halfScrollCursorWidth = scrollCursorWidth / 2;
+    let scrollCursor = minichart.append('rect')
+        .attr('id', 'mini-timeline--scroller')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('width', scrollCursorWidth)
+        .attr('height', miniTimelineHeight)
+        .attr('fill', 'steelblue')
+        .style('opacity', '.5')
+        .call(d3.drag()
+            .on('start.interrupt', function() {
+                scrollCursor.interrupt();
+                //console.log('stop')
+            })
+            .on('start drag', function() {
+                if (d3.event.x < viewPortWidth - halfScrollCursorWidth) {
+
+                    scrollCursor.attr('x', d3.event.x - halfScrollCursorWidth);
+                    scrollCursor.attr('fill', 'tomato');
+
+                    let x = (d3.select(this).attr('x') / viewPortWidth) * width;
+                    mainTimeline.scrollLeft = document.body.scrollLeft = x;
+                }
+
+            })
+            .on('end', function() {
+                scrollCursor.attr('fill', 'steelblue');
+            })
+        );
 
 });

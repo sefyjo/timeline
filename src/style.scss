@@ -1,5 +1,5 @@
 $scrollbarContainerColor: rgba(0, 0, 0, 0);
-$scrollbar-color: #f1c40f;
+$scrollbar-color: steelblue;
 
 html,
 body {
@@ -39,10 +39,12 @@ body {
 
 
 #timeline {
+    position: relative;
     display: block;
     width: 100vw;
     height: 100vh;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .icon {
@@ -83,7 +85,25 @@ noscript .icon {
 }
 
 #timeline--content {
+    position: relative;
     z-index: 2;
+
+    &::after {
+        content: '';
+        clear: both;
+        float: none;
+        display: table;
+        width: 100%;
+        height: 220px; // miniTimelineHeight or >
+    }
+}
+
+svg#mini-timeline {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
 }
 
 /**
