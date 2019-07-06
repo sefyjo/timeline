@@ -49,8 +49,12 @@ d3.json('data.json').then(function(data) {
         .tickSize(newHeight) // full height line
         .tickFormat(d3.format("d")); // remove comma from thousand delimeter
 
-    let colorInterpolation = d3.quantize(d3.interpolateHcl(colors[0], colors[1]), data.zone.length);
-    let miniColorInterpolation = d3.quantize(d3.interpolateHcl(miniColors[0], miniColors[1]), data.zone.length);
+    let colorInterpolation = d3.quantize(
+        d3.interpolateHcl(
+            colors[0],
+            colors[1]
+        ), data.zone.length
+    );
     let zoneX = function(d, i) {
             return xScale(start);
         },
@@ -168,7 +172,7 @@ d3.json('data.json').then(function(data) {
      */
     let chartFront = d3.select('#timeline--content')
         .style('width', width)
-        .style('height', newHeight); // doesn't work anymore overflow text not computed
+        .style('height', newHeight); // yes this is very ugly
 
     let eventsBlocks = [];
 
@@ -209,11 +213,17 @@ d3.json('data.json').then(function(data) {
             // event link
             if (data.event[e].link) {
                 let link = eventContainer.append('a')
-                    .attr('href', data.event[e].link);
+                    .attr('href', data.event[e].link)
+                    .on('click', function() {
+                        d3.event.preventDefault();
+                        return handleEventLinkClick(this);
+                    });
+
                 let icon = link.append('svg')
                     .attr('class', 'icon icon-link2');
+
                 let use = icon.append('use')
-                    .attr('xlink:href', '#icon-link-2')
+                    .attr('xlink:href', '#icon-link-2');
             }
 
         }
@@ -307,4 +317,37 @@ d3.json('data.json').then(function(data) {
         }
         drawMiniTimeline();
     }
+
+    /**
+     * Event link
+     */
+    function handleEventLinkClick(link) {
+
+        let modal = document.getElementById('link-modal');
+        let contentHere = document.getElementById('put-your-content-here');
+        let closeButton = document.getElementById('close-the-link-modal');
+        // Prevent two iframe (modal not closed and reclisk on link)
+        while (contentHere.lastElementChild) {
+            contentHere.removeChild(contentHere.lastElementChild);
+        }
+
+        let frame = document.createElement('iframe');
+
+        // Set the content
+        frame.setAttribute('width', '100%');
+        frame.setAttribute('height', '100%');
+        frame.setAttribute('src', link.href);
+
+        contentHere.appendChild(frame);
+
+        modal.classList.add('active');
+
+        closeButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            contentHere.removeChild(frame);
+            modal.classList.remove('active');
+        });
+
+    }
+
 });

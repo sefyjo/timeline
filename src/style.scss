@@ -51,6 +51,21 @@ body {
     overflow-x: hidden;
 }
 
+#link-modal {
+    position: fixed;
+    top: 0;
+    left: 100vw;
+    width: 50vw;
+    height: calc(100vh - #{$miniTimelineHeight});
+    background: #fefefe;
+    transition: all .05s ease-out;
+    z-index: 9;
+
+    &.active {
+        left: 50vw;
+    }
+}
+
 .icon {
     display: inline-block;
     width: 1em;
@@ -228,4 +243,29 @@ g.timeline-zone text {
 
 #timeline--content .timeline--content--event:hover .event-inner {
     box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+#link-modal .content-wrapper {
+    position: relative;
+
+    button {
+        position: absolute;
+        outline: none;
+        border: 0;
+        font-size: 32px;
+        top: 4px;
+        left: 4px;
+        color: steelblue;
+        background: #fefefe;
+
+        &:hover {
+            color: #fff;
+            background: tomato;
+        }
+    }
+}
+
+#link-modal .content-wrapper iframe {
+    border: 0;
+    outline: 0;
 }
