@@ -8,7 +8,7 @@ d3.json('data.json').then(function(data) {
         miniColors = ['#303952', '#546de5'],
         zoneHeight = (height / data.zone.length),
         zoneCornerWidth = zoneHeight,
-        miniTimelineHeight = 64,
+        miniTimelineHeight = 64, // need to be set also in style.scss
         zoneMinX = start,
         zoneMaxX = d3.max(data.zone, function(d) {
             return d['end'];
@@ -227,14 +227,14 @@ d3.json('data.json').then(function(data) {
     for (let s = 0; s <= width; s += viewPortWidth / (steps.length - 1)) {
         miniStepValue.push(s);
     }
-    let miniZoneHeight = miniTimelineHeight / data.zone.length - 1;
+    let miniZoneHeight = miniTimelineHeight / data.zone.length;
 
     const miniXScale = d3.scaleLinear()
         .domain(steps)
         .range(miniStepValue);
 
     const miniYScale = d3.scaleLinear()
-        .domain([0, (data.zone.length - 1)])
+        .domain([0, data.zone.length])
         .range([0, miniTimelineHeight]);
 
     let minichart = d3.select('svg#mini-timeline')
