@@ -35,7 +35,7 @@ d3.json('data.json').then(function(data) {
         .domain([0, data.zone.length - 1, data.zone.length])
         .range([0, (height - (zoneHeight * 3)), height]);
 
-    let newHeight = height + zoneHeight * 2;
+    let newHeight = Math.round(height + zoneHeight * 2);
 
     let xAxis = d3.axisBottom(xScale)
         .ticks(data.event.length) // read data from event data
