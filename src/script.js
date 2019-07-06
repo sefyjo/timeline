@@ -344,7 +344,9 @@ d3.json('data.json').then(function(data) {
 
         closeButton.addEventListener('click', function(event) {
             event.preventDefault();
-            contentHere.removeChild(frame);
+            while (contentHere.lastElementChild) {
+                contentHere.removeChild(contentHere.lastElementChild);
+            }
             modal.classList.remove('active');
         });
 
