@@ -36,7 +36,7 @@ const additionalFiles = [
 let env = (process.argv[3] == '--prod') ? 'prod' : 'dev';
 
 // Browser synchronisation
-gulp.task('browserSync', () => {
+function sync(done) {
     browserSync({
         server: {
             baseDir: distPaths.base,
@@ -46,10 +46,11 @@ gulp.task('browserSync', () => {
             startPath: 'index.html',
         }
     });
-});
+    done();
+}
 
 // Compile pug templates to html pages
-gulp.task('pug', () => {
+function pug() {
     return gulp.src(devPaths.base + 'index.pug')
         .pipe(plugins.pug({
             pretty: true,
@@ -65,11 +66,11 @@ gulp.task('pug', () => {
         .pipe(browserSync.reload({
             stream: true
         }));
-});
+}
 
 
 // Duplicate main.js file and minify it in the distPath (js/)
-gulp.task('js', () => {
+function js() {
     return gulp.src(devPaths.script)
         //.pipe(plugins.sourcemaps.init())
         .pipe(plugins.babel({
@@ -87,10 +88,10 @@ gulp.task('js', () => {
         .pipe(browserSync.reload({
             stream: true
         }));
-});
+}
 
 // Compile sass main file to a css file in distPath (css/)
-gulp.task('sass', () => {
+function sass() {
     return gulp.src(devPaths.sass)
         .pipe(plugins.sourcemaps.init(distPaths.base))
         .pipe(plugins.sass({
@@ -112,10 +113,10 @@ gulp.task('sass', () => {
         .pipe(browserSync.reload({
             stream: true
         }));
-});
+}
 
 // Duplicate css files to the distPath (css/main.min.css)
-gulp.task('css', () => {
+function css() {
     return gulp.src(distPaths.styles)
         .pipe(gulp.dest(distPaths.base))
         .pipe(plugins.cleanCss({
@@ -131,40 +132,48 @@ gulp.task('css', () => {
         .pipe(gulp.dest(distPaths.base))
         .pipe(browserSync.reload({
             stream: true
-        }))
-});
+        }));
+}
 
 // Add lib to js folder into webPath (js/)
-gulp.task('lib', () => {
+function lib() {
     return gulp.src(additionalFiles)
         .pipe(gulp.dest(distPaths.base))
         .pipe(browserSync.reload({
             stream: true
         }));
-});
-
+}
 // Remove hidden files
-gulp.task('cleanup', () => {
+function cleanup() {
     return del('**/.DS_Store');
-});
+}
 
-gulp.task('clean', () => {
+function clean() {
     return del(distPaths.base + '*');
-});
+}
 
-gulp.task('build', gulp.series(['clean', 'sass', 'js', 'lib'], () => {
-    env = 'prod';
-    console.log('Environment: ' + env);
-    gulp.start('css');
-    gulp.start('pug');
-}));
 
-gulp.task('default', gulp.series(['browserSync', 'css', 'pug', 'js', 'sass', 'lib'], () => {
+function watchFiles() {
     console.log('Environment: ' + env);
-    gulp.watch(devPaths.tmpl, ['pug']);
-    gulp.watch(devPaths.script, ['js']);
-    gulp.watch(devPaths.sass, ['sass']);
-    gulp.watch(distPaths.styles, ['css']);
-    gulp.watch(additionalFiles, ['lib']);
-    gulp.watch(devPaths.src + '**/.DS_Store', ['clean']);
-}));
+    gulp.watch(devPaths.tmpl, gulp.series(pug));
+    gulp.watch(devPaths.script, gulp.series(js));
+    gulp.watch(devPaths.sass, gulp.series(sass));
+    gulp.watch(distPaths.styles, gulp.series(css));
+    gulp.watch(additionalFiles, gulp.series(lib));
+    gulp.watch(devPaths.src + '**/.DS_Store', gulp.series(clean));
+}
+
+const build = gulp.series(clean, sass, js, lib, css, pug);
+
+const watch = gulp.parallel(sync, watchFiles);
+
+exports.clean = clean;
+exports.sass = sass;
+exports.js = js;
+exports.lib = lib;
+exports.pug = pug;
+exports.css = css;
+exports.cleanup = cleanup;
+exports.watch = watch;
+exports.default = watch;
+exports.build = build;
