@@ -158,5 +158,5 @@ Before upload the dist/ folder, run `gulp build --prod` to load a minify version
 </a>
 &nbsp; &nbsp;
 <a href="https://github.com/npm/cli" style="text-decoration: none;">
-<img src="https://raw.githubusercontent.com/npm/logos/master/npm%20square/n-large.png" alt="NPM" width="100">
+<img src="https://raw.githubusercontent.com/npm/logos/master/npm%20square/n-large.png" alt="NPM" width="80">
 </a>
