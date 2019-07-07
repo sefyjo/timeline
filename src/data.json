@@ -384,7 +384,7 @@
             "date": 1950,
             "title": "Test de Turing",
             "text": "« Computing Machinery and Intelligence »",
-            "link": "https: //fr.wikipedia.org/wiki/Test_de_Turing",
+            "link": "https://fr.wikipedia.org/wiki/Test_de_Turing",
             "pos": 5,
             "hash": "IA"
         },
@@ -398,7 +398,7 @@
             "date": 1950,
             "title": "Richard Buckminster Fuller",
             "text": "aurait créé le concept de dômes géodésiques au Black Mountain College",
-            "link": "https: //fr.wikipedia.org/wiki/Richard_Buckminster_Fuller",
+            "link": "https://fr.wikipedia.org/wiki/Richard_Buckminster_Fuller",
             "pos": 9,
             "hash": "T"
         },
