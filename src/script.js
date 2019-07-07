@@ -1,5 +1,5 @@
 // Get the data
-d3.json('data.json').then(function(data) {
+d3.json('data.json').then(function (data) {
 
     let width = 8000,
         height = 1120,
@@ -10,13 +10,13 @@ d3.json('data.json').then(function(data) {
         zoneCornerWidth = zoneHeight,
         miniTimelineHeight = 64, // need to be set also in style.scss
         zoneMinX = start,
-        zoneMaxX = d3.max(data.zone, function(d) {
+        zoneMaxX = d3.max(data.zone, function (d) {
             return d['end'];
         }),
-        eventMinX = d3.min(data.event, function(d) {
+        eventMinX = d3.min(data.event, function (d) {
             return d['date'];
         }),
-        eventMaxX = d3.max(data.event, function(d) {
+        eventMaxX = d3.max(data.event, function (d) {
             return d['date'];
         }),
         globalMinX = Math.min(zoneMinX, eventMinX),
@@ -43,7 +43,7 @@ d3.json('data.json').then(function(data) {
 
     let xAxis = d3.axisBottom(xScale)
         .ticks(data.event.length) // read data from event data
-        .tickValues(d3.set(data.event.map(function(d) {
+        .tickValues(d3.set(data.event.map(function (d) {
             return d.date
         })).values())
         .tickSize(newHeight) // full height line
@@ -55,19 +55,19 @@ d3.json('data.json').then(function(data) {
             colors[1]
         ), data.zone.length
     );
-    let zoneX = function(d, i) {
+    let zoneX = function (d, i) {
             return xScale(start);
         },
-        zoneY = function(d) {
+        zoneY = function (d) {
             return yScale(d.pos);
         },
-        zoneW = function(d, i) {
+        zoneW = function (d, i) {
             return xScale(d.end) - xScale(start)
         },
         zoneH = zoneHeight;
 
     // rect with bottom right angle cutted (x - rect height)
-    let polyZone = function(d, i) {
+    let polyZone = function (d, i) {
         return [
             [
                 0,
@@ -96,10 +96,10 @@ d3.json('data.json').then(function(data) {
         ];
     };
     // distribute event on zones/thematics
-    let eventX = function(d, i) {
+    let eventX = function (d, i) {
             return xScale(d['date']);
         },
-        eventY = function(d) {
+        eventY = function (d) {
             return yScale(d.pos) + zoneHeight / 2;
         };
 
@@ -121,7 +121,7 @@ d3.json('data.json').then(function(data) {
         .attr('x', zoneX)
         .attr('y', zoneY)
         .attr('points', polyZone)
-        .style('fill', function(d, i) {
+        .style('fill', function (d, i) {
             return colorInterpolation[i];
         });
     // Add stripped zone
@@ -130,20 +130,20 @@ d3.json('data.json').then(function(data) {
         .enter().append('g')
         .classed('timeline-stripped-zone', true);
     let strip = strippedZone.append('rect')
-        .attr('x', function(d, i) {
+        .attr('x', function (d, i) {
             return xScale(parseInt(d.start));
         })
-        .attr('y', function(d, i) {
+        .attr('y', function (d, i) {
             return yScale(parseInt(d.posFrom));
         })
-        .attr('width', function(d, i) {
+        .attr('width', function (d, i) {
             return xScale(parseInt(d.end) - xScale(parseInt(d.start)));
         })
-        .attr('height', function(d, i) {
+        .attr('height', function (d, i) {
             return yScale(parseInt(d.posTo)) + zoneHeight;
         })
         .style('mask', 'url(#mask-stripe)')
-        .attr('fill', function(d, i) {
+        .attr('fill', function (d, i) {
             return colorInterpolation[(data.zone.length - 1) - d.posTo];
         });
 
@@ -164,7 +164,7 @@ d3.json('data.json').then(function(data) {
         .attr('y', zoneY)
         .attr('transform', 'translate(0, ' + zoneHeight / 2 + ')')
         //.attr('dy', '.35em')
-        .text(function(d, i) {
+        .text(function (d, i) {
             return d.label;
         });
     /**
@@ -191,13 +191,13 @@ d3.json('data.json').then(function(data) {
 
             // event title
             let title = eventContainer.append('h3')
-                .text(function(d) {
+                .text(function (d) {
                     return d.title;
                 });
             // event text
             if (data.event[e].text) {
                 let text = eventContainer.append('p')
-                    .text(function(d) {
+                    .text(function (d) {
                         if (d.text) {
                             return d.text;
                         }
@@ -214,7 +214,7 @@ d3.json('data.json').then(function(data) {
             if (data.event[e].link) {
                 let link = eventContainer.append('a')
                     .attr('href', data.event[e].link)
-                    .on('click', function() {
+                    .on('click', function () {
                         d3.event.preventDefault();
                         return handleEventLinkClick(this);
                     });
@@ -267,14 +267,14 @@ d3.json('data.json').then(function(data) {
 
         let miniRect = miniZone.append('rect')
             .attr('x', 0)
-            .attr('y', function(d, i) {
+            .attr('y', function (d, i) {
                 return miniYScale(d.pos) - miniZoneHeight;
             })
-            .attr('width', function(d, i) {
+            .attr('width', function (d, i) {
                 return miniXScale(d.end);
             })
             .attr('height', miniZoneHeight)
-            .style('fill', function(d, i) {
+            .style('fill', function (d, i) {
                 return colorInterpolation[data.zone.length - 1 - i];
             });
 
@@ -289,11 +289,11 @@ d3.json('data.json').then(function(data) {
             .attr('fill', 'steelblue')
             .style('opacity', '.5')
             .call(d3.drag()
-                .on('start.interrupt', function() {
+                .on('start.interrupt', function () {
                     scrollCursor.interrupt();
                     //console.log('stop')
                 })
-                .on('start drag', function() {
+                .on('start drag', function () {
                     if (d3.event.x < viewPortWidth - halfScrollCursorWidth) {
 
                         scrollCursor.attr('x', d3.event.x - halfScrollCursorWidth);
@@ -304,13 +304,13 @@ d3.json('data.json').then(function(data) {
                     }
 
                 })
-                .on('end', function() {
+                .on('end', function () {
                     scrollCursor.attr('fill', 'steelblue');
                 })
             );
     }
     drawMiniTimeline();
-    window.onresize = function() {
+    window.onresize = function () {
         let miniTimiline = document.getElementById('mini-timeline');
         while (miniTimiline.lastElementChild) {
             miniTimiline.removeChild(miniTimiline.lastElementChild);
@@ -331,24 +331,61 @@ d3.json('data.json').then(function(data) {
             contentHere.removeChild(contentHere.lastElementChild);
         }
 
-        let frame = document.createElement('iframe');
 
         // Set the content
-        frame.setAttribute('width', '100%');
-        frame.setAttribute('height', '100%');
-        frame.setAttribute('src', link.href);
+        if (convertVideo(link.href) !== '') {
+            let frame = convertVideo(link.href);
+
+        } else {
+
+            let frame = document.createElement('iframe');
+            frame.setAttribute('width', '100%');
+            frame.setAttribute('height', '100%');
+            frame.setAttribute('src', link.href);
+        }
 
         contentHere.appendChild(frame);
 
         modal.classList.add('active');
 
-        closeButton.addEventListener('click', function(event) {
+        closeButton.addEventListener('click', function (event) {
             event.preventDefault();
             while (contentHere.lastElementChild) {
                 contentHere.removeChild(contentHere.lastElementChild);
             }
             modal.classList.remove('active');
         });
+
+    }
+
+    function convertVideo(html) {
+
+        var vimeoPattern = /(?:http?s?:\/\/)?(?:www\.)?(?:vimeo\.com)\/?(.+)/g;
+        var youtubePattern = /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g;
+
+        if (vimeoPattern.test(html)) {
+            console.log("html", html);
+
+            var replacement = '<iframe width="100%" height="100%" src="//player.vimeo.com/video/$1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+
+            var html = html.replace(vimeoPattern, replacement);
+
+            return html;
+
+        }
+
+
+        if (youtubePattern.test(html)) {
+            console.log("html", html);
+
+            var replacement = '<iframe width="100%" height="100%" src="http://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>';
+
+            var html = html.replace(youtubePattern, replacement);
+
+            return html;
+
+        }
+
 
     }
 
