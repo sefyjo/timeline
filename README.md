@@ -5,8 +5,6 @@ A microsite which presents historic event per thematic.
 
 ## How use it
 
-### DATA
-
 The script (script.js) will import data from data.json, you have to edit it to put your data.
 
 #### Event
@@ -54,8 +52,51 @@ The legend object has only two properties.
 - symbol: Similar to `event.hash` a hashtag/symbol used to identify category of event
 
 
+Here is how the data.json looks like.
 
----
+```json
+{
+  "zone": [{
+      "end": 1150,
+      "pos": 1,
+      "label": "Zone 1"
+  },{
+    "end": 1250,
+      "pos": 2,
+      "label": "Zone 2"
+  }],
+  "strippedZone": [{
+      "start": 1155,
+      "end": 1245,
+      "posFrom": 1,
+      "posTo": 2
+
+  }],
+  "legend": [{
+      "name": "First theme",
+      "symbol": "F"
+  }, {
+      "name": "Second theme",
+      "symbol": "S"
+  }],
+  "event": [{
+      "date": 1150,
+      "title": "First event",
+      "text": "First event description",
+      "link": "https://domaine.tld/page-name",
+      "pos": 1,
+      "hash": "F"
+   }, {
+     "date": 1250,
+      "title": "Second event",
+      "text": "Second event description",
+      "link": "https://domaine.tld/page-name",
+      "pos": 2,
+      "hash": "S"
+   }
+}
+```
+
 
 
 ## How modify it
