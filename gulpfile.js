@@ -77,7 +77,7 @@ gulp.task('js', function () {
         }))
         //.pipe(gulp.dest(distPaths.script))
         //.pipe(plugins.concat('main.js'))
-        //.pipe(gulp.dest(distPaths.base))
+        .pipe(gulp.dest(distPaths.base))
         .pipe(plugins.rename({
             suffix: '.min'
         }))

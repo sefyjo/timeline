@@ -1,5 +1,6 @@
-- var script = env == dev ? 'script.js' : 'script.min.js';
-- var style = env == dev ? 'style.css' : 'style.min.css';
+
+- var script = (env == 'dev') ? 'script.js' : 'script.min.js';
+- var style = (env == 'dev') ? 'style.css' : 'style.min.css';
 
 head
   title= "Timeline"
