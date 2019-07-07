@@ -167,6 +167,7 @@ d3.json('data.json').then(function (data) {
         .text(function (d, i) {
             return d.label;
         });
+
     /**
      * TIMEMLINE FRONT
      */
@@ -232,9 +233,9 @@ d3.json('data.json').then(function (data) {
      * Mini timeline
      */
 
-    function drawMiniTimeline() {
+    let mainTimeline = document.getElementById('timeline');
 
-        let mainTimeline = document.getElementById('timeline');
+    function drawMiniTimeline() {
 
         let viewPortWidth = window.innerWidth;
 
@@ -308,6 +309,11 @@ d3.json('data.json').then(function (data) {
                     scrollCursor.attr('fill', 'steelblue');
                 })
             );
+
+        mainTimeline.addEventListener('scroll', function (e) {
+            let x = mainTimeline.scrollLeft / width * viewPortWidth;
+            scrollCursor.attr('x', x);
+        });
     }
     drawMiniTimeline();
     window.onresize = function () {
@@ -317,6 +323,8 @@ d3.json('data.json').then(function (data) {
         }
         drawMiniTimeline();
     }
+
+
 
     /**
      * Event link
@@ -331,16 +339,19 @@ d3.json('data.json').then(function (data) {
             contentHere.removeChild(contentHere.lastElementChild);
         }
 
+        let isVideoUrl = convertVideo(link.href);
 
+        let frame = document.createElement('iframe');
+        frame.setAttribute('width', '100%');
+        frame.setAttribute('height', '100%');
         // Set the content
-        if (convertVideo(link.href) !== '') {
-            let frame = convertVideo(link.href);
+        if (isVideoUrl != null) {
+
+            frame.setAttribute('src', isVideoUrl);
+            frame.setAttribute('allowfullscreen', '');
 
         } else {
 
-            let frame = document.createElement('iframe');
-            frame.setAttribute('width', '100%');
-            frame.setAttribute('height', '100%');
             frame.setAttribute('src', link.href);
         }
 
@@ -366,11 +377,11 @@ d3.json('data.json').then(function (data) {
         if (vimeoPattern.test(html)) {
             console.log("html", html);
 
-            var replacement = '<iframe width="100%" height="100%" src="//player.vimeo.com/video/$1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+            var replacement = '//player.vimeo.com/video/$1';
 
-            var html = html.replace(vimeoPattern, replacement);
+            var src = html.replace(vimeoPattern, replacement);
 
-            return html;
+            return src;
 
         }
 
@@ -378,14 +389,14 @@ d3.json('data.json').then(function (data) {
         if (youtubePattern.test(html)) {
             console.log("html", html);
 
-            var replacement = '<iframe width="100%" height="100%" src="http://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>';
+            var replacement = 'http://www.youtube.com/embed/$1';
 
-            var html = html.replace(youtubePattern, replacement);
+            var src = html.replace(youtubePattern, replacement);
 
-            return html;
+            return src;
 
         }
-
+        return null;
 
     }
 
