@@ -369,29 +369,27 @@ d3.json('data.json').then(function (data) {
 
     }
 
-    function convertVideo(html) {
+    function convertVideo(link) {
 
         var vimeoPattern = /(?:http?s?:\/\/)?(?:www\.)?(?:vimeo\.com)\/?(.+)/g;
         var youtubePattern = /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g;
 
-        if (vimeoPattern.test(html)) {
-            console.log("html", html);
+        if (vimeoPattern.test(link)) {
 
             var replacement = '//player.vimeo.com/video/$1';
 
-            var src = html.replace(vimeoPattern, replacement);
+            var src = link.replace(vimeoPattern, replacement);
 
             return src;
 
         }
 
 
-        if (youtubePattern.test(html)) {
-            console.log("html", html);
+        if (youtubePattern.test(link)) {
 
             var replacement = 'http://www.youtube.com/embed/$1';
 
-            var src = html.replace(youtubePattern, replacement);
+            var src = link.replace(youtubePattern, replacement);
 
             return src;
 
