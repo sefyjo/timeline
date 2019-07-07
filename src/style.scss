@@ -48,7 +48,7 @@ body {
     width: 100vw;
     height: calc(100vh - #{$miniTimelineHeight});
     overflow-y: scroll;
-    overflow-x: hidden;
+    // not sure overflow-x: hidden;
 }
 
 #link-modal {
