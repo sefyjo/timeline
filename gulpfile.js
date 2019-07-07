@@ -116,9 +116,9 @@ function sass() {
 }
 
 // Duplicate css files to the distPath (css/main.min.css)
-function css() {
+function css(done) {
     return gulp.src(distPaths.styles)
-        .pipe(gulp.dest(distPaths.base))
+        //.pipe(gulp.dest(distPaths.base))
         .pipe(plugins.cleanCss({
             compatibility: 'ie8',
             debug: true
@@ -133,6 +133,7 @@ function css() {
         .pipe(browserSync.reload({
             stream: true
         }));
+    done();
 }
 
 // Add lib to js folder into webPath (js/)
