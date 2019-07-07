@@ -251,16 +251,22 @@ g.timeline-zone text {
     button {
         position: absolute;
         outline: none;
+        margin: 0;
+        padding: 2px;
         border: 0;
         font-size: 32px;
+        width: 36px;
+        height: 36px;
         top: 4px;
         left: 4px;
         color: steelblue;
+        border: 1px solid steelblue;
         background: #fefefe;
+        cursor: pointer;
 
         &:hover {
             color: #fff;
-            background: tomato;
+            background: steelblue;
         }
     }
 }
