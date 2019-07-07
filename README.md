@@ -93,7 +93,7 @@ Here is how the data.json looks like.
       "link": "https://domaine.tld/page-name",
       "pos": 2,
       "hash": "S"
-   }
+   }]
 }
 ```
 
