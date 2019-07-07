@@ -1,12 +1,64 @@
 # Timeline
 
-A microsite for presenting historic event per thematic.
-### How use it
-
-coming soon...
+A microsite which presents historic event per thematic.
 
 
-### How modify it
+## How use it
+
+### DATA
+
+The script (script.js) will import data from data.json, you have to edit it to put your data.
+
+#### Event
+To add event on the timeline you have to define objects into the event array.
+`"event": [
+  {event object},
+  {event object},
+  ...
+] `
+
+The event object has six properties:
+- date: an int (positive or negative) which define the year of the event *
+- title: a string *
+- text: another string which can be larger than the title
+- link: a string `"url"` or an array of string `["url", "url"...]`
+- pos: a positive int or float which define the vertical position according to the correspoding zone of the event
+- hash: a short string to define the category of the event
+
+*: The date and the title is required, if they are missing, the event will be ignored.
+
+
+#### Zone 
+Zones have three properties:
+- end: an int (positive or negative) which define the year of the end of the zone
+- pos: a positive int which define the vertical position of the zone
+- label: a string which named the zone
+
+Every properties of the zone object is needed. Note that the pos should be an int.
+
+
+#### Hatch / diagonal strip zone
+
+Similar to the zone object the strippedZone is draw over the other zone, it has four properties:
+- start: an int (positive or negative) which define the year of the begin of the zone
+- end: an int (positive or negative) which define the year of the end of the zone
+- posFrom: an int or float used to set the begin of zone on vertical axis
+- posTo: an int or float used to set the end of zone on vertical axis
+
+Every properties of the strippedZone object is required.
+
+#### Legend
+
+The legend object has only two properties.
+- name: A string used to define the title
+- symbol: Similar to `event.hash` a hashtag/symbol used to identify category of event
+
+
+
+---
+
+
+## How modify it
 First clone the repo
 
 `git clone git@github.com:nclslbrn/timeline.git`
@@ -30,6 +82,7 @@ And to run the default task wich make a lot of things.
 - [lib] copy data files (data.json) and dependencies (js library like d3.js) from node_modules folder
 - [browserSync] inject change or reload your browser with browserSync 
 
+Before upload the dist/ folder, run `gulp build` to load a minify version of script.js and style.css into html header.
 
 
 ### Build with / Thanks
