@@ -25,7 +25,7 @@ The event object has six properties:
 - pos: a positive int or float which define the vertical position according to the correspoding zone of the event
 - hash: a short string to define the category of the event
 
-*: The date and the title is required, if they are missing, the event will be ignored.
+*: The date and the title are required, if they are missing, the event will be ignored.
 
 
 #### Zone 
@@ -45,7 +45,7 @@ Similar to the zone object the strippedZone is draw over the other zone, it has 
 - posFrom: an int or float used to set the begin of zone on vertical axis
 - posTo: an int or float used to set the end of zone on vertical axis
 
-Every properties of the strippedZone object is required.
+Every properties of the strippedZone object are required.
 
 #### Legend
 
