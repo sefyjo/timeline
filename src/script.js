@@ -213,20 +213,40 @@ d3.json('data.json').then(function (data) {
             }
             // event link
             if (data.event[e].link) {
-                let link = eventContainer.append('a')
-                    .attr('href', data.event[e].link)
-                    .on('click', function () {
-                        d3.event.preventDefault();
-                        return handleEventLinkClick(this);
-                    });
 
-                let icon = link.append('svg')
-                    .attr('class', 'icon icon-link2');
+                let links = [];
+                if (Array.isArray(data.event[e].link)) {
+                    links = data.event[e].link;
+                } else {
+                    links.push(data.event[e].link);
+                }
 
-                let use = icon.append('use')
-                    .attr('xlink:href', '#icon-link-2');
+                for (let l = 0; l < links.length; l++) {
+
+                    let link = eventContainer.append('a')
+                        .attr('href', links[l])
+                        .on('click', function () {
+                            d3.event.preventDefault();
+                            return handleEventLinkClick(this);
+                        });
+                    if (links[l].includes('youtube') || links[l].includes('vimeo')) {
+
+                        let icon = link.append('svg')
+                            .attr('class', 'icon icon-play');
+
+                        let use = icon.append('use')
+                            .attr('xlink:href', '#icon-play');
+
+                    } else {
+
+                        let icon = link.append('svg')
+                            .attr('class', 'icon icon-link2');
+
+                        let use = icon.append('use')
+                            .attr('xlink:href', '#icon-link-2');
+                    }
+                }
             }
-
         }
     }
     /**

@@ -185,7 +185,10 @@
             "date": 1738,
             "title": "Le canard digérateur",
             "text": "De Jacques de Vaucanson 1738",
-            "link": "https://vimeo.com/14904318",
+            "link": [
+                "https://vimeo.com/14904318",
+                "https://fr.wikipedia.org/wiki/Canard_dig%C3%A9rateur"
+            ],
             "pos": 3,
             "hash": "AUT"
         },
