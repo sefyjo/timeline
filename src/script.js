@@ -336,6 +336,7 @@ d3.json('data.json').then(function (data) {
         });
     }
     drawMiniTimeline();
+
     window.onresize = function () {
         let miniTimiline = document.getElementById('mini-timeline');
         while (miniTimiline.lastElementChild) {
@@ -344,6 +345,28 @@ d3.json('data.json').then(function (data) {
         drawMiniTimeline();
     }
 
+    let legendModal = document.getElementById('legend-modal');
+    let legendTitle = document.createElement('h1');
+    legendTitle.innerHTML = 'Légende';
+    legendModal.childNodes[1].appendChild(legendTitle);
+
+    for (let l = 0; l < data.legend.length; l++) {
+
+        let symbol = document.createElement('h2');
+        symbol.innerHTML = data.legend[l].symbol;
+        let name = document.createElement('p');
+        name.innerHTML = data.legend[l].name;
+
+        legendModal.childNodes[1].appendChild(symbol);
+        legendModal.childNodes[1].appendChild(name);
+
+    }
+    document.getElementById('toggle-legend').addEventListener('click', function (event) {
+        legendModal.classList.add('active');
+    });
+    document.getElementById('close-the-legend-modal').addEventListener('click', function (event) {
+        legendModal.classList.remove('active');
+    });
 
 
     /**

@@ -51,18 +51,30 @@ body {
     // not sure overflow-x: hidden;
 }
 
-#link-modal {
+#link-modal,
+#legend-modal {
     position: fixed;
     top: 0;
-    left: 100vw;
     width: 50vw;
     height: calc(100vh - #{$miniTimelineHeight});
     background: #fefefe;
     transition: all .05s ease-out;
     z-index: 9;
+}
+
+#link-modal {
+    left: 100vw;
 
     &.active {
         left: 50vw;
+    }
+}
+
+#legend-modal {
+    right: 100vw;
+
+    &.active {
+        right: 50vw;
     }
 }
 
@@ -73,6 +85,44 @@ body {
     stroke-width: 0;
     stroke: currentColor;
     fill: currentColor;
+}
+
+button {
+    position: absolute;
+    outline: none;
+    margin: 0;
+    padding: 2px;
+    border: 0;
+    font-size: 32px;
+    width: 36px;
+    height: 36px;
+    color: steelblue;
+    border: 1px solid steelblue;
+    background: #fefefe;
+    cursor: pointer;
+
+    &:hover {
+        color: #fff;
+        background: steelblue;
+    }
+}
+
+#toggle-legend {
+    position: fixed;
+    left: 4px;
+    bottom: $miniTimelineHeight + 16px;
+    display: inline-block;
+    padding: 4px 6px 4px 4px;
+    width: auto;
+    height: 40px;
+    z-index: 3;
+
+    span {
+        float: right;
+        font-size: 16px;
+        line-height: 32px;
+
+    }
 }
 
 noscript {
@@ -245,30 +295,26 @@ g.timeline-zone text {
     box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.25);
 }
 
-#link-modal .content-wrapper {
+#link-modal .content-wrapper,
+#legend-modal .content-wrapper {
     position: relative;
 
     button {
-        position: absolute;
-        outline: none;
-        margin: 0;
-        padding: 2px;
-        border: 0;
-        font-size: 32px;
-        width: 36px;
-        height: 36px;
         top: 4px;
-        left: 4px;
-        color: steelblue;
-        border: 1px solid steelblue;
-        background: #fefefe;
-        cursor: pointer;
-
-        &:hover {
-            color: #fff;
-            background: steelblue;
-        }
     }
+
+}
+
+#legend-modal .content-wrapper {
+    padding: 2em;
+}
+
+#link-modal .content-wrapper button {
+    left: 4px;
+}
+
+#legend-modal .content-wrapper button {
+    right: 4px;
 }
 
 #link-modal .content-wrapper iframe {
