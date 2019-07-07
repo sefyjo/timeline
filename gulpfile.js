@@ -33,10 +33,7 @@ var additionalFiles = [
     'src/data.json'
 ];
 
-var data = JSON.parse(
-    fs.readFileSync(
-        path.resolve(devPaths.base + 'data.json')
-    ));
+var env = (process.argv[3] == '--prod') ? 'prod' : 'dev';
 
 // Browser synchronisation
 gulp.task('browserSync', function () {
@@ -57,7 +54,7 @@ gulp.task('pug', function () {
         .pipe(plugins.pug({
             pretty: true,
             data: {
-                data: data
+                env: env
             }
         }))
         .pipe(plugins.prettify({
@@ -155,9 +152,15 @@ gulp.task('clean', function () {
     del(distPaths.base + '*');
 });
 
-gulp.task('build', ['clean', 'pug', 'js', 'sass', 'css', 'lib']);
+gulp.task('build', ['clean', 'sass', 'js', 'lib'], function () {
+    env = 'prod';
+    console.log('Environment: ' + env);
+    gulp.start('css');
+    gulp.start('pug');
+});
 
 gulp.task('default', ['browserSync', 'css', 'pug', 'js', 'sass', 'lib'], function () {
+    console.log('Environment: ' + env);
     gulp.watch(devPaths.tmpl, ['pug']);
     gulp.watch(devPaths.script, ['js']);
     gulp.watch(devPaths.sass, ['sass']);

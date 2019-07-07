@@ -1,3 +1,5 @@
+- var script = env == dev ? 'script.js' : 'script.min.js';
+- var style = env == dev ? 'style.css' : 'style.min.css';
 
 head
   title= "Timeline"
@@ -6,7 +8,7 @@ head
   meta( name="author" content="Selma Lepart" )
   meta( name="robots" content="all,follow" )
   meta( name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" )
-  link( rel="stylesheet", type="text/css", href="style.min.css", media="screen, print" )
+  link( rel="stylesheet", type="text/css", href=style, media="screen, print" )
   link( href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet")
 
 body
@@ -77,4 +79,4 @@ body
 
   script( src="d3.min.js" )
   //script( src="d3-ease.min.js" ) 
-  script( src="script.min.js") 
+  script( src=script) 
