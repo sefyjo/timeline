@@ -1,52 +1,56 @@
 {
     "zone": [{
+        "start": -6000,
         "end": 1150,
         "pos": 1,
         "label": "Les premiers mécanismes"
     }, {
+        "start": 500,
         "end": 1525,
         "pos": 2,
         "label": "Les horloges"
     }, {
+        "start": 1100,
         "end": 1860,
         "pos": 3,
         "label": "Les automates"
     }, {
+        "start": 1500,
         "end": 1965,
         "pos": 4,
         "label": "La cybernétique (Les automates autorégulés)"
     }, {
-
+        "start": 1880,
         "end": 2020,
         "pos": 5,
         "label": "Les robots humanoïdes"
     }, {
-
+        "start": 1970,
         "end": 2020,
         "pos": 6,
         "label": "L'intelligence artificielle"
     }, {
-
+        "start": 1950,
         "end": 2020,
         "pos": 7,
         "label": "Les animats"
     }, {
-
+        "start": 1990,
         "end": 2020,
         "pos": 8,
         "label": "Robotique molle"
     }, {
-
+        "start": 1985,
         "end": 2020,
         "pos": 9,
         "label": "Biomimetisme"
     }, {
-
+        "start": 1870,
         "end": 2020,
         "pos": 10,
         "label": "Stochage / mémoire"
     }, {
-
+        "start": -6000,
         "end": 2020,
         "pos": 11,
         "label": "Références"

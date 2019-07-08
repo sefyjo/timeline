@@ -37,7 +37,7 @@ d3.json('data.json').then(function (data) {
 
     const yScale = d3.scaleLinear()
         .domain([0, data.zone.length - 1, data.zone.length])
-        .range([0, (height - (zoneHeight * 3)), height]);
+        .range([0, (height - zoneHeight), height]);
 
     let newHeight = Math.round(height + (zoneHeight * 6)); // I don't know but it works
 
@@ -56,13 +56,13 @@ d3.json('data.json').then(function (data) {
         ), data.zone.length
     );
     let zoneX = function (d, i) {
-            return xScale(start);
+            return xScale(d.start);
         },
         zoneY = function (d) {
             return yScale(d.pos);
         },
         zoneW = function (d, i) {
-            return xScale(d.end) - xScale(start)
+            return xScale(d.end) - xScale(d.start)
         },
         zoneH = zoneHeight;
 
@@ -70,15 +70,15 @@ d3.json('data.json').then(function (data) {
     let polyZone = function (d, i) {
         return [
             [
-                0,
+                xScale(d.start),
                 0
             ],
             [
-                0,
+                xScale(d.start),
                 yScale(d.pos)
             ],
             [
-                0,
+                xScale(d.start),
                 yScale(d.pos) + zoneHeight
             ],
             [
@@ -124,6 +124,13 @@ d3.json('data.json').then(function (data) {
         .style('fill', function (d, i) {
             return colorInterpolation[i];
         });
+    let zoneSeparator = zone.append('line')
+        .attr('x1', 0)
+        .attr('y1', zoneY)
+        .attr('x2', width)
+        .attr('y2', zoneY)
+        .attr('stroke', 'rgba(255,255,255,.15)');
+
     // Add stripped zone
     let strippedZone = chartBack.selectAll('.timeline-stripped-zone')
         .data(data.strippedZone.reverse())
@@ -206,6 +213,8 @@ d3.json('data.json').then(function (data) {
             }
             // event hashtag
             if (data.event[e].hash) {
+                event.attr('class', 'timeline--content--event hashtag-' + data.event[e].hash);
+
                 let hash = eventContainer.append('span')
                     .attr('class', 'hashtag hastag-' + data.event[e].hash)
                     .style('color', colorInterpolation[data.event[e].pos])
@@ -287,7 +296,9 @@ d3.json('data.json').then(function (data) {
             .classed('timeline-mini-zone', true);
 
         let miniRect = miniZone.append('rect')
-            .attr('x', 0)
+            .attr('x', function (d, i) {
+                return miniXScale(d.start);
+            })
             .attr('y', function (d, i) {
                 return miniYScale(d.pos) - miniZoneHeight;
             })
@@ -348,18 +359,23 @@ d3.json('data.json').then(function (data) {
     let legendModal = document.getElementById('legend-modal');
     let legendTitle = document.createElement('h1');
     legendTitle.innerHTML = 'Légende';
-    legendModal.childNodes[1].appendChild(legendTitle);
+    legendModal.childNodes[1].childNodes[3].appendChild(legendTitle);
 
     for (let l = 0; l < data.legend.length; l++) {
 
+        let container = document.createElement('div');
+
         let symbol = document.createElement('h2');
+        symbol.classList.add('hashtag-' + data.legend[l].symbol);
         symbol.innerHTML = data.legend[l].symbol;
+
         let name = document.createElement('p');
         name.innerHTML = data.legend[l].name;
 
-        legendModal.childNodes[1].appendChild(symbol);
-        legendModal.childNodes[1].appendChild(name);
+        container.appendChild(symbol);
+        container.appendChild(name);
 
+        legendModal.childNodes[1].childNodes[3].appendChild(container);
     }
     document.getElementById('toggle-legend').addEventListener('click', function (event) {
         legendModal.classList.add('active');

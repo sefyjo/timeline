@@ -3,6 +3,28 @@ $scrollbar-color: steelblue;
 
 $miniTimelineHeight: 64px;
 
+$hashtags : P,
+H,
+AUT,
+CYB,
+RH,
+IA,
+SR;
+
+$hashtags-sum:length($hashtags);
+$color-start : rgb(255, 0, 0);
+$step: 360deg / $hashtags-sum;
+
+.timeline--content--event,
+#legend-modal h2 {
+    @each $hash in $hashtags {
+        $index: index($hashtags, $hash);
+
+        &.hashtag-#{$hash} {
+            background: adjust-hue($color-start, $step * $index);
+        }
+    }
+}
 
 html,
 body {
@@ -231,6 +253,7 @@ g.timeline-zone text {
         transform: scale(1.2);
         z-index: 9999;
     }
+
 }
 
 #timeline--content .timeline--content--event .event-inner {
@@ -301,6 +324,39 @@ g.timeline-zone text {
 
     button {
         top: 4px;
+    }
+
+    #legend>div {
+        padding: 1em;
+    }
+
+    h2 {
+        display: inline;
+        position: relative;
+        padding: 4px 8px 4px 8px;
+        line-height: 32px;
+        width: auto;
+
+        &::after {
+            position: absolute;
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            right: 0;
+            top: 0;
+            margin: 0 -12px 0 0;
+            border: 12px solid rgba(0, 0, 0, 0);
+            border-top: 12px solid #fefefe;
+        }
+    }
+
+    p {
+        display: inline;
+        margin-left: 1.5em;
+        line-height: 32px;
+        text-align: right;
+
     }
 
 }
