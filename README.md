@@ -137,7 +137,8 @@ Before upload the dist/ folder, run `gulp build --prod` to load a minify version
 For the hashtag colors, you have to setup them into Sass. Sass will create colors automaticly with rotating the hue of the [`$color-start`].
 
 ### Height and width
-[`width`](https://github.com/nclslbrn/timeline/blob/0b977633ee76336096f779654b60989fb9373b5b/src/script.js#L4) define the width (in pixels) of the timeline
+[`width`](https://github.com/nclslbrn/timeline/blob/0b977633ee76336096f779654b60989fb9373b5b/src/script.js#L4) define the width (in pixels) of the timeline.
+
 [`height`](https://github.com/nclslbrn/timeline/blob/0b977633ee76336096f779654b60989fb9373b5b/src/script.js#L5) is used to defined the height of the pixels (in pixels) but the real height will be bigger due to top margin and the size of the last zone.
 
 
