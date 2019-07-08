@@ -134,7 +134,7 @@ Before upload the dist/ folder, run `gulp build --prod` to load a minify version
 ### Colors
 [`colors`](https://github.com/nclslbrn/timeline/blob/0b977633ee76336096f779654b60989fb9373b5b/src/script.js#L7) is an array of two colors which define the colors of first and the last zone (and strippedZone), the script create intepolated colors (kind of gradient) between.
 
-For the hashtag colors, you have to setup them into Sass. Sass will create colors automaticly with rotating the hue of the [`$color-start`].
+For the hashtag colors, you have to setup them into Sass. Sass will create colors automaticly with rotating the hue of the [`$color-start`](https://github.com/nclslbrn/timeline/blob/0b977633ee76336096f779654b60989fb9373b5b/src/style.scss#L15).
 
 ### Height and width
 [`width`](https://github.com/nclslbrn/timeline/blob/0b977633ee76336096f779654b60989fb9373b5b/src/script.js#L4) define the width (in pixels) of the timeline.
