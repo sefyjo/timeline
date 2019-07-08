@@ -11,7 +11,7 @@ RH,
 IA,
 SR;
 
-$hashtags-sum:length($hashtags);
+$hashtags-sum: length($hashtags);
 $color-start : rgb(255, 0, 0);
 $step: 360deg / $hashtags-sum;
 

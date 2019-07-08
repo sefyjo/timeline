@@ -28,6 +28,7 @@ The event object has six properties:
 
 ### Zone 
 Zones have three properties:
+- start: an int (positive or negative) which define the year of the begin of the zone
 - end: an int (positive or negative) which define the year of the end of the zone
 - pos: a positive int which define the vertical position of the zone
 - label: a string which named the zone
@@ -57,11 +58,13 @@ Here is how the data.json looks like.
 ```json
 {
   "zone": [{
+      "start": -500,
       "end": 1150,
       "pos": 1,
       "label": "Zone 1"
   },{
-    "end": 1250,
+      "start": 500,
+      "end": 1250,
       "pos": 2,
       "label": "Zone 2"
   }],
@@ -126,12 +129,20 @@ And to run the default task wich make a lot of things.
 Before upload the dist/ folder, run `gulp build --prod` to load a minify version of script.js and style.css into html header.
 
 ### First year of the timeline
+[`start`](https://github.com/nclslbrn/timeline/blob/0b977633ee76336096f779654b60989fb9373b5b/src/script.js#L6) is used to define the first year of the timeline, it could be helpfull to create empty zone before the start of a zone.
 
 ### Colors
+[`colors`](https://github.com/nclslbrn/timeline/blob/0b977633ee76336096f779654b60989fb9373b5b/src/script.js#L7) is an array of two colors which define the colors of first and the last zone (and strippedZone), the script create intepolated colors (kind of gradient) between.
+
+For the hashtag colors, you have to setup them into Sass. Sass will create colors automaticly with rotating the hue of the [`$color-start`].
 
 ### Height and width
+[`width`](https://github.com/nclslbrn/timeline/blob/0b977633ee76336096f779654b60989fb9373b5b/src/script.js#L4) define the width (in pixels) of the timeline
+[`height`](https://github.com/nclslbrn/timeline/blob/0b977633ee76336096f779654b60989fb9373b5b/src/script.js#L5) is used to defined the height of the pixels (in pixels) but the real height will be bigger due to top margin and the size of the last zone.
+
 
 ### Time modular scale
+[`steps`](https://github.com/nclslbrn/timeline/blob/0b977633ee76336096f779654b60989fb9373b5b/src/script.js#L27) is an array which define interval between same width periods. You can use it to reduce empty space (no event) and add space between event. 
 
 
 
