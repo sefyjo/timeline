@@ -2,7 +2,7 @@
 d3.json('data.json').then(function (data) {
 
     let width = 8000,
-        height = 1120,
+        height = 960,
         start = -7000,
         colors = ['#b4c8da', '#787d80'],
         zoneHeight = (height / data.zone.length),
