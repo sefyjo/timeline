@@ -39,7 +39,7 @@
         "javascript",
         "d3.js"
     ],
-    "author": "Nicolas Lebrun",
+    "author": "Selma Lepart & Nicolas Lebrun",
     "license": "ISC",
     "dependencies": {
         "connect-modrewrite": "^0.10.2",
