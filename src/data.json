@@ -1,56 +1,56 @@
 {
     "zone": [{
-        "start": -6000,
+        "start": -7000,
         "end": 1150,
         "pos": 1,
         "label": "Les premiers mécanismes"
     }, {
-        "start": 500,
+        "start": -7000,
         "end": 1525,
         "pos": 2,
         "label": "Les horloges"
     }, {
-        "start": 1100,
+        "start": -7000,
         "end": 1860,
         "pos": 3,
         "label": "Les automates"
     }, {
-        "start": 1500,
+        "start": -7000,
         "end": 1965,
         "pos": 4,
         "label": "La cybernétique (Les automates autorégulés)"
     }, {
-        "start": 1880,
+        "start": -7000,
         "end": 2020,
         "pos": 5,
         "label": "Les robots humanoïdes"
     }, {
-        "start": 1970,
+        "start": -7000,
         "end": 2020,
         "pos": 6,
         "label": "L'intelligence artificielle"
     }, {
-        "start": 1950,
+        "start": -7000,
         "end": 2020,
         "pos": 7,
         "label": "Les animats"
     }, {
-        "start": 1990,
+        "start": -7000,
         "end": 2020,
         "pos": 8,
         "label": "Robotique molle"
     }, {
-        "start": 1985,
+        "start": -7000,
         "end": 2020,
         "pos": 9,
         "label": "Biomimetisme"
     }, {
-        "start": 1870,
+        "start": -7000,
         "end": 2020,
         "pos": 10,
         "label": "Stochage / mémoire"
     }, {
-        "start": -6000,
+        "start": -7000,
         "end": 2020,
         "pos": 11,
         "label": "Références"
@@ -139,7 +139,7 @@
             "title": "Al-Jazari",
             "text": "Important érudit, artiste, astronome, inventeur et ingénieur mécanique persan ou arabe",
             "link": "https://fr.wikipedia.org/wiki/Al-Jazari",
-            "pos": 11,
+            "pos": 11.8,
             "hash": "REF"
         },
         {
@@ -352,7 +352,7 @@
             "date": 1935,
             "title": "Sparko",
             "text": "Joseph Barnett",
-            "pos": 11,
+            "pos": 4,
             "hash": "CYB"
         },
         {
@@ -398,21 +398,21 @@
         {
             "date": 1950,
             "title": "La tortue cybernétique de W. Grey Walter ",
-            "pos": 11,
+            "pos": 4,
             "hash": "CYB"
         },
         {
             "date": 1950,
             "title": "Richard Buckminster Fuller",
             "text": "aurait créé le concept de dômes géodésiques au Black Mountain College",
-            "link": "https://fr.wikipedia.org/wiki/Richard_Buckminster_Fuller",
+            "link": ["https://fr.wikipedia.org/wiki/Richard_Buckminster_Fuller","https://fr.wikipedia.org/wiki/Richard_Buckminster_Fuller"],
             "pos": 9,
             "hash": "T"
         },
         {
             "date": 1952,
             "title": "L'homéostat d'Ashby de W. Ross Ashby",
-            "pos": 11,
+            "pos": 4,
             "hash": "CYB"
         },
         {

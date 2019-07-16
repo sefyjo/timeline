@@ -12,7 +12,7 @@ IA,
 SR;
 
 $hashtags-sum: length($hashtags);
-$color-start : rgb(255, 0, 0);
+$color-start : rgba(255, 0, 0, 0.5);
 $step: 360deg / $hashtags-sum;
 
 .timeline--content--event,
@@ -77,13 +77,16 @@ body {
 #legend-modal {
     position: fixed;
     top: 0;
-    width: 50vw;
+    width: 25vw;
     height: calc(100vh - #{$miniTimelineHeight});
     background: #fefefe;
+    overflow-y: scroll;
     transition: all .05s ease-out;
     z-index: 9;
 }
-
+#link-modal {
+    width: 50vw;
+}
 #link-modal {
     left: 100vw;
 
@@ -96,7 +99,7 @@ body {
     right: 100vw;
 
     &.active {
-        right: 50vw;
+        right: 75vw;
     }
 }
 
