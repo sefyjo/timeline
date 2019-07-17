@@ -16,72 +16,75 @@
         "label": "Les animats"
     }, {
         "start": -7000,
-        "end": 1965,
+        "end": 1860,
         "pos": 4,
+        "label": "Les automates"
+    }, {
+        "start": -7000,
+        "end": 1965,
+        "pos": 5,
         "label": "La Biologie"
     }, {
         "start": -7000,
         "end": 2020,
-        "pos": 5,
+        "pos": 6,
         "label": "La cybernétique (Les automates autorégulés)"
     }, {
         "start": -7000,
         "end": 2020,
-        "pos": 6,
+        "pos": 7,
         "label": "Les robots humanoides"
     }, {
         "start": -7000,
         "end": 2020,
-        "pos": 7,
+        "pos": 8,
         "label": "L'intelligence artificielle"
     }, {
         "start": -7000,
         "end": 2020,
-        "pos": 8,
+        "pos": 9,
         "label": "Le biomimétisme"
     }, {
         "start": -7000,
         "end": 2020,
-        "pos": 9,
+        "pos": 10,
         "label": "La robotique molle"
     }, {
         "start": -7000,
         "end": 2020,
-        "pos": 10,
+        "pos": 11,
         "label": "Les structures"
     }, {
         "start": -7000,
         "end": 2020,
-        "pos": 11,
-        "label": "Les industries"
-    }{
-        "start": -7000,
-        "end": 2020,
         "pos": 12,
-        "label": "Le numérique"
-    }{
+        "label": "Les industries"
+    }, {
         "start": -7000,
         "end": 2020,
         "pos": 13,
-        "label": "La littérature"
-    }
-    {
+        "label": "Le numérique"
+    }, {
         "start": -7000,
         "end": 2020,
         "pos": 14,
-        "label": "Les films"
-    }{
+        "label": "La littérature"
+    }, {
         "start": -7000,
         "end": 2020,
         "pos": 15,
-        "label": "Les arts"
-    }{
+        "label": "Les films"
+    }, {
         "start": -7000,
         "end": 2020,
         "pos": 16,
+        "label": "Les arts"
+    }, {
+        "start": -7000,
+        "end": 2020,
+        "pos": 17,
         "label": "Les références"
-    }]
-    ,
+    }],
     "strippedZone": [{
         "start": 1355,
         "end": 1525,
@@ -130,7 +133,7 @@
         },
         {
             "name": "Les structures",
-            "symbol": "SR"
+            "symbol": "S"
         },
         {
             "name": "Les industries",
@@ -154,7 +157,7 @@
         },
         {
             "name": "Références",
-            "symbol": "SR"
+            "symbol": "REF"
         }
     ],
     "event": [{
@@ -162,8 +165,8 @@
             "title": "Archytas de Tarente",
             "text": "Premier robot de l'histoire de l'humanité",
             "link": "https://fr.wikipedia.org/wiki/Archytas_de_Tarente",
-            "pos": 7,
-            "hash": "A"
+            "pos": 4,
+            "hash": "AUT"
         },
         {
             "date": -3500,
@@ -185,21 +188,22 @@
             "hash": "P"
         },
         {
-            "date": 0,
+            "date": -250,
             "title": "Philon de Byzance",
-            "pos": 4,
-            "hash": "P"
+            "link": "http://kotsanas.com/fr/cat.php?category=04",
+            "pos": 3,
+            "hash": "AN"
         },
         {
-            "date": 0,
+            "date": 50,
             "title": "Héron d'Alexandrie",
-            "pos": 3,
-            "hash": "P"
+            "pos": 4,
+            "hash": "AUT"
         },
         {
             "date": 1100,
             "title": "Clepsydres d'AL-Jazari",
-            "pos": 1,
+            "pos": 2,
             "hash": "H"
         },
         {
@@ -207,13 +211,13 @@
             "title": "Al-Jazari",
             "text": "Important érudit, artiste, astronome, inventeur et ingénieur mécanique persan ou arabe",
             "link": "https://fr.wikipedia.org/wiki/Al-Jazari",
-            "pos": 11.8,
+            "pos": 17,
             "hash": "REF"
         },
         {
             "date": 1200,
             "title": "le livre de la connaissance des procédés mécaniques de Al-Jazari",
-            "pos": 10.5,
+            "pos": 17,
             "hash": "REF"
         },
         {
@@ -221,7 +225,7 @@
             "title": "Le coq automate",
             "text": "De Notre dame de Strasbourg",
             "link": "https://fr.wikipedia.org/wiki/Horloge_astronomique_de_Strasbourg",
-            "pos": 3,
+            "pos": 4,
             "hash": "AUT"
         },
         {
@@ -236,22 +240,22 @@
             "date": 1495,
             "title": "Un chevalier en armure",
             "text": "De Léonard de Vinci 1495",
-            "pos": 3,
+            "pos": 4,
             "hash": "AUT"
         },
         {
             "date": 1515,
             "title": "Automate de lion",
             "text": "de Léonard de Vinci 1515",
-            "pos": 11,
-            "hash": "A"
+            "pos": 4,
+            "hash": "AUT"
         },
         {
             "date": 1580,
             "title": "Nef automate dite de Charles Quint",
             "text": "1580",
-            "pos": 11,
-            "hash": "A"
+            "pos": 4,
+            "hash": "AUT"
         },
         {
             "date": 1738,
@@ -261,212 +265,212 @@
                 "https://vimeo.com/14904318",
                 "https://fr.wikipedia.org/wiki/Canard_dig%C3%A9rateur"
             ],
-            "pos": 3,
+            "pos": 4,
             "hash": "AUT"
         },
         {
             "date": 1774,
             "title": "Le dessinateur, la musicienne et l'écrivain",
             "text": "de Jacques-droz 1774",
-            "pos": 1,
+            "pos": 4,
             "hash": "AUT"
         },
         {
             "date": 1800,
             "title": "automate dessinateur et ecrivain",
             "text": "de Maillardet 1800",
-            "pos": 3,
+            "pos": 4,
             "hash": "AUT"
         },
         {
             "date": 1818,
             "title": "Frankenstein ou le Prométhée moderne",
             "text": "De Mary Shelley 1818",
-            "pos": 11,
+            "pos": 17,
             "hash": "REF"
         },
         {
             "date": 1840,
             "title": "La vulcanisation du caoutchouc",
-            "pos": 11,
+            "pos": 17,
             "hash": "REF"
         },
         {
             "date": 1886,
             "title": "L'Ève future de Auguste",
             "text": "De Villiers de L'Isle-Adam 1886",
-            "pos": 11,
+            "pos": 17,
             "hash": "REF"
         },
         {
             "date": 1850,
             "title": "L'avion III de clement Ader",
-            "pos": 11,
+            "pos": 9,
             "hash": "BM"
         },
         {
             "date": 1860,
             "title": "Apparition du mot polymère par Marcellin Berthelot",
-            "pos": 11,
+            "pos": 17,
             "hash": "REF"
         },
         {
             "date": 1880,
             "title": "Les polymères électroactifs",
             "text": "Wilhelm Roentgen",
-            "pos": 11,
+            "pos": 17,
             "hash": "REF"
         },
         {
             "date": 1890,
             "title": "Nikola Tesla",
             "text": "création du premier « robot » télécommandé",
-            "pos": 11,
+            "pos": 17,
             "hash": "REF"
         },
         {
             "date": 1915,
             "title": "Le chien électrique",
             "text": "De Hammond et Miessner 1915",
-            "pos": 3,
+            "pos": 6,
             "hash": "CYB"
         },
         {
             "date": 1920,
             "title": "Rotota",
             "text": "Apparition du mot robot dans sa pièce de théâtre de science-fiction R. U. R. Inventé par son frère Josef à partir du mot tchèque robota, qui signifie« travail» ou« servage».",
-            "pos": 11,
-            "hash": "REF"
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 1920,
             "title": "le behaviorisme",
             "text": "John B. Watson et B. F. Skinner",
-            "pos": 11,
+            "pos": 17,
             "hash": "REF"
         },
         {
             "date": 1850,
             "title": "L'avion III de clement Ader",
-            "pos": 11,
+            "pos": 9,
             "hash": "BM"
         },
         {
             "date": 1920,
             "title": "La Mariée mise à nu par ses célibataires, même",
             "text": "de Marcel Duchamp 1915-1923",
-            "pos": 10.5,
-            "hash": "REF"
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 1921,
             "title": "Construction systématique",
             "text": "œuvre de l'artiste soviétique Karl Ioganson (de), nommée Construction systématique et datée de 1921, repose sur le même principe2, avec néanmoins l 'absence d'autocontrainte, un des principes de la tenségrité 1921",
-            "pos": 11.5,
-            "hash": "T"
+            "pos": 11,
+            "hash": "S"
         },
         {
             "date": 1927,
             "title": "Constitution de la théorie quantique en tant qu'ensemble cohérent et complet",
-            "pos": 11,
+            "pos": 17,
             "hash": "REF"
         },
         {
             "date": 1928,
             "title": "Philidog, le chien électrique",
             "text": "Henri Piraux 1928",
-            "pos": 1,
+            "pos": 6,
             "hash": "CYB"
         },
         {
             "date": 1928,
             "title": "ELECTRO",
             "text": "de Joseph Barnett 1928",
-            "pos": 4,
+            "pos": 6,
             "hash": "CYB"
         },
         {
             "date": 1935,
             "title": "Metropolis Fritz Lang 1935",
-            "pos": 11,
-            "hash": "REF"
+            "pos": 15,
+            "hash": "F"
         },
         {
             "date": 1930,
             "title": "Observation pour la première fois un effet mémoire de forme",
-            "pos": 11,
+            "pos": 17,
             "hash": "REF"
         },
         {
             "date": 1935,
             "title": "Rossum's Universal Robots",
             "text": "Adaptation cinema par Gibel Sensatsii",
-            "pos": 11,
-            "hash": "REF"
+            "pos": 15,
+            "hash": "F"
         },
         {
             "date": 1935,
             "title": "Le chat de Schrödinger",
-            "pos": 11,
+            "pos": 17,
             "hash": "REF"
         },
         {
             "date": 1939,
             "title": "Projet Manhattan",
-            "pos": 11,
+            "pos": 17,
             "hash": "REF"
         },
         {
             "date": 1935,
             "title": "Sparko",
             "text": "Joseph Barnett",
-            "pos": 4,
+            "pos": 6,
             "hash": "CYB"
         },
         {
             "date": 1940,
             "title": "Bruno Munari",
             "pos": 11,
-            "hash": "REF"
+            "hash": "S"
         },
         {
             "date": 1942,
             "title": "Asimov",
             "text": "invente le mot Robotique dans sa nouvelle « cercle vicieux » et les trois lois de la robotique",
-            "pos": 11,
-            "hash": "REF"
+            "pos": 14,
+            "hash": "L"
         },
         {
             "date": 1942,
             "title": "Nicolas Schöffer",
-            "pos": 11,
-            "hash": "REF"
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 1945,
             "title": "Invention des automates cellulaires par John Von Neumann et Stanislas Ulam",
-            "pos": 11,
+            "pos": 17,
             "hash": "REF"
         },
         {
             "date": 1948,
             "title": "Cybernetics or Control and Communication in the Animal and the Machine",
             "text": "Norbert Wiener",
-            "pos": 11,
-            "hash": "REF"
+            "pos": 6,
+            "hash": "CYB"
         },
         {
             "date": 1950,
             "title": "Test de Turing",
             "text": "« Computing Machinery and Intelligence »",
             "link": "https://fr.wikipedia.org/wiki/Test_de_Turing",
-            "pos": 5,
+            "pos": 8,
             "hash": "IA"
         },
         {
             "date": 1950,
             "title": "La tortue cybernétique de W. Grey Walter ",
-            "pos": 4,
+            "pos": 6,
             "hash": "CYB"
         },
         {
@@ -474,19 +478,19 @@
             "title": "Richard Buckminster Fuller",
             "text": "aurait créé le concept de dômes géodésiques au Black Mountain College",
             "link": ["https://fr.wikipedia.org/wiki/Richard_Buckminster_Fuller","https://fr.wikipedia.org/wiki/Richard_Buckminster_Fuller"],
-            "pos": 9,
-            "hash": "T"
+            "pos": 11,
+            "hash": "S"
         },
         {
             "date": 1952,
             "title": "L'homéostat d'Ashby de W. Ross Ashby",
-            "pos": 4,
+            "pos": 6,
             "hash": "CYB"
         },
         {
             "date": 1953,
             "title": "Le renard de Ducrocq",
-            "pos": 11,
+            "pos": 6,
             "hash": "CYB"
         },
         {
@@ -494,14 +498,14 @@
             "title": "John McCarthy",
             "text": "définit le terme « intelligence Artificielle »",
             "link": "http://www.histoire-cigref.org/blog/pere-d-intelligence-artificielle-john-mccarthy/",
-            "pos": 6,
+            "pos": 8,
             "hash": "IA"
         },
         {
             "date": 1956,
             "title": "Robby Le robot",
             "link": "https://fr.wikipedia.org/wiki/Robby_le_robot",
-            "pos": 7,
+            "pos": 4,
             "hash": "AUT"
         },
         {
@@ -514,7 +518,7 @@
         {
             "date": 1957,
             "title": "Artificial Muscle Joseph Laws McKibben",
-            "pos": 9,
+            "pos": 10,
             "hash": "SR"
 
         },
@@ -522,7 +526,7 @@
             "date": 1958,
             "title": "Circuits intégrés en silicium",
             "text": "Jack Kilby - Robert Noyce",
-            "pos": 11,
+            "pos": 10,
             "hash": "SR"
         },
         {
@@ -542,26 +546,26 @@
         {
             "date": 1963,
             "title": "Programme « General Problem Solver » capable de résoudre des problèmes complexes",
-            "pos": 6,
+            "pos": 8,
             "hash": "IA"
         },
         {
             "date": 1963,
             "title": "Jean Tinguely",
-            "pos": 11,
-            "hash": "REF"
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 1964,
             "title": "La Cybernétique",
             "text": "La Cybernétique est un court métrage documentaire belge de 27 minutes, réalisé par Jean-Marie Piquint en 1964. Le conseiller scientifique est le professeur Georges R.Boulanger.",
-            "pos": 10,
-            "hash": "REF"
+            "pos": 15,
+            "hash": "F"
         },
         {
             "date": 1965,
             "title": "Systeme expert Dendral",
-            "pos": 5.5,
+            "pos": 8,
             "hash": "IA"
         },
         {
@@ -575,100 +579,113 @@
             "date": 1965,
             "title": "Les Floats",
             "text": "Robert Breer",
-            "pos": 11,
-            "hash": "REF"
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 1966,
             "title": "Les androïdes rêvent-ils de moutons électriques ?",
             "text": "par Philip K. Dick",
-            "pos": 12,
-            "hash": "REF"
+            "pos": 14,
+            "hash": "L"
         },
         {
             "date": 1968,
             "title": "Beyond Modern Sculpture: Jack Burnham",
-            "pos": 9,
-            "hash": "REF"
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 1970,
             "title": "Lunokhod 1",
-            "pos": 10.5,
-            "hash": "P"
+            "pos": 12,
+            "hash": "I"
         },
         {
             "date": 1970,
             "title": "Autopoïétique",
             "text": "Humberto Maturana et Francisco Varela",
-            "pos": 11
+            "pos": 17,
+            "hash": "REF"
         },
         {
             "date": 1970,
             "title": "L'Arte cinetica Frank Popper",
-            "pos": 11
-        },
+            "pos": 16,
+            "hash": "A"        },
         {
             "date": 1970,
             "title": "Le jeu de la vie automate cellulaire de John Horton Conway",
-            "pos": 11
+            "pos": 8,
+            "hash": "IA"
         },
         {
             "date": 1971,
             "title": "Le robot virtuel SHRDLU de Winograd",
-            "pos": 10
+            "pos": 17,
+            "hash": "REF"
         },
         {
             "date": 1971,
             "title": "Hans Haacke",
-            "pos": 11
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 1973,
             "title": "WABOT-1 Premier robot Bipède capable de marcher Université de Waseda",
-            "pos": 10
+            "pos": 7,
+            "hash": "RH"
         },
         {
             "date": 1975,
             "title": "Le nombre de transistors double tous les dix-huit mois",
-            "pos": 11
+            "pos": 13,
+            "hash": "N"
         },
         {
             "date": 1975,
             "title": "Les machines célibataires Harald Szeemann",
-            "pos": 10
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 1977,
             "title": "R2D2",
-            "pos": 11
+            "pos": 15,
+            "hash": "F"
         },
         {
             "date": 1977,
             "title": "Demon Seed",
-            "pos": 10
+            "pos": 15,
+            "hash": "F"
         },
         {
             "date": 1980,
             "title": "René Motro",
             "text": "LMGC de Montpellier II",
             "link": "https://www.researchgate.net/scientific-contributions/49526415_Rene_Motro",
-            "pos": 10
+            "pos": 11,
+            "hash": "S"
         },
         {
             "date": 1981,
             "title": "Le microscope à effet tunnel Gerd Binnig et Heinrich Rohrer",
-            "pos": 11
+            "pos": 5,
+            "hash": "B"
         },
         {
             "date": 1982,
             "title": "Blade Runner Ridley Scott",
-            "pos": 10
+            "pos": 15,
+            "hash": "F"
         },
         {
             "date": 1984,
             "title": "Terminator James Cameron",
-            "pos": 11
+            "pos": 15,
+            "hash": "F"
         },
         {
             "date": 1984,
@@ -679,39 +696,45 @@
         {
             "date": 1985,
             "title": "WHL-11 de Hitachi",
-            "pos": 10
+            "pos": 7,
+            "hash": "RH"
         },
         {
             "date": 1985,
             "title": "Définition du terme animat",
             "text": "par S.W. Wilson",
             "link": "https://en.wikipedia.org/wiki/Animat",
-            "pos": 11
+            "pos": 3,
+            "hash": "AN"
         },
         {
             "date": 1986,
             "title": "Rodney Brooks",
             "text": "« robotique comportementale » (behavior-based robotics)",
             "link": "https://rodneybrooks.com/",
-            "pos": 10
+            "pos": 17,
+            "hash": "REF"
         },
         {
             "date": 1991,
-            "title": "L'approche",
+            "title": "L'approche animat",
             "text": "animat",
             "link": "https://www-master.ufr-info-p6.jussieu.fr/2011/Approche-Animat",
-            "pos": 11
+            "pos": 3,
+            "hash": "AN"
         },
         {
             "date": 1998,
             "title": "L'homme numérique",
             "text": "Nicholas Negroponte",
-            "pos": 11
+            "pos": 17,
+            "hash": "REF"
         },
         {
             "date": 1997,
             "title": "Match Kasparov / deep blue",
-            "pos": 6
+            "pos": 8,
+            "hash": "IA"
         },
         {
             "date": 1998,
@@ -723,13 +746,15 @@
             "title": "Asimo",
             "text": "Honda",
             "link": "http://www.elektronique.fr/robot/asimo",
-            "pos": 5
+            "pos": 7,
+            "hash": "RH"
         },
         {
             "date": 2002,
             "title": "‘360 presence",
             "text": "Jeppe Hein",
-            "pos": 1
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 2004,
@@ -748,27 +773,32 @@
             "title": "Robot violoniste",
             "text": "Toyota",
             "link": "https://www.generation-nt.com/toyota-motor-robot-violon-actualite-50420.html",
-            "pos": 2
+            "pos": 7,
+            "hash": "RH"
         },
         {
             "date": 2007,
             "title": "Dunne and Raby",
-            "pos": 1
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 2010,
             "title": "Deep learning",
-            "pos": 6
+            "pos": 8,
+            "hash": "IA"
         },
         {
             "date": 2010,
             "title": "Transistors à un seul atome",
-            "pos": 8
+            "pos": 13,
+            "hash": "N"
         },
         {
             "date": 2011,
             "title": "Hugo Cabret de Martin Scorsese",
-            "pos": 1
+            "pos": 15,
+            "hash": "F"
         },
         {
             "date": 2011,
@@ -778,17 +808,20 @@
         {
             "date": 2011,
             "title": "Flight Assembled Architecture Raffaello D'Andrea",
-            "pos": 1
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 2012,
             "title": "La loi de Rose Steve Jurvetson",
-            "pos": 1
+            "pos": 13,
+            "hash": "N"
         },
         {
             "date": 2012,
             "title": "Comité technique IEEE RAS dédié à la robotique molle",
-            "pos": 1
+            "pos": 10,
+            "hash": "SR"
         },
         {
             "date": 2013,
@@ -803,12 +836,14 @@
         {
             "date": 2015,
             "title": "Dei ex Machinis de Jean-Arcady Meyer",
-            "pos": 1
+            "pos": 17,
+            "hash": "REF"
         },
         {
             "date": 2015,
             "title": "Chappie de Neill Blomkamp",
-            "pos": 1
+            "pos": 15,
+            "hash": "F"
         },
         {
             "date": 2015,
@@ -823,14 +858,16 @@
         {
             "date": 2016,
             "title": "AlphaGo Le logiciel AlphaGo a réussi à battre le champion du monde de jeu de go",
-            "pos": 1
+            "pos": 8,
+            "hash": "IA"
         },
         {
             "date": 2016,
             "title": "Octobot",
             "text": "Premier robot totalement moudépourvu d'électronique et de batterie.",
             "link": "https://news.harvard.edu/gazette/story/2016/08/the-first-autonomous-entirely-soft-robot/",
-            "pos": 1
+            "pos": 10,
+            "hash": "SR"
         },
         {
             "date": 2016,
@@ -843,7 +880,8 @@
             "date": 2016,
             "title": "Yann Lecun",
             "text": "Fair",
-            "pos": 1
+            "pos": 8,
+            "hash": "IA"
         },
         {
             "date": 2017,
@@ -854,12 +892,14 @@
         {
             "date": 2017,
             "title": "Deploybot Premier robot mou capable de se déplacer sans moteur ni système mécanique",
-            "pos": 1
+            "pos": 10,
+            "hash": "SR"
         },
         {
             "date": 2018,
             "title": " Magnetic 3-D-printed structures crawl, roll, jump, and play catch",
-            "pos": 1
+            "pos": 10,
+            "hash": "SR"
         }
     ]
 

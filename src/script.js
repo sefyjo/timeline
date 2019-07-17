@@ -2,9 +2,9 @@
 d3.json('data.json').then(function (data) {
 
     let width = 8000,
-        height = 960,
+        height = 2060,
         start = -7000,
-        colors = ['#b4c8da', '#787d80'],
+        colors = ['#c7eded','#282929'],
         zoneHeight = (height / data.zone.length),
         zoneCornerWidth = zoneHeight,
         miniTimelineHeight = 64, // need to be set also in style.scss
