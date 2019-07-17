@@ -13,48 +13,75 @@
         "start": -7000,
         "end": 1860,
         "pos": 3,
-        "label": "Les automates"
+        "label": "Les animats"
     }, {
         "start": -7000,
         "end": 1965,
         "pos": 4,
-        "label": "La cybernétique (Les automates autorégulés)"
+        "label": "La Biologie"
     }, {
         "start": -7000,
         "end": 2020,
         "pos": 5,
-        "label": "Les robots humanoïdes"
+        "label": "La cybernétique (Les automates autorégulés)"
     }, {
         "start": -7000,
         "end": 2020,
         "pos": 6,
-        "label": "L'intelligence artificielle"
+        "label": "Les robots humanoides"
     }, {
         "start": -7000,
         "end": 2020,
         "pos": 7,
-        "label": "Les animats"
+        "label": "L'intelligence artificielle"
     }, {
         "start": -7000,
         "end": 2020,
         "pos": 8,
-        "label": "Robotique molle"
+        "label": "Le biomimétisme"
     }, {
         "start": -7000,
         "end": 2020,
         "pos": 9,
-        "label": "Biomimetisme"
+        "label": "La robotique molle"
     }, {
         "start": -7000,
         "end": 2020,
         "pos": 10,
-        "label": "Stochage / mémoire"
+        "label": "Les structures"
     }, {
         "start": -7000,
         "end": 2020,
         "pos": 11,
-        "label": "Références"
-    }],
+        "label": "Les industries"
+    }{
+        "start": -7000,
+        "end": 2020,
+        "pos": 12,
+        "label": "Le numérique"
+    }{
+        "start": -7000,
+        "end": 2020,
+        "pos": 13,
+        "label": "La littérature"
+    }
+    {
+        "start": -7000,
+        "end": 2020,
+        "pos": 14,
+        "label": "Les films"
+    }{
+        "start": -7000,
+        "end": 2020,
+        "pos": 15,
+        "label": "Les arts"
+    }{
+        "start": -7000,
+        "end": 2020,
+        "pos": 16,
+        "label": "Les références"
+    }]
+    ,
     "strippedZone": [{
         "start": 1355,
         "end": 1525,
@@ -68,9 +95,18 @@
         }, {
             "name": "Les horloges",
             "symbol": "H"
-        }, {
+        }, 
+        {
+            "name": "Les animats",
+            "symbol": "AN"
+        },
+        {
             "name": "Les automates",
             "symbol": "AUT"
+        },
+        {
+            "name": "La biologie",
+            "symbol": "B"
         },
         {
             "name": "La cybernétique",
@@ -85,7 +121,39 @@
             "symbol": "IA"
         },
         {
-            "name": "Robotique molle",
+            "name": "Le biomimétisme",
+            "symbol": "BM"
+        },
+        {
+            "name": "La robotique molle",
+            "symbol": "SR"
+        },
+        {
+            "name": "Les structures",
+            "symbol": "SR"
+        },
+        {
+            "name": "Les industries",
+            "symbol": "I"
+        },
+        {
+            "name": "Le numérique",
+            "symbol": "N"
+        },
+        {
+            "name": "La littérature",
+            "symbol": "L"
+        },
+        {
+            "name": "Les Films",
+            "symbol": "F"
+        },
+        {
+            "name": "Les Arts",
+            "symbol": "A"
+        },
+        {
+            "name": "Références",
             "symbol": "SR"
         }
     ],
