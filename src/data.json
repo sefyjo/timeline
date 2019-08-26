@@ -13,15 +13,15 @@
         "start": -7000,
         "end": 1860,
         "pos": 3,
-        "label": "Les animats"
-    }, {
-        "start": -7000,
-        "end": 1860,
-        "pos": 4,
         "label": "Les automates"
     }, {
         "start": -7000,
-        "end": 1965,
+        "end": 2020,
+        "pos": 4,
+        "label": "Les animats"
+    }, {
+        "start": -7000,
+        "end": 2020,
         "pos": 5,
         "label": "La Biologie"
     }, {
@@ -165,7 +165,7 @@
             "title": "Archytas de Tarente",
             "text": "Premier robot de l'histoire de l'humanité",
             "link": "https://fr.wikipedia.org/wiki/Archytas_de_Tarente",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
@@ -191,13 +191,13 @@
             "date": -250,
             "title": "Philon de Byzance",
             "link": "http://kotsanas.com/fr/cat.php?category=04",
-            "pos": 3,
+            "pos": 4,
             "hash": "AN"
         },
         {
             "date": 50,
             "title": "Héron d'Alexandrie",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
@@ -225,7 +225,7 @@
             "title": "Le coq automate",
             "text": "De Notre dame de Strasbourg",
             "link": "https://fr.wikipedia.org/wiki/Horloge_astronomique_de_Strasbourg",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
@@ -241,21 +241,21 @@
             "title": "Un chevalier en armure",
             "text": "de Léonard de Vinci",
             "link": "https://fr.wikipedia.org/wiki/Robot_(L%C3%A9onard_de_Vinci)",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
             "date": 1495,
             "title": "Un chevalier en armure",
             "text": "De Léonard de Vinci 1495",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
             "date": 1515,
             "title": "Automate de lion",
             "text": "de Léonard de Vinci 1515",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
@@ -263,7 +263,7 @@
             "title": "Nef automate dite de Charles Quint",
             "text": "1580",
             "link": "https://atelier-canope-95.canoprof.fr/eleve/Automates%20et%20robots/res/robot.dossierHtml/co/RenaissanceNefCharlesQuint_1.html",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
@@ -288,7 +288,7 @@
                 "https://vimeo.com/14904318",
                 "https://fr.wikipedia.org/wiki/Canard_dig%C3%A9rateur"
             ],
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
@@ -296,7 +296,7 @@
             "title": "Le dessinateur, la musicienne et l'écrivain",
             "text": "de Jacques-droz",
             "link":"https://fr.wikipedia.org/wiki/Automates_Jaquet-Droz",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
@@ -304,7 +304,7 @@
             "title": "automate dessinateur et ecrivain",
             "text": "de Maillardet",
             "link":"https://fr.wikipedia.org/wiki/Henri_Maillardet",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
@@ -323,8 +323,8 @@
         {
             "date": 1840,
             "title": "La vulcanisation du caoutchouc",
-            "pos": 17,
-            "hash": "REF"
+            "pos": 10,
+            "hash": "SR"
         },
         {
             "date": 1859,
@@ -950,7 +950,7 @@
             "title": "Définition du terme animat",
             "text": "par S.W. Wilson",
             "link": "https://en.wikipedia.org/wiki/Animat",
-            "pos": 3,
+            "pos": 4,
             "hash": "AN"
         },
         {
@@ -1006,7 +1006,7 @@
             "title": "L'approche animat",
             "text": "animat",
             "link": "https://www-master.ufr-info-p6.jussieu.fr/2011/Approche-Animat",
-            "pos": 3,
+            "pos": 4,
             "hash": "AN"
         },
         {
@@ -1269,12 +1269,14 @@
         {
             "date": 2013,
             "title": "CurvACE",
-            "pos": 1
+            "pos": 9,
+            "hash": "BM"
         },
         {
             "date": 2014,
             "title": "Cheetah Boston Dynamics",
-            "pos": 1
+            "pos": 4,
+            "hash": "AN"
         },
         {
             "date": 2015,
@@ -1298,7 +1300,8 @@
         {
             "date": 2015,
             "title": "Architecture de transition",
-            "pos": 1
+            "pos": 11,
+            "hash": "S"
         },
         {
             "date": 2016,
@@ -1320,7 +1323,8 @@
             "title": "On Folding Towards a New Field of Interdisciplinary Research",
             "text": "Edited by Michael Friedman and Wolfgang Schäffner",
             "link": "https://cup.columbia.edu/book/on-folding/9783837634044",
-            "pos": 1
+            "pos": 11,
+            "hash": "S"
         },
         {
             "date": 2016,
