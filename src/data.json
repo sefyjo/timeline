@@ -13,15 +13,15 @@
         "start": -7000,
         "end": 1860,
         "pos": 3,
-        "label": "Les animats"
-    }, {
-        "start": -7000,
-        "end": 1860,
-        "pos": 4,
         "label": "Les automates"
     }, {
         "start": -7000,
-        "end": 1965,
+        "end": 2020,
+        "pos": 4,
+        "label": "Les animats"
+    }, {
+        "start": -7000,
+        "end": 2020,
         "pos": 5,
         "label": "La Biologie"
     }, {
@@ -165,7 +165,7 @@
             "title": "Archytas de Tarente",
             "text": "Premier robot de l'histoire de l'humanité",
             "link": "https://fr.wikipedia.org/wiki/Archytas_de_Tarente",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
@@ -191,13 +191,13 @@
             "date": -250,
             "title": "Philon de Byzance",
             "link": "http://kotsanas.com/fr/cat.php?category=04",
-            "pos": 3,
+            "pos": 4,
             "hash": "AN"
         },
         {
             "date": 50,
             "title": "Héron d'Alexandrie",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
@@ -225,7 +225,7 @@
             "title": "Le coq automate",
             "text": "De Notre dame de Strasbourg",
             "link": "https://fr.wikipedia.org/wiki/Horloge_astronomique_de_Strasbourg",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
@@ -237,70 +237,113 @@
             "hash": "H"
         },
         {
+            "date": 1450,
+            "title": "Un chevalier en armure",
+            "text": "de Léonard de Vinci",
+            "link": "https://fr.wikipedia.org/wiki/Robot_(L%C3%A9onard_de_Vinci)",
+            "pos": 3,
+            "hash": "AUT"
+        },
+        {
             "date": 1495,
             "title": "Un chevalier en armure",
             "text": "De Léonard de Vinci 1495",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
             "date": 1515,
             "title": "Automate de lion",
             "text": "de Léonard de Vinci 1515",
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
             "date": 1580,
             "title": "Nef automate dite de Charles Quint",
             "text": "1580",
-            "pos": 4,
+            "link": "https://atelier-canope-95.canoprof.fr/eleve/Automates%20et%20robots/res/robot.dossierHtml/co/RenaissanceNefCharlesQuint_1.html",
+            "pos": 3,
             "hash": "AUT"
+        },
+        {
+            "date": 1665,
+            "title": "Robert Hooke publie son livre, Micrographia",
+            "link": "https://fr.wikipedia.org/wiki/Robert_Hooke",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 1674,
+            "title": "Antoni van Leeuwenhoek évoque pour la première fois des formes de vie minuscules qu’il a observées",
+            "link": "https://fr.wikipedia.org/wiki/Antoni_van_Leeuwenhoek",
+            "pos": 5,
+            "hash": "B"
         },
         {
             "date": 1738,
             "title": "Le canard digérateur",
-            "text": "De Jacques de Vaucanson 1738",
+            "text": "De Jacques de Vaucanson",
             "link": [
                 "https://vimeo.com/14904318",
                 "https://fr.wikipedia.org/wiki/Canard_dig%C3%A9rateur"
             ],
-            "pos": 4,
+            "pos": 3,
             "hash": "AUT"
         },
         {
             "date": 1774,
             "title": "Le dessinateur, la musicienne et l'écrivain",
-            "text": "de Jacques-droz 1774",
-            "pos": 4,
+            "text": "de Jacques-droz",
+            "link":"https://fr.wikipedia.org/wiki/Automates_Jaquet-Droz",
+            "pos": 3,
             "hash": "AUT"
         },
         {
             "date": 1800,
             "title": "automate dessinateur et ecrivain",
-            "text": "de Maillardet 1800",
-            "pos": 4,
+            "text": "de Maillardet",
+            "link":"https://fr.wikipedia.org/wiki/Henri_Maillardet",
+            "pos": 3,
             "hash": "AUT"
+        },
+        {
+            "date": 1802,
+            "title": "Jean Batiste de Lamarck est le premier à utiliser le terme “biologie”",
+            "pos": 5,
+            "hash": "B"
         },
         {
             "date": 1818,
             "title": "Frankenstein ou le Prométhée moderne",
-            "text": "De Mary Shelley 1818",
-            "pos": 17,
-            "hash": "REF"
+            "text": "De Mary Shelley",
+            "pos": 14,
+            "hash": "L"
         },
         {
             "date": 1840,
             "title": "La vulcanisation du caoutchouc",
-            "pos": 17,
-            "hash": "REF"
+            "pos": 10,
+            "hash": "SR"
         },
         {
-            "date": 1886,
-            "title": "L'Ève future de Auguste",
-            "text": "De Villiers de L'Isle-Adam 1886",
-            "pos": 17,
-            "hash": "REF"
+            "date": 1859,
+            "title": "Charles Darwin publie “de l’origine des espèces”",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 1866,
+            "title": "Ernst Haeckel rassemble dans un arbre tout le vivant, y compris les bactéries.",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 1866,
+            "title": "Les lois de la transmission des caractères héréditaires sont formalisées par Gregor Mendel",
+            "text": "Base de la génétique",
+            "pos": 5,
+            "hash": "B"
         },
         {
             "date": 1850,
@@ -311,22 +354,43 @@
         {
             "date": 1860,
             "title": "Apparition du mot polymère par Marcellin Berthelot",
-            "pos": 17,
-            "hash": "REF"
+            "link": "https://fr.wikipedia.org/wiki/Polym%C3%A8re#Historique",
+            "pos": 10,
+            "hash": "SR"
         },
         {
             "date": 1880,
             "title": "Les polymères électroactifs",
             "text": "Wilhelm Roentgen",
-            "pos": 17,
-            "hash": "REF"
+            "link": "https://fr.wikipedia.org/wiki/Polym%C3%A8re_%C3%A9lectroactif#Historique_des_EAPs",
+            "pos": 10,
+            "hash": "SR"
         },
         {
-            "date": 1890,
+            "date": 1886,
+            "title": "L'Ève future de Auguste",
+            "text": "De Villiers de L'Isle-Adam 1886",
+            "pos": 14,
+            "hash": "L"
+        },
+        {
+            "date": 1898,
             "title": "Nikola Tesla",
             "text": "création du premier « robot » télécommandé",
             "pos": 17,
             "hash": "REF"
+        },
+        {
+            "date": 1904,
+            "title": "Ernst Haeckel forge le terme d’écologie entendu comme une interaction entre les organisme et leur environnement dans Kunstformen der Natur",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 1912,
+            "title": "Première mention du terme “Biologie synthétique” par Stéphane Leduc/ jardin chimique",
+            "pos": 5,
+            "hash": "B"
         },
         {
             "date": 1915,
@@ -336,8 +400,14 @@
             "hash": "CYB"
         },
         {
+            "date": 1917,
+            "title": "Forme et croissance D’Arcy Thompson",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
             "date": 1920,
-            "title": "Rotota",
+            "title": "Robota",
             "text": "Apparition du mot robot dans sa pièce de théâtre de science-fiction R. U. R. Inventé par son frère Josef à partir du mot tchèque robota, qui signifie« travail» ou« servage».",
             "pos": 16,
             "hash": "A"
@@ -348,12 +418,6 @@
             "text": "John B. Watson et B. F. Skinner",
             "pos": 17,
             "hash": "REF"
-        },
-        {
-            "date": 1850,
-            "title": "L'avion III de clement Ader",
-            "pos": 9,
-            "hash": "BM"
         },
         {
             "date": 1920,
@@ -372,8 +436,9 @@
         {
             "date": 1927,
             "title": "Constitution de la théorie quantique en tant qu'ensemble cohérent et complet",
-            "pos": 17,
-            "hash": "REF"
+            "link": "https://www.futura-sciences.com/tech/actualites/technologie-transistor-seul-atome-avance-loi-moore-36988/",
+            "pos": 13,
+            "hash": "N"
         },
         {
             "date": 1928,
@@ -390,16 +455,23 @@
             "hash": "CYB"
         },
         {
-            "date": 1935,
-            "title": "Metropolis Fritz Lang 1935",
+            "date": 1928,
+            "title": "Jean Painlevé",
             "pos": 15,
             "hash": "F"
         },
         {
             "date": 1930,
             "title": "Observation pour la première fois un effet mémoire de forme",
-            "pos": 17,
-            "hash": "REF"
+            "link": "https://fr.wikipedia.org/wiki/Alliage_%C3%A0_m%C3%A9moire_de_forme",
+            "pos": 10,
+            "hash": "SR"
+        },
+        {
+            "date": 1935,
+            "title": "Metropolis Fritz Lang 1935",
+            "pos": 15,
+            "hash": "F"
         },
         {
             "date": 1935,
@@ -413,6 +485,20 @@
             "title": "Le chat de Schrödinger",
             "pos": 17,
             "hash": "REF"
+        },
+        {
+            "date": 1936,
+            "title": "LEdward Steichen expose des hybrides de delphiniums au MoMA",
+            "link": "https://www.moma.org/explore/inside_out/2011/03/08/edward-steichen-archive-delphiniums-blue-and-white-and-pink-too/",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 1937,
+            "title": "Karl Ludwig von Bertalanffy publie Théorie générale des systèmes",
+            "link":"https://fr.wikipedia.org/wiki/Ludwig_von_Bertalanffy#Th%C3%A9orie_g%C3%A9n%C3%A9rale_des_syst%C3%A8mes",
+            "pos": 5,
+            "hash": "B"
         },
         {
             "date": 1939,
@@ -460,6 +546,12 @@
             "hash": "CYB"
         },
         {
+            "date": 1948,
+            "title": "Claude Shannon publie “A Mathematical Theory of communication”",
+            "pos": 6,
+            "hash": "CYB"
+        },
+        {
             "date": 1950,
             "title": "Test de Turing",
             "text": "« Computing Machinery and Intelligence »",
@@ -477,9 +569,23 @@
             "date": 1950,
             "title": "Richard Buckminster Fuller",
             "text": "aurait créé le concept de dômes géodésiques au Black Mountain College",
-            "link": ["https://fr.wikipedia.org/wiki/Richard_Buckminster_Fuller","https://fr.wikipedia.org/wiki/Richard_Buckminster_Fuller"],
+            "link": "https://fr.wikipedia.org/wiki/Richard_Buckminster_Fuller",
             "pos": 11,
             "hash": "S"
+        },
+        {
+            "date": 1951,
+            "title": "Initiee par Gyorgy Kepes l’exposition The New Landscape (in Art and Science) présenté au MIT",
+            "link": "http://socks-studio.com/2015/09/16/the-new-landscape-in-art-and-science-by-gyorgy-kepes/",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 1951,
+            "title": "Zbigniew Oksiuta",
+            "link": "http://www.archilab.org/public/2004/fr/textes/oksiuta.htm",
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 1952,
@@ -488,10 +594,23 @@
             "hash": "CYB"
         },
         {
+            "date": 1952,
+            "title": "Alan Turing, The Chemical Basis of Morphogenesis",
+            "pos": 8,
+            "hash": "IA"
+        },
+        {
             "date": 1953,
             "title": "Le renard de Ducrocq",
             "pos": 6,
             "hash": "CYB"
+        },
+        {
+            "date": 1953,
+            "title": "Découverte de la double hélice de l’ADN par Watson et Crick et invention de la notion de programme génétique",
+            "link":"https://www.futura-sciences.com/sante/actualites/genetique-il-y-60-ans-watson-crick-decouvraient-structure-adn-46103/",
+            "pos": 5,
+            "hash": "B"
         },
         {
             "date": 1956,
@@ -505,29 +624,43 @@
             "date": 1956,
             "title": "Robby Le robot",
             "link": "https://fr.wikipedia.org/wiki/Robby_le_robot",
-            "pos": 4,
-            "hash": "AUT"
+            "pos": 15,
+            "hash": "F"
         },
         {
             "date": 1957,
             "title": "The perceptron",
             "text": "(cornell)",
             "link": "https://fr.wikipedia.org/wiki/Perceptron",
-            "pos": 11
+            "pos": 8,
+            "hash": "IA"
         },
         {
             "date": 1957,
             "title": "Artificial Muscle Joseph Laws McKibben",
+            "link":"http://cyberneticzoo.com/bionics/1957-artificial-muscle-joseph-laws-mckibben-american/",
             "pos": 10,
             "hash": "SR"
-
         },
         {
             "date": 1958,
             "title": "Circuits intégrés en silicium",
             "text": "Jack Kilby - Robert Noyce",
-            "pos": 10,
-            "hash": "SR"
+            "pos": 13,
+            "hash": "N"
+        },
+        {
+            "date": 1958,
+            "title": "John Von Neumann “The computer and the Brain”",
+            "pos": 6,
+            "hash": "CYB"
+        },
+        {
+            "date": 1958,
+            "title": "Heinz von Foerster forme le Biological Computer Lab",
+            "link": "https://en.wikipedia.org/wiki/Biological_Computer_Laboratory",
+            "pos": 6,
+            "hash": "CYB"
         },
         {
             "date": 1959,
@@ -536,12 +669,31 @@
             "hash": "BM"
         },
         {
+            "date": 1959,
+            "title": "Jean Tinguely, Méta-Matic n°6",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
             "date": 1960,
             "title": "Unimate",
             "text": "General motor",
             "link": "https://fr.wikipedia.org/wiki/Unimate",
-            "pos": 11,
-            "hash": "P"
+            "pos": 12,
+            "hash": "I"
+        },
+        {
+            "date": 1961,
+            "title": "Débuts de l’ingénierie génétique.",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 1961,
+            "title": "David Medalla bubble machines et cloud canyons",
+            "text": "Sculpture autogeneratives",
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 1963,
@@ -552,6 +704,7 @@
         {
             "date": 1963,
             "title": "Jean Tinguely",
+            "link": "https://www.designboom.com/art/jean-tinguely-machine-spectacle-stedelijk-museum-amsterdam-retrospective-10-29-2016/",
             "pos": 16,
             "hash": "A"
         },
@@ -572,13 +725,14 @@
             "date": 1965,
             "title": "Gordon Earle Moore",
             "text": "La loi de Moore",
-            "pos": 11,
-            "hash": "REF"
+            "pos": 13,
+            "hash": "N"
         },
         {
             "date": 1965,
             "title": "Les Floats",
             "text": "Robert Breer",
+            "link": "http://www.capc-bordeaux.fr/programme/robert-breer",
             "pos": 16,
             "hash": "A"
         },
@@ -592,6 +746,20 @@
         {
             "date": 1968,
             "title": "Beyond Modern Sculpture: Jack Burnham",
+            "link": "https://en.wikipedia.org/wiki/Jack_Burnham",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 1968,
+            "title": "Aristid Lindenmayer concoit le systeme Lindenmayer(ou L-système)",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 1968,
+            "title": "Cybernetic Serendipity : the computer and the arts",
+            "text": "organisée par  Jasia Reichardt, à l’Institute of Contemporary Arts de londres",
             "pos": 16,
             "hash": "A"
         },
@@ -603,16 +771,48 @@
         },
         {
             "date": 1970,
+            "title": "Louis Bec developpe dans les année 70 un bio-imaginaire en produisant des morhogenese interactives",
+            "link": "http://www.colloquebioart.org/pages/lbec.html",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 1970,
+            "title": "Software - Information Technology: Its New Meaning for Art  exposition organisé par Jack Burnham au Jewish Museum de Brooklyn",
+            "pos": 6,
+            "hash": "CYB"
+        },
+        {
+            "date": 1970,
+            "title": "Francois Jacob publie la logique du vivant une histoire de l’hérédité",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 1970,
+            "title": "debut de l’ingénieurie genetique par le biologiste indien Har Gobind Khorana",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 1970,
             "title": "Autopoïétique",
             "text": "Humberto Maturana et Francisco Varela",
-            "pos": 17,
-            "hash": "REF"
+            "pos": 9,
+            "hash": "BM"
+        },
+        {
+            "date": 1970,
+            "title": "Aristid Lindenmayer concoit le systeme Lindenmayer(ou L-système)",
+            "pos": 5,
+            "hash": "B"
         },
         {
             "date": 1970,
             "title": "L'Arte cinetica Frank Popper",
             "pos": 16,
-            "hash": "A"        },
+            "hash": "A"        
+        },
         {
             "date": 1970,
             "title": "Le jeu de la vie automate cellulaire de John Horton Conway",
@@ -622,20 +822,40 @@
         {
             "date": 1971,
             "title": "Le robot virtuel SHRDLU de Winograd",
-            "pos": 17,
-            "hash": "REF"
+            "pos": 8,
+            "hash": "IA"
         },
         {
             "date": 1971,
             "title": "Hans Haacke",
+            "link": "https://fr.wikipedia.org/wiki/Hans_Haacke",
             "pos": 16,
             "hash": "A"
+        },
+        {
+            "date": 1971,
+            "title": "the Microorganisms Enclosure, Alan Sonfist",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 1972,
+            "title": "Le concept d'autopoïèse est inventé par Humberto Maturana et Francisco Varela dans l'article Autopoietic Systems, présenté dans un séminaire de recherche de l'université de Santiago en 1972. Il vise notamment à définir l'être vivant, et depuis rencontre un succès théorique dans des domaines aussi divers que l'intelligence artificielle, les neurosciences, et la sociologie.",
+            "link": "https://fr.wikipedia.org/wiki/Autopo%C3%AF%C3%A8se",
+            "pos": 5,
+            "hash": "B"
         },
         {
             "date": 1973,
             "title": "WABOT-1 Premier robot Bipède capable de marcher Université de Waseda",
             "pos": 7,
             "hash": "RH"
+        },
+        {
+            "date": 1973,
+            "title": "Premier organisme genetiquement modifié en laboratoire par Stanley Cohen et Herbert Boyer.",
+            "pos": 5,
+            "hash": "B"
         },
         {
             "date": 1975,
@@ -646,8 +866,15 @@
         {
             "date": 1975,
             "title": "Les machines célibataires Harald Szeemann",
+            "link": "https://fr.wikipedia.org/wiki/Harald_Szeemann",
             "pos": 16,
             "hash": "A"
+        },
+        {
+            "date": 1975,
+            "title": "John Holland publie l’ouvrage Adaptation in natural and Artificailsystem qui introduit le terme d’algarithme genetique",
+            "pos": 8,
+            "hash": "IA"
         },
         {
             "date": 1977,
@@ -657,9 +884,21 @@
         },
         {
             "date": 1977,
+            "title": "Walter Gilbert et Fred Sanger développent chacun une méthode pour séquencer l’ADN. Le génome du bactériophage est séquencé.",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 1977,
             "title": "Demon Seed",
             "pos": 15,
             "hash": "F"
+        },
+        {
+            "date": 1980,
+            "title": "creation du terme d’anthropocene par l’écologiste Eugene F Stoermer",
+            "pos": 5,
+            "hash": "B"
         },
         {
             "date": 1980,
@@ -674,6 +913,12 @@
             "title": "Le microscope à effet tunnel Gerd Binnig et Heinrich Rohrer",
             "pos": 5,
             "hash": "B"
+        },
+        {
+            "date": 1981,
+            "title": "A cyborg Manifesto par Donna Harraway",
+            "pos": 6,
+            "hash": "CYB"
         },
         {
             "date": 1982,
@@ -691,7 +936,8 @@
             "date": 1984,
             "title": "1er brevet sur la « fabrication additive »",
             "text": "Jean-Claude André, Olivier de Witte, et Alain le Méhauté",
-            "pos": 10
+            "pos": 10,
+            "hash": "SR"
         },
         {
             "date": 1985,
@@ -704,7 +950,7 @@
             "title": "Définition du terme animat",
             "text": "par S.W. Wilson",
             "link": "https://en.wikipedia.org/wiki/Animat",
-            "pos": 3,
+            "pos": 4,
             "hash": "AN"
         },
         {
@@ -716,12 +962,112 @@
             "hash": "REF"
         },
         {
+            "date": 1986,
+            "title": "The blind watchmaker de Richard Dowkins bilogiste et théoricien",
+            "text": "«Simule pour la premiere fois une evolution artificielle sur ordinateur a l’aide de son programme Biomorph land",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 1987,
+            "title": "Artificial Life: The proceedings of an interdisciplinary workshop on the synthesis and simulation of living systems, ",
+            "text": "«held September, 1987, in Los Alamos, New Mexico, vol. 6, Reading, MA, Addison-Wesley, coll. « Santa Fe Institute studies in the sciences of complexity »",
+            "link":"https://fr.wikipedia.org/wiki/Christopher_Langton",
+            "pos": 6,
+            "hash": "CYB"
+        },
+        {
+            "date": 1988,
+            "title": "Wetware est un roman de science fiction biopunk par Rudy Rucker",
+            "pos": 14,
+            "hash": "L"
+        },
+        {
+            "date": 1988,
+            "title": "Nam June Paik, Olympe de Gouges",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 1990,
+            "title": "Logiciel Isys Evolve de john McCormack",
+            "text": "«Simuler la morphogenèse",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 1990,
+            "title": "Karl Sims, chercheur au MIT Media Lab travaille sur l”évolution artificielle appliqué aux arts numériques",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
             "date": 1991,
             "title": "L'approche animat",
             "text": "animat",
             "link": "https://www-master.ufr-info-p6.jussieu.fr/2011/Approche-Animat",
-            "pos": 3,
+            "pos": 4,
             "hash": "AN"
+        },
+        {
+            "date": 1991,
+            "title": "Premier bio-hacherspace a berlin",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 1991,
+            "title": "Match Kasparov / deep blue",
+            "pos": 8,
+            "hash": "IA"
+        },
+        {
+            "date": 1992,
+            "title": "Christa Sommerer et Laurent Mignonneau, Interactive Plant Growing",
+            "link": "https://vimeo.com/87174617",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 1992,
+            "title": "Suzanne Anker Sugar Daddy: The Genetics of Oedipus",
+            "link": "http://www.colloquebioart.org/pages/sanker.html",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 1993,
+            "title": "Genetic Art - Artificial Life Ars Electronica",
+            "link": "http://90.146.8.18/en/archives/festival_archive/festival_overview.asp?iPresentationYearFrom=1993",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 1995,
+            "title": "John Frazer - An Evolutionary Architecture",
+            "link": "https://www.youtube.com/watch?v=JOFb6PDwYco",
+            "pos": 11,
+            "hash": "S"
+        },
+        {
+            "date": 1997,
+            "title": "Match Kasparov / deep blue",
+            "pos": 8,
+            "hash": "IA"
+        },
+        {
+            "date": 1997,
+            "title": "Michel Blazy Spirogyres",
+            "link": "http://www.galeriedesgaleries.com/invites/michel-blazy/spirogyres",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 1997,
+            "title": "Deep learning",
+            "link": "https://fr.wikipedia.org/wiki/Apprentissage_profond",
+            "pos": 8,
+            "hash": "IA"
         },
         {
             "date": 1998,
@@ -731,15 +1077,25 @@
             "hash": "REF"
         },
         {
-            "date": 1997,
-            "title": "Match Kasparov / deep blue",
-            "pos": 8,
-            "hash": "IA"
+            "date": 1998,
+            "title": "Premier calculateur quantique",
+            "link": "https://fr.wikipedia.org/wiki/Calculateur_quantique",
+            "pos": 13,
+            "hash": "N"
         },
         {
             "date": 1998,
-            "title": "Premier calculateur quantique",
-            "pos": 6
+            "title": "Janine M benyus Biomimétisme: Quand la nature inspire des innovations durables",
+            "pos": 9,
+            "hash": "BM"
+        },
+        {
+            "date": 1999,
+            "title": "La 1ère prothèse implantée sur un humain",
+            "text": "Des chercheurs de l'institut américain Wake Forest for Regenerative Medicine sont les premiers au monde à implanter avec succès sur un humain un organe cultivé en laboratoire. Il s'agissait d'une vessie enrobée de cellules du patient afin d'éviter un rejet.",
+            "link": "https://www.rts.ch/decouverte/sciences-et-environnement/technologies/l-impression-3d/7188949-les-grandes-dates-de-l-impression-3d.html#timeline-anchor-1999+",
+            "pos": 9,
+            "hash": "BM"
         },
         {
             "date": 2000,
@@ -750,9 +1106,36 @@
             "hash": "RH"
         },
         {
+            "date": 2000,
+            "title": "Oron Catts and Ionat Zurr The Tissue Culture & Art Project",
+            "link": "http://www.tca.uwa.edu.au/",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 2000,
+            "title": "Eduardo Kac",
+            "text": "GFP Bunny",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 2001,
+            "title": "Publication de 90 % de la séquence du génome humain",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
             "date": 2002,
             "title": "‘360 presence",
             "text": "Jeppe Hein",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 2003,
+            "title": "Zbigniew Oksiuta Spatium gelatum",
+            "text": "http://www.archilab.org/public/2004/fr/textes/oksiuta.htm",
             "pos": 16,
             "hash": "A"
         },
@@ -761,12 +1144,27 @@
             "title": "Ecobot-II",
             "text": "Bristol Robotics Laboratory",
             "link": "http://www.brl.ac.uk/researchthemes/bioenergyselfsustainable/ecobotii.aspx",
-            "pos": 1
+            "pos": 9,
+            "hash": "BM"
+        },
+        {
+            "date": 2004,
+            "title": "Congrès “synthetic Biology 1.0”",
+            "pos": 5,
+            "hash": "B"
         },
         {
             "date": 2005,
             "title": "7 La septième génération de robot serpent créée par le Dr Gavin Millier.",
-            "pos": 8
+            "pos": 9,
+            "hash": "BM"
+        },
+        {
+            "date": 2006,
+            "title": "Oxygen Generator Mathieu Lehanneur",
+            "link": "http://www.mathieulehanneur.fr/project/o-150",
+            "pos": 16,
+            "hash": "A"
         },
         {
             "date": 2007,
@@ -779,8 +1177,29 @@
         {
             "date": 2007,
             "title": "Dunne and Raby",
+            "link": "http://www.dunneandraby.co.uk/content/projects/10/0#",
             "pos": 16,
             "hash": "A"
+        },
+        {
+            "date": 2007,
+            "title": "Zbigniew Oksiuta, Cosmic Garden",
+            "link": "https://youtu.be/V2olEkEOWSY",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 2008,
+            "title": "Audrey Dussutour decouvre le blob",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 2008,
+            "title": "Gordon, le robot au cerveau de rat",
+            "link": "https://www.cafe-sciences.org/gordon-le-robot-au-cerveau-de-rat/",
+            "pos": 5,
+            "hash": "B"
         },
         {
             "date": 2010,
@@ -790,7 +1209,15 @@
         },
         {
             "date": 2010,
+            "title": "Craig Venter",
+            "link": "https://www.ted.com/talks/craig_venter_is_on_the_verge_of_creating_synthetic_life?language=fr#t-650349",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 2010,
             "title": "Transistors à un seul atome",
+            "link": "https://www.futura-sciences.com/tech/actualites/technologie-transistor-seul-atome-avance-loi-moore-36988/",
             "pos": 13,
             "hash": "N"
         },
@@ -802,12 +1229,20 @@
         },
         {
             "date": 2011,
+            "title": "Joris Laarman",
+            "link": "https://www.jorislaarman.com/work/digital-matter/",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
+            "date": 2011,
             "title": "M-Block le micro-robot qui s'auto-assemble",
             "pos": 6
         },
         {
             "date": 2011,
             "title": "Flight Assembled Architecture Raffaello D'Andrea",
+            "link": "https://raffaello.name/projects/flight-assembled-architecture//",
             "pos": 16,
             "hash": "A"
         },
@@ -819,19 +1254,29 @@
         },
         {
             "date": 2012,
+            "title": "robot biologique, ou « biobot », fabriqué à partir de cellules musculaires dont les mouvements peuvent être contrôlés par des impulsions électriques. ",
+            "link": "https://www.futura-sciences.com/tech/actualites/robotique-robot-biologique-marche-cellules-musculaires-54313/",
+            "pos": 5,
+            "hash": "B"
+        },
+        {
+            "date": 2012,
             "title": "Comité technique IEEE RAS dédié à la robotique molle",
+            "link": "http://www.ieee-ras.org/soft-robotics",
             "pos": 10,
             "hash": "SR"
         },
         {
             "date": 2013,
             "title": "CurvACE",
-            "pos": 1
+            "pos": 9,
+            "hash": "BM"
         },
         {
             "date": 2014,
             "title": "Cheetah Boston Dynamics",
-            "pos": 1
+            "pos": 4,
+            "hash": "AN"
         },
         {
             "date": 2015,
@@ -841,23 +1286,27 @@
         },
         {
             "date": 2015,
+            "title": "Systems de Edward A. Shanken",
+            "link": "https://mitpress.mit.edu/contributors/edward-shanken",
+            "pos": 6,
+            "hash": "CYB"
+        },
+        {
+            "date": 2015,
             "title": "Chappie de Neill Blomkamp",
             "pos": 15,
             "hash": "F"
         },
         {
             "date": 2015,
-            "title": "Systems de Edward A. Shanken",
-            "pos": 1
-        },
-        {
-            "date": 2015,
             "title": "Architecture de transition",
-            "pos": 1
+            "pos": 11,
+            "hash": "S"
         },
         {
             "date": 2016,
             "title": "AlphaGo Le logiciel AlphaGo a réussi à battre le champion du monde de jeu de go",
+            "link": "https://fr.wikipedia.org/wiki/AlphaGo",
             "pos": 8,
             "hash": "IA"
         },
@@ -874,7 +1323,8 @@
             "title": "On Folding Towards a New Field of Interdisciplinary Research",
             "text": "Edited by Michael Friedman and Wolfgang Schäffner",
             "link": "https://cup.columbia.edu/book/on-folding/9783837634044",
-            "pos": 1
+            "pos": 11,
+            "hash": "S"
         },
         {
             "date": 2016,
@@ -886,18 +1336,35 @@
         {
             "date": 2017,
             "title": "Libratus",
+            "text": "programme informatique d'intelligence artificielle destiné à jouer au poker",
             "link": "https://fr.wikipedia.org/wiki/Libratus",
-            "pos": 1
+            "pos": 8,
+            "hash": "IA"
         },
         {
             "date": 2017,
             "title": "Deploybot Premier robot mou capable de se déplacer sans moteur ni système mécanique",
+            "link": "https://dailygeekshow.com/robot-mou-deploybot/",
             "pos": 10,
             "hash": "SR"
         },
         {
+            "date": 2017,
+            "title": "Ouverture du Centre pour l’Intelligence Artificielle et la Robotique à l’ONU",
+            "pos": 8,
+            "hash": "IA"
+        },
+        {
+            "date": 2017,
+            "title": "Josiah Zayner",
+            "link": "https://usbeketrica.com/article/zayner-genetique-biohacking-biologie-synthese",
+            "pos": 16,
+            "hash": "A"
+        },
+        {
             "date": 2018,
-            "title": " Magnetic 3-D-printed structures crawl, roll, jump, and play catch",
+            "title": "Magnetic 3-D-printed structures crawl, roll, jump, and play catch",
+            "link": "https://dailygeekshow.com/robot-mou-deploybot/",
             "pos": 10,
             "hash": "SR"
         }

@@ -5,8 +5,8 @@ $miniTimelineHeight: 64px;
 
 $hashtags : P,
 H,
-AN,
 AUT,
+AN,
 B,
 CYB,
 RH,
@@ -275,7 +275,7 @@ g.timeline-zone text {
     background: #fff;
     box-shadow: 0 4px 3px rgba(0, 0, 0, 0.25);
     border-radius: 2px;
-    max-width: 126px;
+    max-width: 300px;
     transition: all .05s ease-out;
 
     h3 {
