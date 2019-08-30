@@ -6,29 +6,37 @@ $miniTimelineHeight: 64px;
 $hashtags: P, H, AUT, AN, B, CYB, RH, IA, BM, SR, S, I, N, L, F, A, REF;
 
 $hashtags-sum: length($hashtags);
-$color-start: rgba(0, 160, 0, 1);
+$color-start: rgba(0, 255, 0, 0.75);
 $step: 360deg / $hashtags-sum;
+$light_variation: 3;
 
 .timeline--content--event,
 #legend-modal h2 {
   @each $hash in $hashtags {
     $index: index($hashtags, $hash);
+    $color-one: #333;
+    $color-two: #333;
 
     &.hashtag-#{$hash} {
-      background: adjust-hue($color-start, $step * $index);
+      @if $index % 2 == 0 {
+        $color-one: adjust-hue($color-start, $step * $index);
+      } @else {
+        $color-one: invert(adjust-hue($color-start, $step * $index));
+      }
+      background: $color-one;
 
       @each $r_hash in $hashtags {
         $r_index: index($hashtags, $r_hash);
 
         @if ($hash != $r_hash) {
+          @if $r_index % 2 == 0 {
+            $color-two: adjust-hue($color-start, $step * $r_index);
+          } @else {
+            $color-two: invert(adjust-hue($color-start, $step * $r_index));
+          }
+
           &.hashtag-#{$r_hash} {
-            background: repeating-linear-gradient(
-              45deg,
-              adjust-hue($color-start, $step * $index),
-              adjust-hue($color-start, $step * $index) 10px,
-              adjust-hue($color-start, $step * $r_index) 10px,
-              adjust-hue($color-start, $step * $r_index) 20px
-            );
+            background: repeating-linear-gradient(45deg, $color-one, $color-one 10px, $color-two 10px, $color-two 20px);
           }
         }
       }
