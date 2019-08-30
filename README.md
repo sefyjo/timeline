@@ -150,11 +150,11 @@ For the hashtag colors, you have to setup them into Sass. Sass will create color
 
 # Build with / Thanks
 
-[![D3.js](https://avatars1.githubusercontent.com/u/1562726?s=200&v=4)](https://github.com/d3/d3)|
-[![Gulp.js](https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/gulp/gulp.png)](https://github.com/gulpjs/gulp)|
-[![SASS](https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/sass/sass.png)](https://github.com/sass/sass)|
-[![Babel](https://raw.githubusercontent.com/github/explore/cb39e2385dfcec8a661d01bfacff6b1e33bbaa9d/topics/babel/babel.png)](https://github.com/babel/babel)|
-[![Pug](https://avatars0.githubusercontent.com/u/9338635?s=200&v=4)](https://github.com/pugjs/pug)|
-[![BrowserSync](https://avatars3.githubusercontent.com/u/10654171?s=200&v=4)](https://github.com/Browsersync/browser-sync)|
+[![D3.js](https://avatars1.githubusercontent.com/u/1562726?s=200&v=4)](https://github.com/d3/d3)
+[![Gulp.js](https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/gulp/gulp.png)](https://github.com/gulpjs/gulp)
+[![SASS](https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/sass/sass.png)](https://github.com/sass/sass)
+[![Babel](https://raw.githubusercontent.com/github/explore/cb39e2385dfcec8a661d01bfacff6b1e33bbaa9d/topics/babel/babel.png)](https://github.com/babel/babel)
+[![Pug](https://avatars0.githubusercontent.com/u/9338635?s=200&v=4)](https://github.com/pugjs/pug)
+[![BrowserSync](https://avatars3.githubusercontent.com/u/10654171?s=200&v=4)](https://github.com/Browsersync/browser-sync)
 [![NPM](https://avatars0.githubusercontent.com/u/6078720?s=200&v=4)](https://github.com/npm/cli)|
 --------
