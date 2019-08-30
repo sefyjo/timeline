@@ -1,7 +1,7 @@
 // Get the data
 d3.json('data.json').then(function (data) {
 
-    let width = 9000,
+    let width = 9500,
         height = 3000,
         start = -7000,
         colors = ['#c7eded', '#282929'],
@@ -193,8 +193,6 @@ d3.json('data.json').then(function (data) {
                 .style('left', eventX)
                 .style('top', function (d) {
 
-                    console.log("e: " + e);
-
                     if (e % 2 == 0) {
                         return yScale(d.pos);
                     } else {
@@ -222,12 +220,24 @@ d3.json('data.json').then(function (data) {
             }
             // event hashtag
             if (data.event[e].hash) {
-                event.attr('class', 'timeline--content--event hashtag-' + data.event[e].hash);
+                event.attr('class', function () {
+                    var classes = 'timeline--content--event';
 
-                let hash = eventContainer.append('span')
-                    .attr('class', 'hashtag hastag-' + data.event[e].hash)
-                    .style('color', colorInterpolation[data.event[e].pos])
-                    .text(data.event[e].hash);
+                    for (var h in data.event[e].hash) {
+                        classes += " hashtag-" + data.event[e].hash[h];
+                    }
+                    return classes;
+                });
+
+                for (var h in data.event[e].hash) {
+
+                    let hash = eventContainer.append('span')
+                        .attr('class', 'hashtag hastag-' + data.event[e].hash[h])
+                        //.style('color', colorInterpolation[data.event[e].pos])
+                        .text(data.event[e].hash[h]);
+                }
+
+
             }
             // event link
             if (data.event[e].link) {
