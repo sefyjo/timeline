@@ -465,7 +465,7 @@ d3.json('data.json').then(function (data) {
 
         if (youtubePattern.test(link)) {
 
-            var replacement = 'http://www.youtube.com/embed/$1';
+            var replacement = 'https://www.youtube.com/embed/$1';
 
             var src = link.replace(youtubePattern, replacement);
 
