@@ -1,10 +1,10 @@
 // Get the data
 d3.json('data.json').then(function (data) {
 
-    let width = 8000,
+    let width = 9500,
         height = 3000,
         start = -7000,
-        colors = ['#c7eded','#282929'],
+        colors = ['#c7eded', '#282929'],
         zoneHeight = (height / data.zone.length),
         zoneCornerWidth = zoneHeight,
         miniTimelineHeight = 64, // need to be set also in style.scss
@@ -23,7 +23,7 @@ d3.json('data.json').then(function (data) {
 
 
     // Set scale interpolation limit 
-    const steps = [start, 1350, 1738, 1915, 2000, globalMaxX];
+    const steps = [start, 1100, 1774, 1915, 1950, 1975, 1985, 2000, globalMaxX];
     const stepsWidth = width / (steps.length - 1);
     // Set scale interpolation width
     const stepsValue = [];
@@ -55,8 +55,8 @@ d3.json('data.json').then(function (data) {
         ), data.zone.length
     );
     let zoneX = function (d, i) {
-            return xScale(d.start);
-        },
+        return xScale(d.start);
+    },
         zoneY = function (d) {
             return yScale(d.pos);
         },
@@ -96,10 +96,10 @@ d3.json('data.json').then(function (data) {
     };
     // distribute event on zones/thematics
     let eventX = function (d, i) {
-            return xScale(d['date']);
-        },
+        return xScale(d['date']);
+    },
         eventY = function (d) {
-            return yScale(d.pos) + zoneHeight / 2;
+            return yScale(d.pos);
         };
 
     /**
@@ -191,7 +191,15 @@ d3.json('data.json').then(function (data) {
                 .datum(data.event[e])
                 .classed('timeline--content--event', true)
                 .style('left', eventX)
-                .style('top', eventY);
+                .style('top', function (d) {
+
+                    if (e % 2 == 0) {
+                        return yScale(d.pos);
+                    } else {
+                        return (yScale(d.pos) + (zoneHeight / 2));
+                    }
+
+                });
 
             let eventContainer = event.append('div')
                 .attr('class', 'event-inner');
@@ -212,12 +220,24 @@ d3.json('data.json').then(function (data) {
             }
             // event hashtag
             if (data.event[e].hash) {
-                event.attr('class', 'timeline--content--event hashtag-' + data.event[e].hash);
+                event.attr('class', function () {
+                    var classes = 'timeline--content--event';
 
-                let hash = eventContainer.append('span')
-                    .attr('class', 'hashtag hastag-' + data.event[e].hash)
-                    .style('color', colorInterpolation[data.event[e].pos])
-                    .text(data.event[e].hash);
+                    for (var h in data.event[e].hash) {
+                        classes += " hashtag-" + data.event[e].hash[h];
+                    }
+                    return classes;
+                });
+
+                for (var h in data.event[e].hash) {
+
+                    let hash = eventContainer.append('span')
+                        .attr('class', 'hashtag hastag-' + data.event[e].hash[h])
+                        //.style('color', colorInterpolation[data.event[e].pos])
+                        .text(data.event[e].hash[h]);
+                }
+
+
             }
             // event link
             if (data.event[e].link) {
@@ -445,7 +465,7 @@ d3.json('data.json').then(function (data) {
 
         if (youtubePattern.test(link)) {
 
-            var replacement = 'http://www.youtube.com/embed/$1';
+            var replacement = 'https://www.youtube.com/embed/$1';
 
             var src = link.replace(youtubePattern, replacement);
 

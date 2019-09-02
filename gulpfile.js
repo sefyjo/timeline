@@ -8,6 +8,7 @@ const gulp = require('gulp'),
     path = require('path'),
     browserSync = require('browser-sync'),
     modRewrite = require('connect-modrewrite');
+    
 
 /* Paths to Dev and dist environnement for path flexibility*/
 const devPaths = {

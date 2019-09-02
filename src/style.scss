@@ -3,252 +3,249 @@ $scrollbar-color: steelblue;
 
 $miniTimelineHeight: 64px;
 
-$hashtags : P,
-H,
-AUT,
-AN,
-B,
-CYB,
-RH,
-IA,
-BM,
-SR,
-S,
-I,
-N,
-L,
-F,
-A,
-REF;
+$hashtags: P, H, AUT, AN, B, CYB, RH, IA, BM, SR, S, I, N, L, F, A, REF;
 
 $hashtags-sum: length($hashtags);
-$color-start : rgba(255, 0, 0, 0.5);
+$color-start: rgba(0, 255, 0, 0.75);
 $step: 360deg / $hashtags-sum;
+$light_variation: 3;
 
 .timeline--content--event,
 #legend-modal h2 {
-    @each $hash in $hashtags {
-        $index: index($hashtags, $hash);
+  @each $hash in $hashtags {
+    $index: index($hashtags, $hash);
+    $color-one: #333;
+    $color-two: #333;
 
-        &.hashtag-#{$hash} {
-            background: adjust-hue($color-start, $step * $index);
+    &.hashtag-#{$hash} {
+      @if $index % 2 == 0 {
+        $color-one: adjust-hue($color-start, $step * $index);
+      } @else {
+        $color-one: invert(adjust-hue($color-start, $step * $index));
+      }
+      background: $color-one;
+
+      @each $r_hash in $hashtags {
+        $r_index: index($hashtags, $r_hash);
+
+        @if ($hash != $r_hash) {
+          @if $r_index % 2 == 0 {
+            $color-two: adjust-hue($color-start, $step * $r_index);
+          } @else {
+            $color-two: invert(adjust-hue($color-start, $step * $r_index));
+          }
+
+          &.hashtag-#{$r_hash} {
+            background: repeating-linear-gradient(45deg, $color-one, $color-one 10px, $color-two 10px, $color-two 20px);
+          }
         }
+      }
     }
+  }
 }
 
 html,
 body {
-    width: 100vw;
-    height: 100vh;
-    scrollbar-color: $scrollbar-color $scrollbarContainerColor;
-    scrollbar-width: auto;
+  width: 100vw;
+  height: 100vh;
+  scrollbar-color: $scrollbar-color $scrollbarContainerColor;
+  scrollbar-width: auto;
 }
 
 body::-webkit-scrollbar {
-    width: 12px;
-    background-color: $scrollbarContainerColor;
+  width: 12px;
+  background-color: $scrollbarContainerColor;
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: $scrollbar-color;
-    border-radius: 10px;
+  background-color: $scrollbar-color;
+  border-radius: 10px;
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    font-family: -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Oxygen-Sans,
-        Ubuntu,
-        Cantarell,
-        "Helvetica Neue",
-        sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #b4c8da;
-    overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+    sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #b4c8da;
+  overflow: hidden;
 }
 
-
-
 #timeline {
-    position: relative;
-    display: block;
-    width: 100vw;
-    height: calc(100vh - #{$miniTimelineHeight});
-    overflow-y: scroll;
-    // not sure overflow-x: hidden;
+  position: relative;
+  display: block;
+  width: 100vw;
+  height: calc(100vh - #{$miniTimelineHeight});
+  overflow-y: scroll;
+  // not sure overflow-x: hidden;
 }
 
 #link-modal,
 #legend-modal {
-    position: fixed;
-    top: 0;
-    width: 25vw;
-    height: calc(100vh - #{$miniTimelineHeight});
-    background: #fefefe;
-    overflow-y: scroll;
-    transition: all .05s ease-out;
-    z-index: 9;
+  position: fixed;
+  top: 0;
+  width: 25vw;
+  height: calc(100vh - #{$miniTimelineHeight});
+  background: #fefefe;
+  overflow-y: scroll;
+  transition: all 0.05s ease-out;
+  z-index: 9;
 }
 #link-modal {
-    width: 50vw;
+  width: 50vw;
 }
 #link-modal {
-    left: 100vw;
+  left: 100vw;
 
-    &.active {
-        left: 50vw;
-    }
+  &.active {
+    left: 50vw;
+  }
 }
 
 #legend-modal {
-    right: 100vw;
+  right: 100vw;
 
-    &.active {
-        right: 75vw;
-    }
+  &.active {
+    right: 75vw;
+  }
 }
 
 .icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    stroke-width: 0;
-    stroke: currentColor;
-    fill: currentColor;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
 }
 
 button {
-    position: absolute;
-    outline: none;
-    margin: 0;
-    padding: 2px;
-    border: 0;
-    font-size: 32px;
-    width: 36px;
-    height: 36px;
-    color: steelblue;
-    border: 1px solid steelblue;
-    background: #fefefe;
-    cursor: pointer;
+  position: absolute;
+  outline: none;
+  margin: 0;
+  padding: 2px;
+  border: 0;
+  font-size: 32px;
+  width: 36px;
+  height: 36px;
+  color: steelblue;
+  border: 1px solid steelblue;
+  background: #fefefe;
+  cursor: pointer;
 
-    &:hover {
-        color: #fff;
-        background: steelblue;
-    }
+  &:hover {
+    color: #fff;
+    background: steelblue;
+  }
 }
 
 #toggle-legend {
-    position: fixed;
-    left: 4px;
-    bottom: $miniTimelineHeight + 16px;
-    display: inline-block;
-    padding: 4px 6px 4px 4px;
-    width: auto;
-    height: 40px;
-    z-index: 3;
+  position: fixed;
+  left: 4px;
+  bottom: $miniTimelineHeight + 16px;
+  display: inline-block;
+  padding: 4px 6px 4px 4px;
+  width: auto;
+  height: 40px;
+  z-index: 3;
 
-    span {
-        float: right;
-        font-size: 16px;
-        line-height: 32px;
-
-    }
+  span {
+    float: right;
+    font-size: 16px;
+    line-height: 32px;
+  }
 }
 
 noscript {
-    position: relative;
-    display: block;
-    width: 300px;
-    padding: 1.5em 3em 4em 1.5em;
-    margin: 30% auto 0 auto;
-    background: tomato;
+  position: relative;
+  display: block;
+  width: 300px;
+  padding: 1.5em 3em 4em 1.5em;
+  margin: 30% auto 0 auto;
+  background: tomato;
 
-    p {
-        text-align: center;
-    }
+  p {
+    text-align: center;
+  }
 }
 
 noscript .icon {
-    fill: #333;
+  fill: #333;
 }
 
 #timeline--background,
 #timeline--content {
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #timeline--background {
-    z-index: 1;
+  z-index: 1;
 }
 
 #timeline--content {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 
-    &::after {
-        content: '';
-        clear: both;
-        float: none;
-        display: table;
-        width: 100%;
-        height: 220px; // miniTimelineHeight or >
-    }
+  &::after {
+    content: "";
+    clear: both;
+    float: none;
+    display: table;
+    width: 100%;
+    height: 220px; // miniTimelineHeight or >
+  }
 }
 
 svg#mini-timeline {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 3;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
 }
 
 /**
 * Timeline background
 */
 .axis {
-    path.domain {
-        stroke: none;
-    }
+  path.domain {
+    stroke: none;
+  }
 
-    line,
-    text {
-        fill: none;
-        shape-rendering: crispEdges;
-    }
+  line,
+  text {
+    fill: none;
+    shape-rendering: crispEdges;
+  }
 
-    text {
-        stroke: rgb(255, 255, 255);
-        font-weight: lighter;
-        font-size: 12px;
-    }
+  text {
+    stroke: rgb(255, 255, 255);
+    font-weight: lighter;
+    font-size: 12px;
+  }
 
-    line {
-        stroke: rgba(255, 255, 255, 0.397);
-        stroke-dasharray: 5 5;
-    }
+  line {
+    stroke: rgba(255, 255, 255, 0.397);
+    stroke-dasharray: 5 5;
+  }
 }
 
 .axis--x path {
-    display: none;
+  display: none;
 }
 
-
 g.timeline-zone text {
-    font-size: 16px;
-    fill: rgb(255, 255, 255);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 12px;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.541);
-    kerning: 2;
+  font-size: 16px;
+  fill: rgb(255, 255, 255);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 12px;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.541);
+  kerning: 2;
 }
 
 /**
@@ -256,137 +253,142 @@ g.timeline-zone text {
 */
 
 #timeline--content .timeline--content--event {
-    position: absolute;
-    transform: scale(1);
-    z-index: inherit;
-    transition: all .05s ease-out;
-    cursor: default;
+  position: absolute;
+  transform: scale(1);
+  z-index: inherit;
+  transition: all 0.05s ease-out;
+  cursor: default;
 
-    &:hover {
-        transform: scale(1.2);
-        z-index: 9999;
-    }
-
+  &:hover {
+    transform: scale(1.6);
+    z-index: 9999;
+  }
 }
 
 #timeline--content .timeline--content--event .event-inner {
-    position: relative;
-    padding: 4px;
-    background: #fff;
-    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.25);
-    border-radius: 2px;
-    max-width: 300px;
-    transition: all .05s ease-out;
+  position: relative;
+  padding: 4px;
+  background: #fff;
+  box-shadow: 0 4px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  max-width: 300px;
+  transition: all 0.05s ease-out;
 
-    h3 {
-        margin: 2px 0;
-        font-size: 18px;
-        line-height: 18px;
-        font-weight: 500;
-        font-family: 'Noto Serif', serif;
+  h3 {
+    margin: 2px 0;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 500;
+    font-family: "Noto Serif", serif;
+  }
+
+  p {
+    margin: 6px 0;
+    font-size: 13px;
+  }
+
+  span,
+  a {
+    margin-top: 6px;
+  }
+
+  a {
+    display: block;
+    float: left;
+    margin: 4px 4px 0 -4px;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+
+    svg {
+      float: left;
+      padding: 3px;
+      fill: #fff;
+      background: rgba(0, 0, 0, 0.5);
     }
+  }
+  span.hashtag {
+    float: right;
+    margin: 4px 0 0 1em;
+    color: #fff;
+    $hashtag_text_shadow_color: #333;
+    text-shadow: 0 1px 0 $hashtag_text_shadow_color, 1px 1px 0 $hashtag_text_shadow_color,
+      0 -1px 0 $hashtag_text_shadow_color, -1px -1px 0 $hashtag_text_shadow_color;
+  }
 
-    p {
-        margin: 6px 0;
-        font-size: 13px;
-    }
-
-    span,
-    a {
-        margin-top: 6px;
-    }
-
-    a {
-        float: left;
-        font-size: 20px;
-        color: #fff;
-        text-decoration: none;
-
-        svg {
-            text-shadow: 0 4px 3px rgba(128, 127, 127, 0.048);
-        }
-    }
-
-    span.hashtag {
-        float: right;
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 0;
-        margin: -4px 0 0 0;
-        border: 4px solid rgba(0, 0, 0, 0);
-        border-bottom: 8px solid #fff;
-        border-left: 8px solid #fff;
-
-    }
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    margin: -4px 0 0 0;
+    border: 4px solid rgba(0, 0, 0, 0);
+    border-bottom: 8px solid #fff;
+    border-left: 8px solid #fff;
+  }
 }
 
 #timeline--content .timeline--content--event:hover .event-inner {
-    box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.25);
 }
 
 #link-modal .content-wrapper,
 #legend-modal .content-wrapper {
+  position: relative;
+
+  button {
+    top: 4px;
+  }
+
+  #legend > div {
+    padding: 1em;
+  }
+
+  h2 {
+    display: inline;
     position: relative;
+    padding: 4px 8px 4px 8px;
+    line-height: 32px;
+    width: auto;
 
-    button {
-        top: 4px;
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      right: 0;
+      top: 0;
+      margin: 0 -12px 0 0;
+      border: 12px solid rgba(0, 0, 0, 0);
+      border-top: 12px solid #fefefe;
     }
+  }
 
-    #legend>div {
-        padding: 1em;
-    }
-
-    h2 {
-        display: inline;
-        position: relative;
-        padding: 4px 8px 4px 8px;
-        line-height: 32px;
-        width: auto;
-
-        &::after {
-            position: absolute;
-            content: '';
-            display: block;
-            width: 0;
-            height: 0;
-            right: 0;
-            top: 0;
-            margin: 0 -12px 0 0;
-            border: 12px solid rgba(0, 0, 0, 0);
-            border-top: 12px solid #fefefe;
-        }
-    }
-
-    p {
-        display: inline;
-        margin-left: 1.5em;
-        line-height: 32px;
-        text-align: right;
-
-    }
-
+  p {
+    display: inline;
+    margin-left: 1.5em;
+    line-height: 32px;
+    text-align: right;
+  }
 }
 
 #legend-modal .content-wrapper {
-    padding: 2em;
+  padding: 2em;
 }
 
 #link-modal .content-wrapper button {
-    left: 4px;
+  left: 4px;
 }
 
 #legend-modal .content-wrapper button {
-    right: 4px;
+  right: 4px;
 }
 
 #link-modal .content-wrapper iframe {
-    border: 0;
-    outline: 0;
+  border: 0;
+  outline: 0;
 }

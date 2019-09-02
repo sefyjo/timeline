@@ -1,6 +1,6 @@
 {
     "name": "timeline",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "An historic timeline with area and events.",
     "main": "gulpfile.js",
     "repository": {
@@ -48,6 +48,8 @@
         "gulp-concat": "^2.6.1",
         "gulp-rename": "^1.2.3",
         "gulp-sourcemaps": "^2.6.4",
+        "lodash": "^4.17.15",
+        "lodash.template": "^4.5.0",
         "path": "^0.12.7"
     }
 }
