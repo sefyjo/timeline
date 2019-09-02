@@ -1,6 +1,6 @@
 {
     "name": "timeline",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "An historic timeline with area and events.",
     "main": "gulpfile.js",
     "repository": {
